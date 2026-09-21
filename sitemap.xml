@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Reemplaza el dominio si publicas en GitHub Pages / Netlify / Vercel -->
+<!-- Cambia el dominio con: npm run set-url -- https://tudominio.com -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://matiasvillalobos.dev/</loc>
+        <loc>https://matixvc.github.io/portafolio-web/</loc>
         <lastmod>2026-09-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>

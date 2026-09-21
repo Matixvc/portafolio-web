@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Reemplaza el dominio si publicas en GitHub Pages / Netlify / Vercel
-Sitemap: https://matiasvillalobos.dev/sitemap.xml
+# Cambia el dominio con: npm run set-url -- https://tudominio.com
+Sitemap: https://matixvc.github.io/portafolio-web/sitemap.xml

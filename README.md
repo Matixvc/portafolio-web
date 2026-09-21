@@ -38,6 +38,7 @@ npm run build        # compila dist/styles.css (minificado)
 npm run watch        # recompila al guardar cambios mientras desarrollas
 npm run serve        # servidor local en http://localhost:3000
 npm run og           # regenera assets/og-image.png (requiere Microsoft Edge)
+npm run set-url -- https://tudominio.com   # cambia el dominio en todos los metadatos
 ```
 
 > Cada vez que edites `index.html`, `js/main.js` o `src/input.css` **hay que ejecutar `npm run build`**
@@ -67,14 +68,25 @@ Prueba obligatoria: enviar un mensaje real y confirmar que llega a **Matias.vill
 
 ---
 
-## ⚠️ PASO PENDIENTE 2: cambiar el dominio
+## ✅ Dominio configurado: GitHub Pages
 
-El proyecto usa `https://matiasvillalobos.dev/` como dominio de ejemplo. Reemplázalo por tu URL
-real (o por `https://usuario.github.io/nombre-repo/`) en:
+El sitio apunta a **https://matixvc.github.io/portafolio-web/** en `canonical`, Open Graph,
+Twitter Card, JSON-LD, `robots.txt` y `sitemap.xml`.
 
-1. `index.html` → bloque SEO del `<head>`: `canonical`, `og:url`, `og:image`, `twitter:image` y el JSON-LD.
-2. `robots.txt` → línea `Sitemap:`.
-3. `sitemap.xml` → etiqueta `<loc>`.
+Para publicarlo: `Settings → Pages → Source: Deploy from a branch → main / (root)`.
+El CSS compilado (`dist/styles.css`) está versionado, así que el deploy por rama funciona sin build.
+
+Para cambiar de dominio (por ejemplo a uno propio):
+
+```bash
+npm run set-url -- --dry https://tudominio.com   # muestra los cambios sin escribir
+npm run set-url -- https://tudominio.com         # los aplica
+git add -A && git commit -m "chore: cambiar dominio" && git push
+```
+
+`scripts/set-url.mjs` actualiza los 7 puntos de `index.html` (canonical, `og:url`, `og:image`,
+`twitter:image`, JSON-LD) más `robots.txt` y `sitemap.xml` (incluida la fecha `lastmod`),
+para que nunca queden URLs inconsistentes entre archivos.
 
 ---
 
