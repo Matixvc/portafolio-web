@@ -6,12 +6,18 @@
         const menuIcon = document.getElementById('menu-icon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
+        // Icono del menu movil: cambiamos el <use> del SVG local (sin clases fa-*)
+        function setMenuIcon(name) {
+            const use = menuIcon.querySelector('use');
+            if (use) use.setAttribute('href', 'assets/icons.svg#icon-' + name);
+        }
+
         function setMobileMenu(isOpen) {
             mobileMenu.classList.toggle('hidden', !isOpen);
             mobileMenu.setAttribute('aria-hidden', String(!isOpen));
             mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
             mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
-            menuIcon.classList.replace(isOpen ? 'fa-bars' : 'fa-xmark', isOpen ? 'fa-xmark' : 'fa-bars');
+            setMenuIcon(isOpen ? 'xmark' : 'bars');
         }
 
         mobileMenuBtn.addEventListener('click', () => {
@@ -152,7 +158,7 @@
 
                 <h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Aspectos Destacados:</h4>
                 <ul class="space-y-2 mb-6">
-                    ${data.features.map(f => `<li class="flex items-start gap-2 text-xs text-gray-400"><i aria-hidden="true" class="fa-solid fa-check text-accentCyan mt-0.5"></i> <span>${f}</span></li>`).join('')}
+                    ${data.features.map(f => `<li class="flex items-start gap-2 text-xs text-gray-400"><svg class="text-accentCyan mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg> <span>${f}</span></li>`).join('')}
                 </ul>
 
                 <h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Tecnologías / Herramientas:</h4>
@@ -238,7 +244,7 @@
         function setLoading(isLoading) {
             submitBtn.disabled = isLoading;
             submitBtn.innerHTML = isLoading
-                ? '<i class="fa-solid fa-circle-notch animate-spin"></i> <span>Enviando...</span>'
+                ? '<svg class="animate-spin icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-notch"/></svg> <span>Enviando...</span>'
                 : submitBtnDefault;
         }
 
@@ -289,7 +295,7 @@
                 + payload.message;
 
             window.location.href = mailtoLink(payload.subject, body);
-            showAlert('info', '<i class="fa-solid fa-envelope-open-text mt-0.5 text-sm"></i> <span>Se abrio tu cliente de correo con el mensaje listo para enviar. Si no se abrio, escribeme directo a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.</span>');
+            showAlert('info', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-envelope-open-text"/></svg> <span>Se abrio tu cliente de correo con el mensaje listo para enviar. Si no se abrio, escribeme directo a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.</span>');
         }
 
         contactForm.addEventListener('submit', async (e) => {
@@ -299,14 +305,14 @@
             const firstInvalid = markInvalidFields();
             if (firstInvalid) {
                 firstInvalid.focus();
-                showAlert('error', '<i class="fa-solid fa-circle-exclamation mt-0.5 text-sm"></i> <span>Revisa los campos marcados antes de enviar.</span>');
+                showAlert('error', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-exclamation"/></svg> <span>Revisa los campos marcados antes de enviar.</span>');
                 return;
             }
 
             // Honeypot: solo los bots rellenan este campo escondido
             if (document.getElementById('website').value !== '') {
                 contactForm.reset();
-                showAlert('success', '<i class="fa-solid fa-circle-check mt-0.5 text-base"></i> <span>Gracias por escribir. Te responderé a la brevedad.</span>');
+                showAlert('success', '<svg class="mt-0.5 text-base icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-check"/></svg> <span>Gracias por escribir. Te responderé a la brevedad.</span>');
                 return;
             }
 
@@ -336,11 +342,11 @@
                 }
 
                 contactForm.reset();
-                showAlert('success', '<i class="fa-solid fa-circle-check mt-0.5 text-base"></i> <span>Mensaje enviado. ¡Gracias! Te responderé a la brevedad.</span>');
+                showAlert('success', '<svg class="mt-0.5 text-base icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-check"/></svg> <span>Mensaje enviado. ¡Gracias! Te responderé a la brevedad.</span>');
                 setTimeout(hideAlert, 8000);
             } catch (error) {
                 console.error('[contact-form] Error al enviar:', error);
-                showAlert('error', '<i class="fa-solid fa-triangle-exclamation mt-0.5 text-sm"></i> <span>No se pudo enviar el mensaje. Escríbeme directo a <a class="underline" href="' + mailtoLink('Contacto desde el portafolio', 'Hola Matías, ') + '">' + CONTACT_EMAIL + '</a> o por WhatsApp al +56 9 8757 6708.</span>');
+                showAlert('error', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-triangle-exclamation"/></svg> <span>No se pudo enviar el mensaje. Escríbeme directo a <a class="underline" href="' + mailtoLink('Contacto desde el portafolio', 'Hola Matías, ') + '">' + CONTACT_EMAIL + '</a> o por WhatsApp al +56 9 8757 6708.</span>');
             } finally {
                 setLoading(false);
             }

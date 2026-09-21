@@ -107,6 +107,16 @@ select:focus-visible,
     outline: none;
 }
 
+/* Iconos SVG locales (sprite assets/icons.svg, generado con npm run icons).
+   .icon hereda el color del texto (currentColor) y escala con el font-size,
+   igual que hacian los <i> de FontAwesome. */
+.icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
 /* Texto de codigo dentro de parrafos */
 p code {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;

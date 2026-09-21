@@ -4,13 +4,15 @@
   "private": true,
   "description": "Portafolio profesional de Matias I. Villalobos Cautivo - Unity & XR Developer",
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "build": "npm run icons && tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "icons": "node scripts/build-icons.mjs",
     "watch": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
     "serve": "npx --yes serve .",
     "set-url": "node scripts/set-url.mjs",
     "og": "\"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=assets/og-image.png src/og-card.html"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
     "tailwindcss": "^3.4.17"
   }
 }
