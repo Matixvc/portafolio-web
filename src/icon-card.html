@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Icon 180x180</title>
+    <!--
+        Plantilla usada SOLO en build time para generar assets/apple-touch-icon.png (180x180).
+        Se renderiza con Edge headless:
+        "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" --headless=new --disable-gpu --hide-scrollbars --window-size=180,180 --screenshot=assets/apple-touch-icon.png src/icon-card.html
+    -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 180px; height: 180px; overflow: hidden; background: #08090a; }
+        .wrap {
+            width: 180px;
+            height: 180px;
+            background: #08090a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .badge {
+            width: 152px;
+            height: 152px;
+            border-radius: 34px;
+            background: linear-gradient(135deg, #00f2fe 0%, #0070f3 50%, #7928ca 100%);
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            background: #08090a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Inter, Arial, sans-serif;
+            font-size: 58px;
+            font-weight: 700;
+            letter-spacing: -3px;
+            color: #00f2fe;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="badge"><div class="inner">MV</div></div>
+    </div>
+</body>
+</html>

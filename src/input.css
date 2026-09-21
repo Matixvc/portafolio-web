@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Estilos propios (antes vivian en un <style> dentro de index.html)
+   ========================================================================== */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #08090a;
+    color: #f3f4f6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .font-heading {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+/* Barra de scroll personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #08090a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #22242a;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00f2fe;
+}
+
+.glass-header {
+    background: rgba(8, 9, 10, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-gradient {
+    background: linear-gradient(135deg, #00f2fe 0%, #0070f3 50%, #7928ca 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 12px 30px -10px rgba(0, 242, 254, 0.18);
+}
+
+.grid-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Estados del formulario de contacto */
+.field-error {
+    border-color: #f87171 !important;
+}
+
+.form-alert-success {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #34d399;
+}
+
+.form-alert-error {
+    background-color: rgba(244, 63, 94, 0.1);
+    border-color: rgba(244, 63, 94, 0.3);
+    color: #fb7185;
+}
+
+.form-alert-info {
+    background-color: rgba(0, 242, 254, 0.1);
+    border-color: rgba(0, 242, 254, 0.3);
+    color: #00f2fe;
+}

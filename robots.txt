@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Reemplaza el dominio si publicas en GitHub Pages / Netlify / Vercel
+Sitemap: https://matiasvillalobos.dev/sitemap.xml

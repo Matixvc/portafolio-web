@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Build de Tailwind (se regenera con: npm run build)
+# Descomenta la linea siguiente si prefieres no versionar el CSS compilado
+# dist/
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/settings.json
+
+# Local
+*.local

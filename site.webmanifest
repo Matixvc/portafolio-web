@@ -1,0 +1,23 @@
+{
+    "name": "Matías I. Villalobos Cautivo | Unity & XR Developer",
+    "short_name": "Matías Villalobos",
+    "description": "Portafolio profesional de Matías I. Villalobos Cautivo, desarrollador Unity & XR en formación.",
+    "lang": "es-CL",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#08090a",
+    "theme_color": "#08090a",
+    "icons": [
+        {
+            "src": "assets/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "assets/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}

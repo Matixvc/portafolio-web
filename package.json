@@ -1,0 +1,15 @@
+{
+  "name": "portafolio-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portafolio profesional de Matias I. Villalobos Cautivo - Unity & XR Developer",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
+    "serve": "npx --yes serve .",
+    "og": "\"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=assets/og-image.png src/og-card.html"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
