@@ -86,3 +86,54 @@ h1, h2, h3, .font-heading {
     border-color: rgba(0, 242, 254, 0.3);
     color: #00f2fe;
 }
+
+/* ==========================================================================
+   Accesibilidad
+   ========================================================================== */
+
+/* Foco visible para navegacion por teclado (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #00f2fe;
+    outline-offset: 2px;
+}
+
+/* El panel del modal no necesita anillo: el foco entra al abrirlo */
+#modal-panel:focus-visible {
+    outline: none;
+}
+
+/* Texto de codigo dentro de parrafos */
+p code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
+    padding: 0.05rem 0.3rem;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Si Tailwind purga motion-reduce, el CSS garantiza que el ping se detenga */
+@media (prefers-reduced-motion: reduce) {
+    .animate-ping {
+        animation: none !important;
+    }
+}
+
+/* Respeta la preferencia de movimiento reducido (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}

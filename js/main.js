@@ -1,27 +1,32 @@
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile Drawer Menu Logic
+        // Menu movil: aria-expanded, cierre con Esc y al elegir un enlace
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
+        function setMobileMenu(isOpen) {
+            mobileMenu.classList.toggle('hidden', !isOpen);
+            mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+            mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+            mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+            menuIcon.classList.replace(isOpen ? 'fa-bars' : 'fa-xmark', isOpen ? 'fa-xmark' : 'fa-bars');
+        }
+
         mobileMenuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.classList.replace('fa-bars', 'fa-xmark');
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            }
+            setMobileMenu(mobileMenu.classList.contains('hidden'));
         });
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            });
+        mobileLinks.forEach((link) => {
+            link.addEventListener('click', () => setMobileMenu(false));
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                setMobileMenu(false);
+                mobileMenuBtn.focus();
+            }
         });
 
         // Project Filter Buttons Logic
@@ -33,10 +38,12 @@
                 filterBtns.forEach(b => {
                     b.classList.remove('active', 'bg-accentCyan', 'text-black', 'border-accentCyan');
                     b.classList.add('bg-cardBg', 'text-gray-300', 'border-cardBorder');
+                    b.setAttribute('aria-pressed', 'false');
                 });
-                
+
                 btn.classList.add('active', 'bg-accentCyan', 'text-black', 'border-accentCyan');
                 btn.classList.remove('bg-cardBg', 'text-gray-300', 'border-cardBorder');
+                btn.setAttribute('aria-pressed', 'true');
 
                 const filterValue = btn.getAttribute('data-filter');
 
@@ -91,11 +98,50 @@
         };
 
         const modal = document.getElementById('project-modal');
+        const modalPanel = document.getElementById('modal-panel');
         const modalContent = document.getElementById('modal-content');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const FOCUSABLE = 'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])';
+        let lastFocusedElement = null;
+
+        // Mantiene el foco dentro del dialogo mientras esta abierto (focus trap)
+        function trapFocus(event) {
+            if (event.key !== 'Tab') return;
+
+            const focusables = Array.from(modalPanel.querySelectorAll(FOCUSABLE))
+                .filter((el) => !el.disabled && el.getClientRects().length > 0);
+
+            if (focusables.length === 0) {
+                event.preventDefault();
+                modalPanel.focus({ preventScroll: true });
+                return;
+            }
+
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+
+        function onModalKeydown(event) {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                closeModal();
+            }
+        }
 
         function openModal(id) {
             const data = projectDetails[id];
             if (!data) return;
+
+            // Recordamos quien abrio el dialogo para devolverle el foco al cerrar
+            lastFocusedElement = document.activeElement;
 
             modalContent.innerHTML = `
                 <span class="inline-block px-2.5 py-1 rounded bg-accentCyan/10 border border-accentCyan/30 text-accentCyan text-xs font-semibold mb-3">
@@ -106,7 +152,7 @@
 
                 <h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Aspectos Destacados:</h4>
                 <ul class="space-y-2 mb-6">
-                    ${data.features.map(f => `<li class="flex items-start gap-2 text-xs text-gray-400"><i class="fa-solid fa-check text-accentCyan mt-0.5"></i> <span>${f}</span></li>`).join('')}
+                    ${data.features.map(f => `<li class="flex items-start gap-2 text-xs text-gray-400"><i aria-hidden="true" class="fa-solid fa-check text-accentCyan mt-0.5"></i> <span>${f}</span></li>`).join('')}
                 </ul>
 
                 <h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Tecnologías / Herramientas:</h4>
@@ -115,16 +161,44 @@
                 </div>
             `;
 
+            modal.setAttribute('aria-label', 'Detalles del proyecto: ' + data.title);
             modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+
+            modalPanel.focus({ preventScroll: true });
+            modalPanel.scrollTop = 0;
+            modal.addEventListener('keydown', trapFocus);
+            document.addEventListener('keydown', onModalKeydown);
         }
 
         function closeModal() {
+            if (modal.classList.contains('hidden')) return;
+
             modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+
+            modal.removeEventListener('keydown', trapFocus);
+            document.removeEventListener('keydown', onModalKeydown);
+
+            if (lastFocusedElement) {
+                lastFocusedElement.focus();
+                lastFocusedElement = null;
+            }
         }
 
-        modal.addEventListener('click', closeModal);
+        // Cierra solo si el clic fue en el fondo, no dentro del panel
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) closeModal();
+        });
+
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        // Los botones "Ver Detalles" abren el dialogo (sin onclick inline)
+        document.querySelectorAll('[data-project]').forEach((button) => {
+            button.addEventListener('click', () => openModal(button.dataset.project));
+        });
 
         // =====================================================================
         // FORMULARIO DE CONTACTO - ENVIO REAL
