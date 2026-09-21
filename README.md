@@ -101,17 +101,17 @@ que el CSS se genere en cada deploy) y publica la raíz del proyecto.
 
 ## Roadmap de mejoras pendientes
 
-### Fase 2 — Accesibilidad
-- [ ] Modal con `role="dialog"`, `aria-modal`, cierre con `Esc` y con clic en el fondo, focus trap y retorno de foco.
-- [ ] `aria-expanded` en el botón hamburguesa y `aria-hidden` en el drawer cerrado.
-- [ ] Skip-link "Saltar al contenido" y `aria-pressed` en los botones de filtro.
-- [ ] `:focus-visible` visible en todos los controles (el formulario hoy usa `focus:outline-none`).
-- [ ] Subir los tamaños `text-[10px]` (15 usos) y `text-[11px]` a 12 px o más.
-- [ ] Respetar `prefers-reduced-motion` (`animate-ping`, `scroll-smooth`, transiciones).
-- [ ] Arreglar artefactos: clase inválida `fa-[#000]` y backticks literales en `` `IDamageable` ``.
-- [ ] `rel="noopener noreferrer"` en los 2 enlaces de WhatsApp que no lo tienen.
-- [ ] Renderizar las tarjetas de proyecto desde `projectDetails` (eliminar la duplicación HTML/JS)
-      y quitar los `onclick` inline.
+### Fase 2 — Accesibilidad ✅ (completada)
+- [x] Modal con `role="dialog"`, `aria-modal`, cierre con `Esc` y con clic en el fondo, focus trap y retorno de foco.
+- [x] `aria-expanded` en el botón hamburguesa y `aria-hidden` dinámico en el drawer (`true` cerrado / `false` abierto).
+- [x] Skip-link "Saltar al contenido" y `aria-pressed` en los botones de filtro.
+- [x] `:focus-visible` visible en todos los controles (se eliminaron los `focus:outline-none`).
+- [x] Textos `text-[10px]` (15 usos) y `text-[11px]` subidos a 12 px o más.
+- [x] `prefers-reduced-motion` respetado (`animate-ping` detenido, `scroll-smooth` desactivado, transiciones neutralizadas).
+- [x] Artefactos corregidos: clase inválida `fa-[#000]` eliminada y `` `IDamageable` `` renderizado como `<code>`.
+- [x] `rel="noopener noreferrer"` en todos los enlaces externos (WhatsApp incluido).
+- [x] Tarjetas de proyecto sin `onclick` inline (delegación por `data-project` en `js/main.js`).
+      La renderización total desde `projectDetails` queda como mejora opcional futura.
 
 ### Fase 3 — Performance
 - [ ] Reemplazar los 41 iconos de FontAwesome por SVG inline y eliminar esa hoja de estilos.
