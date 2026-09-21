@@ -113,10 +113,11 @@ que el CSS se genere en cada deploy) y publica la raíz del proyecto.
 - [x] Tarjetas de proyecto sin `onclick` inline (delegación por `data-project` en `js/main.js`).
       La renderización total desde `projectDetails` queda como mejora opcional futura.
 
-### Fase 3 — Performance
-- [ ] Reemplazar los 41 iconos de FontAwesome por SVG inline y eliminar esa hoja de estilos.
-- [ ] Reducir las 8 variantes de Google Fonts y hacer `preload` de la principal.
-- [ ] Aligerar `blur-[130px]` y `backdrop-filter` en móviles.
+### Fase 3 — Performance ✅ (completada)
+- [x] 33 iconos FontAwesome reemplazados por sprite SVG local (`assets/icons.svg`, 24 KB) y hoja `all.min.css` eliminada.
+      Regenerar con `npm run icons` (se ejecuta solo dentro de `npm run build`).
+- [x] Google Fonts recortado de 8 a 5 variantes (Inter 400/500/600/700 + Space Grotesk 700) con `preload` + `display=swap`.
+- [x] `blur-[130px]` reducido a `blur-[70px]` en móvil (completo solo en desktop) y `backdrop-blur` limitado a desktop.
 
 ### Fase 4 — Contenido
 - [ ] Capturas/GIF + video (30-60 s) por proyecto, link al repositorio y build jugable.
