@@ -119,12 +119,31 @@ que el CSS se genere en cada deploy) y publica la raíz del proyecto.
 - [x] Google Fonts recortado de 8 a 5 variantes (Inter 400/500/600/700 + Space Grotesk 700) con `preload` + `display=swap`.
 - [x] `blur-[130px]` reducido a `blur-[70px]` en móvil (completo solo en desktop) y `backdrop-blur` limitado a desktop.
 
-### Fase 4 — Contenido
-- [ ] Capturas/GIF + video (30-60 s) por proyecto, link al repositorio y build jugable.
-- [ ] Rol concreto y métricas ("60 FPS en Quest 2", "−30 % draw calls").
-- [ ] Botón "Descargar CV" (PDF) en el hero y en contacto.
+### Fase 4 — Contenido (estructura lista; faltan tus datos reales)
+- [x] **Botón "Descargar CV"** en el hero, apuntando a `assets/cv-matias-villalobos.pdf`.
+      Mientras el PDF no exista, `js/main.js` atenúa el botón, cambia la etiqueta a
+      "CV disponible próximamente" y al hacer clic ofrece tu correo (nunca un 404).
+      → **Pendiente tuyo:** sube el PDF con ese nombre exacto y el botón se activa solo.
+- [x] **Sección "Formación & Experiencia"** (`#formacion`) con línea de tiempo accesible,
+      ya enlazada desde la navegación de escritorio, la móvil y el pie de página.
+      → **Pendiente tuyo:** reemplaza "En curso" y "Paralelo a mis estudios" por tus rangos reales.
+- [x] **Rol concreto y métricas por proyecto:** completa `role` y `metrics` en `projectDetails`
+      (`js/main.js`) y aparecen en el modal. Si los dejas vacíos no se muestra nada (cero relleno).
+- [x] **Enlaces al repositorio y a la demo** en el modal: completa `repo` y `demo` en `projectDetails`.
+- [ ] Capturas/GIF + video (30-60 s) por proyecto y build jugable.
 - [ ] Foto de perfil en la sección "Sobre mí" (hoy hay un icono de Unity).
-- [ ] Sección de educación/experiencia con fechas y versión en inglés.
+      Instrucciones listas como comentario en `index.html`, dentro del bloque "Sobre mí".
+- [ ] Versión en inglés del sitio.
 
-### Fase 5 — Medición
-- [ ] Analítica ligera (Plausible / Umami) para ver visitas de reclutadores.
+### Fase 5 — Medición ✅ (lista para activar con una línea)
+- [x] Cargador de analítica ligera y opt-in en `js/main.js` (`ANALYTICS_PROVIDER` + `ANALYTICS_ID`).
+      Tal como está (vacío) **no inyecta ningún script ni hace ninguna petición**.
+      ```js
+      const ANALYTICS_PROVIDER = 'plausible';   // o 'umami'
+      const ANALYTICS_ID = 'matixvc.github.io'; // umami: el website-id
+      ```
+- [ ] Decidir proveedor (Plausible de pago / Umami gratis autoalojado) y activarlo.
+
+### Usabilidad — corregido en esta iteración
+- [x] `scroll-margin-top: 5rem` en todas las secciones: al usar un enlace de ancla, el título
+      ya no queda oculto detrás del header fijo de 80 px.

@@ -31,6 +31,7 @@ const ICONS = [
     ['solid', 'film'],
     ['solid', 'floppy-disk'],
     ['solid', 'gamepad'],
+    ['solid', 'gauge-high'],
     ['solid', 'graduation-cap'],
     ['solid', 'heart-pulse'],
     ['solid', 'layer-group'],

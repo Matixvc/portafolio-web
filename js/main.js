@@ -64,11 +64,24 @@
         });
 
         // Project Modal Detail Items
+        // ---------------------------------------------------------------------
+        // Campos obligatorios: title, badge, description, features, tech.
+        // Campos OPCIONALES de la Fase 4 (rellenalos y aparece solo en el modal;
+        // si los dejas vacios NO se muestra nada, no hay texto de relleno):
+        //   role    -> tu rol concreto en el proyecto (string)
+        //   metrics -> resultados medibles, ej. "60 FPS estables en Quest 2" (array)
+        //   repo    -> URL del repositorio en GitHub (string)
+        //   demo    -> URL de una build jugable / video (string)
+        // ---------------------------------------------------------------------
         const projectDetails = {
             proj1: {
                 title: "Simulador Interactivo 3D",
                 badge: "XR / Simulación 3D",
                 description: "Prototipo interactivo desarrollado en Unity enfocado en la manipulación precisa de objetos tridimensionales y retroalimentación táctil y visual.",
+                role: "",
+                metrics: [],
+                repo: "",
+                demo: "",
                 features: [
                     "Manipulación física de objetos mediante Raycasting y Rigidbody",
                     "UI contextual flotante 3D adaptada a vistas en espacio mundial",
@@ -81,6 +94,10 @@
                 title: "Sistema Modular de Combate e Inventario",
                 badge: "Gameplay Core & Architecture",
                 description: "Módulo desacoplado de inventario y salud implementando principios SOLID, ScriptableObjects y comunicación mediante eventos C#.",
+                role: "",
+                metrics: [],
+                repo: "",
+                demo: "",
                 features: [
                     "Sistema de inventario drag & drop extensible con ScriptableObjects",
                     "Sistema de vida y daño universal implementando la interfaz IDamageable",
@@ -93,6 +110,10 @@
                 title: "Entorno de Navegación & IA de Enemigos",
                 badge: "Inteligencia Artificial & Animación",
                 description: "Implementación de IA para agentes enemigos con patrullaje autónomo, persecución del jugador y transiciones de animación fluidas.",
+                role: "",
+                metrics: [],
+                repo: "",
+                demo: "",
                 features: [
                     "Cálculo de rutas dinámicas mediante NavMesh Dynamic Obstacles",
                     "Máquina de Estados Finitos (FSM) modular para comportamientos (Patrol, Chasing, Attack)",
@@ -149,22 +170,48 @@
             // Recordamos quien abrio el dialogo para devolverle el foco al cerrar
             lastFocusedElement = document.activeElement;
 
+            // Bloques opcionales (Fase 4): si el campo esta vacio, no se pinta nada
+            const roleBlock = data.role
+                ? `<p class="text-xs text-gray-400 mb-6"><span class="font-semibold text-gray-200">Mi rol:</span> ${data.role}</p>`
+                : '';
+
+            const metricsBlock = (data.metrics && data.metrics.length)
+                ? `<h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Resultados / Métricas:</h4>
+                <ul class="space-y-2 mb-6">
+                    ${data.metrics.map(m => `<li class="flex items-start gap-2 text-xs text-gray-400"><svg class="text-accentViolet mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-gauge-high"/></svg> <span>${m}</span></li>`).join('')}
+                </ul>`
+                : '';
+
+            const links = [];
+            if (data.repo) {
+                links.push(`<a href="${data.repo}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-neutral-900 border border-neutral-700 text-xs font-semibold text-gray-200 hover:border-accentCyan hover:text-accentCyan transition-all flex items-center gap-2"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-github"/></svg> Ver repositorio</a>`);
+            }
+            if (data.demo) {
+                links.push(`<a href="${data.demo}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-neutral-900 border border-neutral-700 text-xs font-semibold text-gray-200 hover:border-accentCyan hover:text-accentCyan transition-all flex items-center gap-2"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg> Probar demo</a>`);
+            }
+            const linksBlock = links.length
+                ? `<div class="flex flex-wrap gap-3 mt-6 pt-6 border-t border-cardBorder">${links.join('')}</div>`
+                : '';
+
             modalContent.innerHTML = `
                 <span class="inline-block px-2.5 py-1 rounded bg-accentCyan/10 border border-accentCyan/30 text-accentCyan text-xs font-semibold mb-3">
                     ${data.badge}
                 </span>
                 <h3 class="text-2xl font-bold text-white mb-3">${data.title}</h3>
                 <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6">${data.description}</p>
+                ${roleBlock}
 
                 <h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Aspectos Destacados:</h4>
                 <ul class="space-y-2 mb-6">
                     ${data.features.map(f => `<li class="flex items-start gap-2 text-xs text-gray-400"><svg class="text-accentCyan mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg> <span>${f}</span></li>`).join('')}
                 </ul>
+                ${metricsBlock}
 
                 <h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Tecnologías / Herramientas:</h4>
                 <div class="flex flex-wrap gap-2">
                     ${data.tech.map(t => `<span class="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-700 text-xs text-gray-300">${t}</span>`).join('')}
                 </div>
+                ${linksBlock}
             `;
 
             modal.setAttribute('aria-label', 'Detalles del proyecto: ' + data.title);
@@ -351,4 +398,80 @@
                 setLoading(false);
             }
         });
+
+        // =====================================================================
+        // BOTON DE CV - se activa solo cuando el PDF existe
+        // ---------------------------------------------------------------------
+        // Sube tu CV como assets/cv-matias-villalobos.pdf (nombre exacto) y el
+        // boton del hero queda operativo solo. Mientras el archivo no exista, el
+        // boton se atenua y lo avisa, en vez de ofrecer una descarga que
+        // terminaria en un error 404.
+        // =====================================================================
+        const cvBtn = document.getElementById('cv-btn');
+        const cvBtnLabel = document.getElementById('cv-btn-label');
+
+        if (cvBtn && cvBtnLabel) {
+            // Abierto como file:// el navegador no deja comprobar el archivo:
+            // no tocamos el boton para no dar un falso "no disponible".
+            if (window.location.protocol !== 'file:') {
+                fetch(cvBtn.getAttribute('href'), { method: 'HEAD', cache: 'no-store' })
+                    .then((response) => {
+                        if (response.ok) return;
+                        throw new Error('HTTP ' + response.status);
+                    })
+                    .catch(() => {
+                        let cvNote = null;
+
+                        cvBtn.classList.add('cv-pending');
+                        cvBtn.setAttribute('aria-disabled', 'true');
+                        cvBtn.setAttribute('title', 'CV en preparación: escríbeme y te lo envío');
+                        cvBtn.removeAttribute('download');
+                        cvBtnLabel.textContent = 'CV disponible próximamente';
+
+                        cvBtn.addEventListener('click', (event) => {
+                            event.preventDefault();
+
+                            if (!cvNote) {
+                                cvNote = document.createElement('p');
+                                cvNote.id = 'cv-note';
+                                cvNote.setAttribute('role', 'status');
+                                cvNote.className = 'mt-4 text-xs text-gray-400';
+                                cvNote.textContent = 'CV en preparación. Escríbeme a ' + CONTACT_EMAIL + ' y te lo envío.';
+                                // Se inserta DESPUES del contenedor flex: dentro encogeria
+                                // los botones del hero (el contenedor no hace wrap).
+                                cvBtn.parentElement.insertAdjacentElement('afterend', cvNote);
+                            }
+                        });
+                    });
+            }
+        }
+
+        // =====================================================================
+        // ANALITICA (Fase 5) - opcional, ligera y sin cookies
+        // ---------------------------------------------------------------------
+        // Con ANALYTICS_PROVIDER vacio no se carga NADA (cero peticiones, cero
+        // ruido en consola). Para activarla:
+        //   Plausible -> ANALYTICS_PROVIDER = 'plausible'; ANALYTICS_ID = 'matixvc.github.io';
+        //   Umami     -> ANALYTICS_PROVIDER = 'umami';     ANALYTICS_ID = 'tu-website-id';
+        // =====================================================================
+        const ANALYTICS_PROVIDER = '';
+        const ANALYTICS_ID = '';
+        const ANALYTICS_SOURCES = {
+            plausible: 'https://plausible.io/js/script.js',
+            umami: 'https://cloud.umami.is/script.js'
+        };
+
+        function enableAnalytics() {
+            const src = ANALYTICS_SOURCES[ANALYTICS_PROVIDER];
+            if (!src || !ANALYTICS_ID) return;
+
+            const tag = document.createElement('script');
+            tag.defer = true;
+            tag.src = src;
+            tag.setAttribute('data-domain', ANALYTICS_ID);      // Plausible
+            tag.setAttribute('data-website-id', ANALYTICS_ID);  // Umami
+            document.head.appendChild(tag);
+        }
+
+        enableAnalytics();
     
