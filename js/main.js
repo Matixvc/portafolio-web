@@ -78,52 +78,52 @@
         // ---------------------------------------------------------------------
         const projectDetails = {
             proj1: {
-                title: "Simulador Interactivo 3D",
-                badge: "XR / Simulación 3D",
-                description: "Prototipo interactivo desarrollado en Unity enfocado en la manipulación precisa de objetos tridimensionales y retroalimentación táctil y visual.",
+                title: "Physics VR Prototype — Agarre y Lanzamiento",
+                badge: "XR / Físicas 3D",
+                description: "Prototipo en Unity para probar físicas de agarre, manipulación y lanzamiento de objetos en primera persona, con la interacción planteada para escalar a realidad virtual y realidad mixta.",
                 role: "Desarrollo individual — prototipo de práctica personal (Unity + C#)",
                 metrics: [],
                 repo: "",
                 demo: "",
                 features: [
-                    "Manipulación física de objetos mediante Raycasting y Rigidbody",
-                    "UI contextual flotante 3D adaptada a vistas en espacio mundial",
-                    "Sistema de eventos estructurado en C# para registrar acciones del usuario",
-                    "Optimización de jerarquía de escena y consumo de memoria RAM"
+                    "Agarre de objetos con física (Rigidbody) en primera persona",
+                    "Lanzamiento con impulso según movimiento del jugador",
+                    "Interacción diseñada para escalar a VR y realidad mixta",
+                    "Prototipo de exploración técnica, sin demo pública por ahora"
                 ],
-                tech: ["Unity 3D", "C#", "Físicas 3D", "Blender Asset Pipeline"]
+                tech: ["Unity 3D", "C#", "Físicas 3D", "Rigidbody"]
             },
             proj2: {
-                title: "Sistema Modular de Combate e Inventario",
-                badge: "Gameplay Core & Architecture",
-                description: "Módulo desacoplado de inventario y salud implementando principios SOLID, ScriptableObjects y comunicación mediante eventos C#.",
-                role: "Desarrollo individual — prototipo de práctica personal (Unity + C#)",
+                title: "Basura Fighters — Roguelike de Reciclaje",
+                badge: "Roguelike Web · Jugable",
+                description: "Roguelike jugable en el navegador: loop de combate contra oleadas de enemigos, experiencia y progresión de habilidades y armas entre partidas. Todo en un único documento HTML con Canvas 2D.",
+                role: "Desarrollo individual — juego web personal",
                 metrics: [],
-                repo: "",
-                demo: "",
+                repo: "https://github.com/Matixvc/Trash-Roguelike",
+                demo: "https://trash-rogelike.netlify.app",
                 features: [
-                    "Sistema de inventario drag & drop extensible con ScriptableObjects",
-                    "Sistema de vida y daño universal implementando la interfaz IDamageable",
-                    "Actualización de interfaz HUD desvinculada mediante eventos C#",
-                    "Lógica de persistencia de partidas serializando a JSON"
+                    "Loop roguelike: matar enemigos, ganar experiencia y subir habilidades o armas",
+                    "Oleadas de enemigos con dificultad progresiva",
+                    "Juego completo en un único documento HTML con Canvas 2D",
+                    "Demo jugable desplegada en Netlify"
                 ],
-                tech: ["C# OOP", "ScriptableObjects", "Unity Canvas UI", "JSON Serialization"]
+                tech: ["JavaScript", "Canvas 2D", "HTML5", "Netlify"]
             },
             proj3: {
-                title: "Entorno de Navegación & IA de Enemigos",
-                badge: "Inteligencia Artificial & Animación",
-                description: "Implementación de IA para agentes enemigos con patrullaje autónomo, persecución del jugador y transiciones de animación fluidas.",
-                role: "Desarrollo individual — prototipo de práctica personal (Unity + C#)",
+                title: "App Mobile — Organizador Personal",
+                badge: "App Móvil · TypeScript",
+                description: "Aplicación móvil para organizar el día a día: horario universitario, fechas importantes con notificación de calendario, cumpleaños y evaluaciones de asignaturas.",
+                role: "Desarrollo individual — app móvil personal",
                 metrics: [],
-                repo: "",
+                repo: "https://github.com/Matixvc/App-Mobile",
                 demo: "",
                 features: [
-                    "Cálculo de rutas dinámicas mediante NavMesh Dynamic Obstacles",
-                    "Máquina de Estados Finitos (FSM) modular para comportamientos (Patrol, Chasing, Attack)",
-                    "Manejo de Animator Controllers con Blend Trees según velocidad de movimiento",
-                    "Audio espacial 3D asignado a eventos de animación"
+                    "Horario universitario personalizable",
+                    "Fechas importantes con notificación vía calendario",
+                    "Recordatorios de cumpleaños",
+                    "Seguimiento de evaluaciones de asignaturas"
                 ],
-                tech: ["Unity NavMesh", "C# FSM", "Animator Controllers", "AudioMixer"]
+                tech: ["React Native", "TypeScript", "Notificaciones"]
             }
         };
 
@@ -288,14 +288,19 @@
         // Si vacias FORM_ENDPOINT, el formulario NO miente: abre el cliente
         // de correo del visitante con el mensaje ya redactado y listo para enviar.
         // =====================================================================
-        const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+                const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
         const WEB3FORMS_ACCESS_KEY = '65c144b4-4c81-4610-8057-4df6b8a2b605';
         const CONTACT_EMAIL = 'Matias.villalobos.dev@gmail.com';
+        const WHATSAPP_LINK = 'https://wa.me/56987576708';
 
-        const contactForm = document.getElementById('contact-form');
+                const contactForm = document.getElementById('contact-form');
         const formAlert = document.getElementById('form-alert');
         const submitBtn = document.getElementById('submit-btn');
         const submitBtnDefault = submitBtn.innerHTML;
+        const loadingSpinner = '<svg class="animate-spin icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-notch"/></svg> <span>Enviando...</span>';
+        const successIcon = '<svg class="mt-0.5 text-base icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-check"/></svg>';
+        const errorIcon = '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-triangle-exclamation"/></svg>';
+                const infoIcon = '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-envelope-open-text"/></svg>';
 
         const ALERT_CLASSES = {
             success: 'form-alert-success',
@@ -307,17 +312,20 @@
             formAlert.className = 'p-4 rounded-xl text-xs font-medium border leading-relaxed flex items-start gap-2 ' + ALERT_CLASSES[kind];
             formAlert.innerHTML = html;
             formAlert.classList.remove('hidden');
+            // Mensaje de alerta accesible para lectores de pantalla
+            formAlert.setAttribute('role', kind === 'success' ? 'status' : kind === 'error' ? 'alert' : 'status');
         }
 
         function hideAlert() {
             formAlert.classList.add('hidden');
+            formAlert.removeAttribute('role');
         }
 
-        function setLoading(isLoading) {
+        function setLoading(isLoading, buttonLabel) {
+            if (!submitBtn) return;
             submitBtn.disabled = isLoading;
-            submitBtn.innerHTML = isLoading
-                ? '<svg class="animate-spin icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-notch"/></svg> <span>Enviando...</span>'
-                : submitBtnDefault;
+            submitBtn.innerHTML = isLoading ? loadingSpinner : (buttonLabel || submitBtnDefault);
+            submitBtn.setAttribute('aria-busy', String(isLoading));
         }
 
         // ---------------------------------------------------------------------
@@ -388,9 +396,11 @@
         const messageField = document.getElementById('message');
         const messageCount = document.getElementById('message-count');
 
-        function updateMessageCount() {
+                function updateMessageCount() {
             if (messageField && messageCount) {
                 messageCount.textContent = messageField.value.length + ' / 2000';
+                // Anuncia cambios al lector de pantalla
+                messageCount.setAttribute('aria-live', 'polite');
             }
         }
 
@@ -452,13 +462,27 @@
                 + '&body=' + encodeURIComponent(body);
         }
 
-        function openMailFallback(payload) {
+                function openMailFallback(payload) {
             const body = 'Nombre: ' + payload.name + '\n'
                 + 'Correo: ' + payload.email + '\n\n'
                 + payload.message;
 
             window.location.href = mailtoLink(payload.subject, body);
-            showAlert('info', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-envelope-open-text"/></svg> <span>Se abrió tu cliente de correo con el mensaje listo para enviar. Si no se abrió, escríbeme directo a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.</span>');
+            resetFormState();
+                        showAlert('info', infoIcon + ' <span>Se abrió tu cliente de correo con el mensaje listo para enviar. ' +
+                'Si no se abrió, escríbeme directo a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a> ' +
+                'o por <a class="underline" href="' + WHATSAPP_LINK + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</span>');
+        }
+
+        // Mensaje visible cuando el envío real falla o el endpoint no responde:
+        // SIEMPRE incluye alternativas reales (WhatsApp + correo directo).
+        function showFallbackAlert(extraMessage) {
+            const base = extraMessage
+                ? '<strong class="block font-semibold mb-1">No se pudo enviar el formulario.</strong><span>' + extraMessage + '</span>'
+                : '<strong class="block font-semibold mb-1">No se pudo enviar el formulario.</strong><span>';
+            showAlert('error', errorIcon + ' ' + base +
+                ' Puedes escribirme directamente por <a class="underline" href="' + WHATSAPP_LINK + '" target="_blank" rel="noopener noreferrer">WhatsApp</a> ' +
+                'o a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>. Gracias por tu paciencia.</span>');
         }
 
         contactForm.addEventListener('submit', async (e) => {
@@ -468,14 +492,14 @@
             const firstInvalid = markInvalidFields();
             if (firstInvalid) {
                 firstInvalid.focus();
-                showAlert('error', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-exclamation"/></svg> <span>Revisa los campos marcados antes de enviar.</span>');
+                                showAlert('error', errorIcon + ' <span>Revisa los campos marcados antes de enviar.</span>');
                 return;
             }
 
             // Honeypot: solo los bots rellenan este campo escondido
             if (document.getElementById('website').value !== '') {
                 resetFormState();
-                showAlert('success', '<svg class="mt-0.5 text-base icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-check"/></svg> <span>Gracias por escribir. Te responderé a la brevedad.</span>');
+                                showAlert('success', successIcon + ' <span>Gracias por escribir. Te responderé a la brevedad.</span>');
                 return;
             }
 
@@ -505,11 +529,11 @@
                 }
 
                 resetFormState();
-                showAlert('success', '<svg class="mt-0.5 text-base icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-check"/></svg> <span>Mensaje enviado. ¡Gracias! Te responderé a la brevedad.</span>');
+                                showAlert('success', successIcon + ' <span>Mensaje enviado. ¡Gracias! Te responderé a la brevedad.</span>');
                 setTimeout(hideAlert, 8000);
             } catch (error) {
-                console.error('[contact-form] Error al enviar:', error);
-                showAlert('error', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-triangle-exclamation"/></svg> <span>No se pudo enviar el mensaje. Escríbeme directo a <a class="underline" href="' + mailtoLink('Contacto desde el portafolio', 'Hola Matías, ') + '">' + CONTACT_EMAIL + '</a> o por <a class="underline" href="https://wa.me/56987576708" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</span>');
+                                console.error('[contact-form] Error al enviar:', error);
+                showFallbackAlert('No se pudo enviar el mensaje. Inténtalo de nuevo, o escríbeme directamente.');
             } finally {
                 setLoading(false);
             }
@@ -552,8 +576,8 @@
                                 cvNote.id = 'cv-note';
                                 cvNote.setAttribute('role', 'status');
                                 cvNote.className = 'mt-4 text-xs text-gray-400';
-                                cvNote.textContent = 'CV en preparación. Escríbeme a ' + CONTACT_EMAIL + ' y te lo envío.';
-                                // Se inserta DESPUES del contenedor flex: dentro encogeria
+                                cvNote.innerHTML = 'CV en preparación. Escríbeme a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a> o por <a class="underline" href="' + WHATSAPP_LINK + '" target="_blank" rel="noopener noreferrer">WhatsApp</a> y te lo envío.';
+                                // Se inserta DESPUES del contenedor flex: dentro encogería
                                 // los botones del hero (el contenedor no hace wrap).
                                 cvBtn.parentElement.insertAdjacentElement('afterend', cvNote);
                             }
