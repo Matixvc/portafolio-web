@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CV - Matías I. Villalobos Cautivo</title>
+    <!-- Plantilla A4 del CV. Genera assets/cv-matias-villalobos.pdf con: npm run cv
+         (usa Edge headless, mismo motor que npm run og). Tras generar el PDF,
+         el botón "Descargar CV" del hero se activa solo. -->
+    <style>
+        @page { size: A4; margin: 11mm 12mm; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-size: 10.5px;
+            line-height: 1.45;
+            color: #1a1d21;
+            background: #fff;
+        }
+
+        a { color: #0e7490; text-decoration: none; }
+        code { font-family: Consolas, monospace; font-size: 0.92em; }
+
+        header {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            border-bottom: 2px solid #0e7490;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+        .head-text { flex: 1; }
+        h1 { font-size: 22px; color: #08090a; letter-spacing: -0.4px; }
+        .role {
+            font-size: 11px;
+            font-weight: 600;
+            color: #0e7490;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 2px 0 6px;
+        }
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px 12px;
+            font-size: 9.5px;
+            color: #444;
+        }
+        .photo {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #0e7490;
+        }
+
+        .grid { display: grid; grid-template-columns: 32% 1fr; gap: 16px; }
+        section { margin-bottom: 11px; }
+        h2 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #0e7490;
+            border-bottom: 1px solid #d7dde2;
+            padding-bottom: 3px;
+            margin-bottom: 6px;
+        }
+        .item { margin-bottom: 7px; }
+        .item h3 { font-size: 11px; color: #111; }
+        .meta { font-size: 9.5px; color: #666; font-style: italic; }
+        ul { padding-left: 14px; }
+        li { margin-bottom: 2px; }
+
+        .kv {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: 10px;
+            margin-bottom: 2px;
+        }
+        .kv b { color: #222; font-weight: 600; text-align: right; }
+        .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+        .chip {
+            background: #eef6f8;
+            border: 1px solid #cde3e9;
+            color: #0e5c70;
+            border-radius: 3px;
+            padding: 1px 5px;
+            font-size: 9px;
+        }
+
+        footer {
+            margin-top: 6px;
+            font-size: 8.5px;
+            color: #888;
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="head-text">
+        <h1>Matías I. Villalobos Cautivo</h1>
+        <div class="role">Unity &amp; XR Developer — en formación</div>
+        <div class="contact">
+            <span>Matias.villalobos.dev@gmail.com</span>
+            <span>Santiago, Chile</span>
+            <span><a href="https://wa.me/56987576708">WhatsApp (enlace)</a></span>
+            <span>github.com/matiasvillalobosdev-web</span>
+            <span>linkedin.com/in/matias-vc-dev</span>
+            <span>matixvc.github.io/portafolio-web</span>
+        </div>
+    </div>
+    <img class="photo" src="../assets/foto-perfil.jpg" alt="Foto de Matías Villalobos">
+</header>
+
+<div class="grid">
+
+    <!-- ==================== COLUMNA IZQUIERDA ==================== -->
+    <div>
+        <section>
+            <h2>Objetivo</h2>
+            <p>Práctica profesional part-time como <b>Unity Developer Trainee / XR Developer</b>
+            (remoto, híbrido o presencial en Santiago), aportando programación de gameplay,
+            sistemas mecánicos y optimización mientras sigo formándome en simulación y XR.</p>
+        </section>
+
+        <section>
+            <h2>Datos personales</h2>
+            <div class="kv"><span>Fecha de nacimiento</span><b>22-03-2003</b></div>
+            <div class="kv"><span>Disponibilidad</span><b>Part-time, inmediata</b></div>
+            <div class="kv"><span>Modalidad</span><b>Remoto / Híbrido / Presencial</b></div>
+        </section>
+
+        <section>
+            <h2>Idiomas</h2>
+            <div class="kv"><span>Español</span><b>Nativo</b></div>
+            <div class="kv"><span>Inglés</span><b>Medio</b></div>
+        </section>
+
+        <section>
+            <h2>Tecnologías</h2>
+            <div class="chips">
+                <span class="chip">Unity</span>
+                <span class="chip">C# OOP / SOLID</span>
+                <span class="chip">ScriptableObjects</span>
+                <span class="chip">Eventos C#</span>
+                <span class="chip">NavMesh / FSM</span>
+                <span class="chip">Animator &amp; Blend Trees</span>
+                <span class="chip">Físicas 3D</span>
+                <span class="chip">Canvas UI / HUD</span>
+                <span class="chip">JSON &amp; PlayerPrefs</span>
+                <span class="chip">Blender</span>
+                <span class="chip">IA generativa</span>
+                <span class="chip">Git</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Fortalezas</h2>
+            <ul>
+                <li><b>Código arquitecturado:</b> patrones OOP, interfaces (<code>IDamageable</code>),
+                    eventos y desacoplamiento con ScriptableObjects.</li>
+                <li><b>Orientación a XR:</b> interés en simuladores técnicos, entornos
+                    inmersivos y hardware VR/AR.</li>
+                <li><b>Rendimiento:</b> optimización de jerarquía de escena y consumo de memoria.</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- ==================== COLUMNA DERECHA ==================== -->
+    <div>
+        <section>
+            <h2>Formación</h2>
+            <div class="item">
+                <h3>Ingeniería en Realidad Virtual y Diseño de Juegos Digitales</h3>
+                <div class="meta">Universidad Bernardo O'Higgins (UBO), Santiago ·
+                    2021 — Presente (matrícula congelada 2024–2025)</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Proyectos — prototipos individuales</h2>
+            <div class="item">
+                <h3>Simulador Interactivo 3D</h3>
+                <p>Manipulación precisa de objetos 3D con raycasting y rigidbody, UI contextual
+                    flotante en espacio mundial y sistema de eventos en C#; optimización de
+                    jerarquía de escena y memoria.</p>
+                <div class="chips" style="margin-top:3px">
+                    <span class="chip">Unity 3D</span><span class="chip">C#</span>
+                    <span class="chip">Físicas 3D</span><span class="chip">Blender</span>
+                </div>
+            </div>
+            <div class="item">
+                <h3>Sistema Modular de Combate e Inventario</h3>
+                <p>Inventario drag &amp; drop con ScriptableObjects, vida/daño universal vía
+                    interfaz <code>IDamageable</code>, HUD desvinculado por eventos y persistencia
+                    serializando a JSON, aplicando principios SOLID.</p>
+                <div class="chips" style="margin-top:3px">
+                    <span class="chip">C# OOP</span><span class="chip">ScriptableObjects</span>
+                    <span class="chip">Canvas UI</span><span class="chip">JSON</span>
+                </div>
+            </div>
+            <div class="item">
+                <h3>Entorno de Navegación &amp; IA de Enemigos</h3>
+                <p>Patrullaje y persecución con NavMesh (obstáculos dinámicos), FSM modular
+                    (Patrol / Chase / Attack), Blend Trees según velocidad y audio espacial 3D.</p>
+                <div class="chips" style="margin-top:3px">
+                    <span class="chip">Unity NavMesh</span><span class="chip">C# FSM</span>
+                    <span class="chip">Animator</span><span class="chip">AudioMixer</span>
+                </div>
+            </div>
+            <p class="meta">Código, demos y capturas en el portafolio:
+                matixvc.github.io/portafolio-web</p>
+        </section>
+
+        <section>
+            <h2>Capacidades de gameplay en Unity</h2>
+            <p>Movimiento y física (CharacterController, Rigidbody, raycast) · Inventario y
+                equipamiento · Vida/daño e interfaces reactivas · IA básica con NavMeshAgent y
+                FSM · UI/HUD, menús y ajustes · Guardado y carga (JSON, PlayerPrefs) ·
+                Animator Controllers, Blend Trees y AudioMixer · Pipeline de assets desde Blender.</p>
+        </section>
+    </div>
+</div>
+
+<footer>
+    Portafolio: matixvc.github.io/portafolio-web · Generado desde src/cv.html (npm run cv)
+</footer>
+
+</body>
+</html>
+

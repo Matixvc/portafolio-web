@@ -1,10 +1,19 @@
-        document.getElementById('year').textContent = new Date().getFullYear();
+(function () {
+    'use strict';
 
-        // Menu movil: aria-expanded, cierre con Esc y al elegir un enlace
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Preferencia de movimiento reducido (WCAG 2.3.3): con reduce, las
+        // transiciones se saltan y los cierres son inmediatos.
+        const REDUCE_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const ANIM_MS = REDUCE_MOTION ? 0 : 250;
+
+        // Menu movil: aria-expanded, apertura animada y cierre con Esc o enlace
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
+        let menuCloseTimer = null;
 
         // Icono del menu movil: cambiamos el <use> del SVG local (sin clases fa-*)
         function setMenuIcon(name) {
@@ -13,15 +22,34 @@
         }
 
         function setMobileMenu(isOpen) {
-            mobileMenu.classList.toggle('hidden', !isOpen);
+            if (menuCloseTimer) {
+                clearTimeout(menuCloseTimer);
+                menuCloseTimer = null;
+            }
+
             mobileMenu.setAttribute('aria-hidden', String(!isOpen));
             mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
             mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
             setMenuIcon(isOpen ? 'xmark' : 'bars');
+
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                // Dos requestAnimationFrame: el navegador pinta el estado cerrado
+                // antes de añadir .is-open, asi la transicion realmente corre.
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => mobileMenu.classList.add('is-open'));
+                });
+            } else {
+                mobileMenu.classList.remove('is-open');
+                menuCloseTimer = setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    menuCloseTimer = null;
+                }, ANIM_MS);
+            }
         }
 
         mobileMenuBtn.addEventListener('click', () => {
-            setMobileMenu(mobileMenu.classList.contains('hidden'));
+            setMobileMenu(mobileMenuBtn.getAttribute('aria-expanded') !== 'true');
         });
 
         mobileLinks.forEach((link) => {
@@ -29,39 +57,14 @@
         });
 
         document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+            if (event.key === 'Escape' && mobileMenuBtn.getAttribute('aria-expanded') === 'true') {
                 setMobileMenu(false);
                 mobileMenuBtn.focus();
             }
         });
 
-        // Project Filter Buttons Logic
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-accentCyan', 'text-black', 'border-accentCyan');
-                    b.classList.add('bg-cardBg', 'text-gray-300', 'border-cardBorder');
-                    b.setAttribute('aria-pressed', 'false');
-                });
-
-                btn.classList.add('active', 'bg-accentCyan', 'text-black', 'border-accentCyan');
-                btn.classList.remove('bg-cardBg', 'text-gray-300', 'border-cardBorder');
-                btn.setAttribute('aria-pressed', 'true');
-
-                const filterValue = btn.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
+        // NOTA: los filtros de proyecto (Todos/XR/Gameplay) se eliminaron:
+        // con solo 3 prototipos aportaban ruido, no valor.
 
         // Project Modal Detail Items
         // ---------------------------------------------------------------------
@@ -78,7 +81,7 @@
                 title: "Simulador Interactivo 3D",
                 badge: "XR / Simulación 3D",
                 description: "Prototipo interactivo desarrollado en Unity enfocado en la manipulación precisa de objetos tridimensionales y retroalimentación táctil y visual.",
-                role: "",
+                role: "Desarrollo individual — prototipo de práctica personal (Unity + C#)",
                 metrics: [],
                 repo: "",
                 demo: "",
@@ -94,7 +97,7 @@
                 title: "Sistema Modular de Combate e Inventario",
                 badge: "Gameplay Core & Architecture",
                 description: "Módulo desacoplado de inventario y salud implementando principios SOLID, ScriptableObjects y comunicación mediante eventos C#.",
-                role: "",
+                role: "Desarrollo individual — prototipo de práctica personal (Unity + C#)",
                 metrics: [],
                 repo: "",
                 demo: "",
@@ -110,7 +113,7 @@
                 title: "Entorno de Navegación & IA de Enemigos",
                 badge: "Inteligencia Artificial & Animación",
                 description: "Implementación de IA para agentes enemigos con patrullaje autónomo, persecución del jugador y transiciones de animación fluidas.",
-                role: "",
+                role: "Desarrollo individual — prototipo de práctica personal (Unity + C#)",
                 metrics: [],
                 repo: "",
                 demo: "",
@@ -130,6 +133,7 @@
         const modalCloseBtn = document.getElementById('modal-close-btn');
         const FOCUSABLE = 'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])';
         let lastFocusedElement = null;
+        let modalCloseTimer = null;
 
         // Mantiene el foco dentro del dialogo mientras esta abierto (focus trap)
         function trapFocus(event) {
@@ -172,13 +176,13 @@
 
             // Bloques opcionales (Fase 4): si el campo esta vacio, no se pinta nada
             const roleBlock = data.role
-                ? `<p class="text-xs text-gray-400 mb-6"><span class="font-semibold text-gray-200">Mi rol:</span> ${data.role}</p>`
+                ? `<p class="text-sm text-gray-400 mb-6"><span class="font-semibold text-gray-200">Mi rol:</span> ${data.role}</p>`
                 : '';
 
             const metricsBlock = (data.metrics && data.metrics.length)
                 ? `<h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Resultados / Métricas:</h4>
                 <ul class="space-y-2 mb-6">
-                    ${data.metrics.map(m => `<li class="flex items-start gap-2 text-xs text-gray-400"><svg class="text-accentViolet mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-gauge-high"/></svg> <span>${m}</span></li>`).join('')}
+                    ${data.metrics.map(m => `<li class="flex items-start gap-2 text-sm text-gray-400"><svg class="text-accentViolet mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-gauge-high"/></svg> <span>${m}</span></li>`).join('')}
                 </ul>`
                 : '';
 
@@ -198,12 +202,12 @@
                     ${data.badge}
                 </span>
                 <h3 class="text-2xl font-bold text-white mb-3">${data.title}</h3>
-                <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6">${data.description}</p>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">${data.description}</p>
                 ${roleBlock}
 
                 <h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Aspectos Destacados:</h4>
                 <ul class="space-y-2 mb-6">
-                    ${data.features.map(f => `<li class="flex items-start gap-2 text-xs text-gray-400"><svg class="text-accentCyan mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg> <span>${f}</span></li>`).join('')}
+                    ${data.features.map(f => `<li class="flex items-start gap-2 text-sm text-gray-400"><svg class="text-accentCyan mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg> <span>${f}</span></li>`).join('')}
                 </ul>
                 ${metricsBlock}
 
@@ -215,9 +219,23 @@
             `;
 
             modal.setAttribute('aria-label', 'Detalles del proyecto: ' + data.title);
+            if (modalCloseTimer) {
+                clearTimeout(modalCloseTimer);
+                modalCloseTimer = null;
+            }
             modal.classList.remove('hidden');
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+
+            // Fade + scale: .is-open va al overlay Y al panel tras dos cuadros
+            // (si solo la recibe el overlay, el panel queda en opacity:0 y
+            //  el usuario ve el fondo oscuro pero "no se abre nada").
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    modal.classList.add('is-open');
+                    modalPanel.classList.add('is-open');
+                });
+            });
 
             modalPanel.focus({ preventScroll: true });
             modalPanel.scrollTop = 0;
@@ -228,7 +246,8 @@
         function closeModal() {
             if (modal.classList.contains('hidden')) return;
 
-            modal.classList.add('hidden');
+            modal.classList.remove('is-open');
+            modalPanel.classList.remove('is-open');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
 
@@ -239,6 +258,13 @@
                 lastFocusedElement.focus();
                 lastFocusedElement = null;
             }
+
+            // Espera al final de la transicion antes de ocultar del todo
+            if (modalCloseTimer) clearTimeout(modalCloseTimer);
+            modalCloseTimer = setTimeout(() => {
+                modal.classList.add('hidden');
+                modalCloseTimer = null;
+            }, ANIM_MS);
         }
 
         // Cierra solo si el clic fue en el fondo, no dentro del panel
@@ -256,21 +282,20 @@
         // =====================================================================
         // FORMULARIO DE CONTACTO - ENVIO REAL
         // ---------------------------------------------------------------------
-        // PASO 1 (una sola vez): crea una cuenta gratuita y pega aqui tu endpoint.
-        //   - Formspree  ->  https://formspree.io/f/xxxxxxxx    (solo FORM_ENDPOINT)
-        //   - Web3Forms  ->  https://api.web3forms.com/submit   (+ access key)
-        // Si dejas FORM_ENDPOINT vacio, el formulario NO miente: abre el cliente
+        // CONFIGURADO con Web3Forms (recibe en Matias.villalobos.dev@gmail.com).
+        // Alternativa Formspree: FORM_ENDPOINT = 'https://formspree.io/f/xxxx'
+        // (con Formspree WEB3FORMS_ACCESS_KEY queda vacio).
+        // Si vacias FORM_ENDPOINT, el formulario NO miente: abre el cliente
         // de correo del visitante con el mensaje ya redactado y listo para enviar.
         // =====================================================================
-        const FORM_ENDPOINT = '';
-        const WEB3FORMS_ACCESS_KEY = '';
+        const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+        const WEB3FORMS_ACCESS_KEY = '65c144b4-4c81-4610-8057-4df6b8a2b605';
         const CONTACT_EMAIL = 'Matias.villalobos.dev@gmail.com';
 
         const contactForm = document.getElementById('contact-form');
         const formAlert = document.getElementById('form-alert');
         const submitBtn = document.getElementById('submit-btn');
         const submitBtnDefault = submitBtn.innerHTML;
-        const REQUIRED_FIELDS = ['name', 'email', 'message'];
 
         const ALERT_CLASSES = {
             success: 'form-alert-success',
@@ -295,21 +320,112 @@
                 : submitBtnDefault;
         }
 
-        function markInvalidFields() {
-            REQUIRED_FIELDS.forEach(function (id) {
-                document.getElementById(id).classList.remove('field-error');
+        // ---------------------------------------------------------------------
+        // Validacion en tiempo real + estado del envio
+        // ---------------------------------------------------------------------
+        // Mensajes por campo (solo los errores mostrables; subject es opcional).
+        const FIELD_MESSAGES = {
+            name: { valueMissing: 'Escribe tu nombre para continuar.' },
+            email: {
+                valueMissing: 'Necesito tu correo para poder responderte.',
+                typeMismatch: 'El formato del correo no parece válido (ej: nombre@dominio.com).'
+            },
+            message: { valueMissing: 'Escribe un mensaje con el detalle de tu consulta.' }
+        };
+
+        // Valida un campo y pinta/limpia su mensaje accesible (<p id="...-error">).
+        // show=false solo limpia errores ya marcados (no molesta mientras se escribe).
+        function validateField(field, show) {
+            const messages = FIELD_MESSAGES[field.id];
+            const errorEl = document.getElementById(field.id + '-error');
+            if (!messages || !errorEl) return field.checkValidity();
+
+            let message = '';
+            if (!field.validity.valid) {
+                if (field.validity.valueMissing && messages.valueMissing) {
+                    message = messages.valueMissing;
+                } else if (field.validity.typeMismatch && messages.typeMismatch) {
+                    message = messages.typeMismatch;
+                } else {
+                    message = 'Revisa este campo.';
+                }
+            }
+
+            if (message) {
+                if (show) {
+                    errorEl.textContent = message;
+                    errorEl.classList.remove('hidden');
+                    field.classList.add('field-error');
+                    field.setAttribute('aria-invalid', 'true');
+                }
+            } else {
+                errorEl.textContent = '';
+                errorEl.classList.add('hidden');
+                field.classList.remove('field-error');
+                field.setAttribute('aria-invalid', 'false');
+            }
+            return !message;
+        }
+
+        Object.keys(FIELD_MESSAGES).forEach(function (id) {
+            const field = document.getElementById(id);
+            if (!field) return;
+
+            // Al salir del campo se muestra el error si lo hay...
+            field.addEventListener('blur', function () {
+                validateField(field, true);
             });
 
+            // ...y mientras se reescribe se limpia en cuanto el valor es valido.
+            field.addEventListener('input', function () {
+                if (field.classList.contains('field-error')) {
+                    validateField(field, true);
+                }
+            });
+        });
+
+        // Contador de caracteres del mensaje: maxlength accesible de verdad
+        const messageField = document.getElementById('message');
+        const messageCount = document.getElementById('message-count');
+
+        function updateMessageCount() {
+            if (messageField && messageCount) {
+                messageCount.textContent = messageField.value.length + ' / 2000';
+            }
+        }
+
+        if (messageField) {
+            messageField.addEventListener('input', updateMessageCount);
+            updateMessageCount();
+        }
+
+        function markInvalidFields() {
             let firstInvalid = null;
             contactForm.querySelectorAll('input, textarea').forEach(function (field) {
-                if (!field.checkValidity()) {
-                    field.classList.add('field-error');
-                    if (!firstInvalid) {
-                        firstInvalid = field;
-                    }
+                if (field.id === 'website') return; // honeypot: fuera de la validacion
+                if (!validateField(field, true) && !firstInvalid) {
+                    firstInvalid = field;
                 }
             });
             return firstInvalid;
+        }
+
+        // Tras enviar (o abortar por el honeypot) se limpian errores y contador
+        function resetFormState() {
+            contactForm.reset();
+            Object.keys(FIELD_MESSAGES).forEach(function (id) {
+                const field = document.getElementById(id);
+                const errorEl = document.getElementById(id + '-error');
+                if (field) {
+                    field.classList.remove('field-error');
+                    field.removeAttribute('aria-invalid');
+                }
+                if (errorEl) {
+                    errorEl.textContent = '';
+                    errorEl.classList.add('hidden');
+                }
+            });
+            updateMessageCount();
         }
 
         function buildPayload() {
@@ -342,7 +458,7 @@
                 + payload.message;
 
             window.location.href = mailtoLink(payload.subject, body);
-            showAlert('info', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-envelope-open-text"/></svg> <span>Se abrio tu cliente de correo con el mensaje listo para enviar. Si no se abrio, escribeme directo a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.</span>');
+            showAlert('info', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-envelope-open-text"/></svg> <span>Se abrió tu cliente de correo con el mensaje listo para enviar. Si no se abrió, escríbeme directo a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.</span>');
         }
 
         contactForm.addEventListener('submit', async (e) => {
@@ -358,7 +474,7 @@
 
             // Honeypot: solo los bots rellenan este campo escondido
             if (document.getElementById('website').value !== '') {
-                contactForm.reset();
+                resetFormState();
                 showAlert('success', '<svg class="mt-0.5 text-base icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-check"/></svg> <span>Gracias por escribir. Te responderé a la brevedad.</span>');
                 return;
             }
@@ -367,7 +483,7 @@
 
             // Sin endpoint configurado: fallback por correo (siempre funciona, no miente)
             if (!FORM_ENDPOINT) {
-                contactForm.reset();
+                resetFormState();
                 openMailFallback(payload);
                 return;
             }
@@ -388,12 +504,12 @@
                     throw new Error('HTTP ' + response.status);
                 }
 
-                contactForm.reset();
+                resetFormState();
                 showAlert('success', '<svg class="mt-0.5 text-base icon" aria-hidden="true"><use href="assets/icons.svg#icon-circle-check"/></svg> <span>Mensaje enviado. ¡Gracias! Te responderé a la brevedad.</span>');
                 setTimeout(hideAlert, 8000);
             } catch (error) {
                 console.error('[contact-form] Error al enviar:', error);
-                showAlert('error', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-triangle-exclamation"/></svg> <span>No se pudo enviar el mensaje. Escríbeme directo a <a class="underline" href="' + mailtoLink('Contacto desde el portafolio', 'Hola Matías, ') + '">' + CONTACT_EMAIL + '</a> o por WhatsApp al +56 9 8757 6708.</span>');
+                showAlert('error', '<svg class="mt-0.5 text-sm icon" aria-hidden="true"><use href="assets/icons.svg#icon-triangle-exclamation"/></svg> <span>No se pudo enviar el mensaje. Escríbeme directo a <a class="underline" href="' + mailtoLink('Contacto desde el portafolio', 'Hola Matías, ') + '">' + CONTACT_EMAIL + '</a> o por <a class="underline" href="https://wa.me/56987576708" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</span>');
             } finally {
                 setLoading(false);
             }
@@ -446,6 +562,101 @@
             }
         }
 
+        // Copiar correo con microfeedback (✓ temporal en el botón)
+        const copyEmailBtn = document.getElementById('copy-email');
+        if (copyEmailBtn) {
+            copyEmailBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(CONTACT_EMAIL);
+                    copyEmailBtn.textContent = '✓ Copiado';
+                } catch (err) {
+                    // navigator.clipboard requiere contexto seguro (https/localhost)
+                    const aux = document.createElement('textarea');
+                    aux.value = CONTACT_EMAIL;
+                    aux.style.position = 'fixed';
+                    aux.style.opacity = '0';
+                    document.body.appendChild(aux);
+                    aux.select();
+                    document.execCommand('copy');
+                    aux.remove();
+                    copyEmailBtn.textContent = '✓ Copiado';
+                }
+                setTimeout(() => { copyEmailBtn.textContent = 'Copiar'; }, 2000);
+            });
+        }
+
+        // =====================================================================
+        // SCROLL-SPY + HEADER AL SCROLL + VOLVER ARRIBA
+        // ---------------------------------------------------------------------
+        // Resalta la seccion activa en la navegacion (desktop y movil) via
+        // aria-current, da mas presencia al header al scrollear y muestra el
+        // boton de volver arriba cuando hay recorrido suficiente.
+        // =====================================================================
+        const siteHeader = document.getElementById('site-header');
+        const backToTopBtn = document.getElementById('back-to-top');
+        let scrollTicking = false;
+
+        function onScroll() {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(function () {
+                const y = window.scrollY;
+
+                if (siteHeader) {
+                    siteHeader.classList.toggle('header-scrolled', y > 8);
+                }
+
+                if (backToTopBtn) {
+                    const show = y > 600;
+                    backToTopBtn.classList.toggle('opacity-0', !show);
+                    backToTopBtn.classList.toggle('pointer-events-none', !show);
+                    backToTopBtn.setAttribute('tabindex', show ? '0' : '-1');
+                    backToTopBtn.setAttribute('aria-hidden', String(!show));
+                }
+
+                scrollTicking = false;
+            });
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: REDUCE_MOTION ? 'auto' : 'smooth' });
+            });
+        }
+
+        // Scroll-spy: la seccion que cruza la banda central del viewport decide
+        // el enlace activo (desktop y movil). El estilo lo aplica input.css via
+        // header nav a[aria-current="location"], evitando la especificidad de clases.
+        const spyLinks = document.querySelectorAll('nav[aria-label="Navegación principal"] a[href^="#"], #mobile-menu a[href^="#"]');
+        const spySections = document.querySelectorAll('main section[id]');
+
+        function setActiveSection(id) {
+            spyLinks.forEach(function (link) {
+                if (link.getAttribute('href') === '#' + id) {
+                    link.setAttribute('aria-current', 'location');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        if ('IntersectionObserver' in window) {
+            const spyObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+            spySections.forEach(function (section) {
+                spyObserver.observe(section);
+            });
+        }
+
         // =====================================================================
         // ANALITICA (Fase 5) - opcional, ligera y sin cookies
         // ---------------------------------------------------------------------
@@ -474,4 +685,5 @@
         }
 
         enableAnalytics();
+})();
     

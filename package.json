@@ -9,7 +9,8 @@
     "watch": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
     "serve": "npx --yes serve .",
     "set-url": "node scripts/set-url.mjs",
-    "og": "\"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=assets/og-image.png src/og-card.html"
+    "og": "node scripts/render.mjs og",
+    "cv": "node scripts/render.mjs cv"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",

@@ -8,15 +8,15 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FA = path.join(ROOT, 'node_modules', '@fortawesome', 'fontawesome-free', 'svgs');
 
-// Lista exacta de iconos usados (33): auditar con
-// node -e "...fa-(solid|brands|regular) fa-([a-z0-9-]+)... index.html js/main.js"
+// Lista exacta de iconos usados (auditar con la busqueda de "icon-" en
+// index.html + js/main.js antes de añadir o quitar entradas).
 const ICONS = [
     ['brands', 'github'],
     ['brands', 'linkedin'],
-    ['brands', 'unity'],
     ['brands', 'whatsapp'],
     ['regular', 'envelope'],
     ['solid', 'arrow-right'],
+    ['solid', 'arrow-up'],
     ['solid', 'arrow-up-right-from-square'],
     ['solid', 'bars'],
     ['solid', 'box-archive'],
@@ -38,9 +38,6 @@ const ICONS = [
     ['solid', 'location-dot'],
     ['solid', 'paper-plane'],
     ['solid', 'person-walking'],
-    ['solid', 'phone'],
-    ['solid', 'robot'],
-    ['solid', 'shield-halved'],
     ['solid', 'sliders'],
     ['solid', 'triangle-exclamation'],
     ['solid', 'vr-cardboard'],

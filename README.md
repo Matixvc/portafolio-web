@@ -13,14 +13,22 @@ portafolio-web/
 ├── src/
 │   ├── input.css           # CSS fuente: directivas de Tailwind + estilos propios
 │   ├── og-card.html        # Plantilla para generar assets/og-image.png (build time)
-│   └── icon-card.html      # Plantilla para generar assets/apple-touch-icon.png (build time)
+│   ├── icon-card.html      # Plantilla para generar assets/apple-touch-icon.png (build time)
+│   └── cv.html             # Plantilla A4 del CV (npm run cv)
+├── scripts/
+│   ├── build-icons.mjs     # Genera el sprite assets/icons.svg
+│   ├── render.mjs          # og-image.png y CV en PDF via Edge headless
+│   └── set-url.mjs         # Cambia el dominio en todos los metadatos
 ├── js/
-│   └── main.js             # Menú móvil, filtros de proyectos, modal y formulario
+│   └── main.js             # Menú, modal, validación en tiempo real, scroll-spy y formulario (IIFE)
 ├── dist/
 │   └── styles.css          # CSS compilado y minificado (no editar a mano)
 ├── assets/
 │   ├── favicon.svg
 │   ├── apple-touch-icon.png
+│   ├── icons.svg           # Sprite SVG local (se regenera con npm run icons)
+│   ├── foto-perfil.jpg     # Foto de perfil (sección "Sobre mí")
+│   ├── cv-matias-villalobos.pdf  # CV (subir cuando esté listo; el botón se activa solo)
 │   └── og-image.png        # Imagen para la vista previa en WhatsApp / LinkedIn
 ├── tailwind.config.js      # Colores, fuentes y sombras del sitio
 ├── robots.txt
@@ -38,6 +46,7 @@ npm run build        # compila dist/styles.css (minificado)
 npm run watch        # recompila al guardar cambios mientras desarrollas
 npm run serve        # servidor local en http://localhost:3000
 npm run og           # regenera assets/og-image.png (requiere Microsoft Edge)
+npm run cv           # regenera assets/cv-matias-villalobos.pdf (requiere Microsoft Edge)
 npm run set-url -- https://tudominio.com   # cambia el dominio en todos los metadatos
 ```
 
@@ -46,25 +55,15 @@ npm run set-url -- https://tudominio.com   # cambia el dominio en todos los meta
 
 ---
 
-## ⚠️ PASO PENDIENTE 1: activar el envío real del formulario
+## ✅ PASO HECHO: envío real del formulario (Web3Forms)
 
-El formulario ya no simula un envío: hoy funciona con **fallback por correo** (abre el cliente de
-correo del visitante con el mensaje redactado). Para recibir los mensajes directo en tu bandeja:
+El formulario envía mensajes **directo a tu bandeja** (Matias.villalobos.dev@gmail.com)
+vía Web3Forms. La clave vive en `js/main.js` (`FORM_ENDPOINT` + `WEB3FORMS_ACCESS_KEY`).
 
-1. Crea una cuenta gratuita en [Formspree](https://formspree.io) o [Web3Forms](https://web3forms.com).
-2. Abre `js/main.js` y completa las constantes del inicio del bloque de contacto:
-
-```js
-const FORM_ENDPOINT = 'https://formspree.io/f/tu-id-aqui';   // Formspree
-// o
-const FORM_ENDPOINT = 'https://api.web3forms.com/submit';     // Web3Forms
-const WEB3FORMS_ACCESS_KEY = 'tu-access-key';                 // solo Web3Forms
-```
-
-3. Ejecuta `npm run build` (no hace falta para el JS, pero mantiene todo consistente) y prueba
-   enviando un mensaje desde el sitio publicado.
-
-Prueba obligatoria: enviar un mensaje real y confirmar que llega a **Matias.villalobos.dev@gmail.com**.
+- Si algún día quieres cambiarlo: vacía `FORM_ENDPOINT` y el formulario vuelve al
+  **fallback por correo** (abre el cliente de correo del visitante, nunca miente).
+- Prueba recomendada tras cada deploy: enviar un mensaje real desde el sitio y
+  confirmar que llega el correo (revisa spam la primera vez).
 
 ---
 
@@ -104,7 +103,7 @@ que el CSS se genere en cada deploy) y publica la raíz del proyecto.
 ### Fase 2 — Accesibilidad ✅ (completada)
 - [x] Modal con `role="dialog"`, `aria-modal`, cierre con `Esc` y con clic en el fondo, focus trap y retorno de foco.
 - [x] `aria-expanded` en el botón hamburguesa y `aria-hidden` dinámico en el drawer (`true` cerrado / `false` abierto).
-- [x] Skip-link "Saltar al contenido" y `aria-pressed` en los botones de filtro.
+- [x] Skip-link "Saltar al contenido" y `aria-current` + scroll-spy en la navegación.
 - [x] `:focus-visible` visible en todos los controles (se eliminaron los `focus:outline-none`).
 - [x] Textos `text-[10px]` (15 usos) y `text-[11px]` subidos a 12 px o más.
 - [x] `prefers-reduced-motion` respetado (`animate-ping` detenido, `scroll-smooth` desactivado, transiciones neutralizadas).
@@ -123,17 +122,55 @@ que el CSS se genere en cada deploy) y publica la raíz del proyecto.
 - [x] **Botón "Descargar CV"** en el hero, apuntando a `assets/cv-matias-villalobos.pdf`.
       Mientras el PDF no exista, `js/main.js` atenúa el botón, cambia la etiqueta a
       "CV disponible próximamente" y al hacer clic ofrece tu correo (nunca un 404).
-      → **Pendiente tuyo:** sube el PDF con ese nombre exacto y el botón se activa solo.
+- [x] **CV en PDF**: plantilla `src/cv.html` → `npm run cv` genera
+      `assets/cv-matias-villalobos.pdf` (Edge headless). El botón del hero se activa solo;
+      si borras el PDF vuelve al modo "próximamente" sin tocar código.
 - [x] **Sección "Formación & Experiencia"** (`#formacion`) con línea de tiempo accesible,
       ya enlazada desde la navegación de escritorio, la móvil y el pie de página.
-      → **Pendiente tuyo:** reemplaza "En curso" y "Paralelo a mis estudios" por tus rangos reales.
-- [x] **Rol concreto y métricas por proyecto:** completa `role` y `metrics` en `projectDetails`
-      (`js/main.js`) y aparecen en el modal. Si los dejas vacíos no se muestra nada (cero relleno).
-- [x] **Enlaces al repositorio y a la demo** en el modal: completa `repo` y `demo` en `projectDetails`.
+- [x] **Rangos reales en la timeline:** "2021 — Presente (matrícula congelada 2024–2025)".
+- [x] **Foto de perfil** en la sección "Sobre mí" (`assets/foto-perfil.jpg`),
+      reemplazando el ícono de Unity.
+- [x] **Filtros de proyecto eliminados** (Todos/XR/Gameplay): con 3 prototipos aportaban ruido.
+      El subtítulo ahora aclara que son prototipos académicos/personales.
+- [x] **Rol concreto por proyecto** en `projectDetails` (`role` completado en los 3).
+      `metrics`, `repo` y `demo` siguen vacíos a propósito: sin datos reales no se rellenan.
 - [ ] Capturas/GIF + video (30-60 s) por proyecto y build jugable.
-- [ ] Foto de perfil en la sección "Sobre mí" (hoy hay un icono de Unity).
-      Instrucciones listas como comentario en `index.html`, dentro del bloque "Sobre mí".
 - [ ] Versión en inglés del sitio.
+
+### Fase A — UX & Interacción ✅ (completada)
+- [x] `main.js` envuelto en IIFE con `'use strict'` (cero variables globales).
+- [x] **Menú móvil animado** (slide-down con `requestAnimationFrame`), sin saltos.
+- [x] **Modal animado** (fade + scale) con cierre diferido tras la transición.
+- [x] **Validación en tiempo real** del formulario: `blur` + `input`, `maxlength`,
+      mensajes con `role="alert"` + `aria-describedby`, contador de caracteres.
+- [x] **Scroll-spy:** la sección activa se resalta en la nav (desktop y móvil) vía
+      `aria-current="location"` + `IntersectionObserver`.
+- [x] **Header con sombra al scrollear** (clase `header-scrolled`, rAF-throttled).
+- [x] **Botón flotante de WhatsApp** (solo móvil) + **botón "volver arriba"** que aparece tras 600 px.
+- [x] Icono `arrow-up` añadido al sprite; íconos `unity`/`phone`/`robot`/`shield-halved` eliminados.
+
+### Fase B — Contenido & Visual ✅ (parcial; capturas pendientes de tu lado)
+- [x] **Stat único en el hero:** solo "Ingeniería UBO · 2021 — Presente" (decisión tuya: sin métricas de prototipos).
+- [x] **Bugfix modal:** `.is-open` se aplicaba solo al overlay y el panel quedaba
+      en `opacity: 0` ("Ver Detalles" no abría nada visible). Ahora recibe la
+      clase el overlay **y** el panel, al abrir y al cerrar.
+- [x] **Mockups SVG por proyecto** (viewport 3D, HUD de inventario, mapa NavMesh)
+      reemplazando los iconos genéricos; se sustituirán por capturas reales cuando las tengas.
+- [x] **Skills con badge de nivel** por tarjeta: Sólido / En curso / Expuesto (autoevaluado).
+- [x] **Banda CTA final** antes del footer ("¿Buscas un Unity Developer...?").
+- [x] **Tipografía:** descripciones y cuerpos de texto de 12 px → 14 px (`text-sm`).
+- [x] **Targets táctiles ≥44 px** en botones de tarjeta, hamburguesa, cierre de modal y links del menú móvil.
+- [x] **Copy-email con microfeedback** ("✓ Copiado") junto a la tarjeta de correo.
+- [x] **Teléfono oculto:** solo enlaces `wa.me` (hero, contacto, JSON-LD, CV y errores del formulario).
+- [x] **Ortografía y tildes** revisados en textos visibles (HTML + JS).
+- [ ] **Capturas/GIF reales** de los prototipos → pendiente tuyo (se sustituyen los mockups).
+- [ ] **Endpoint Formspree/Web3Forms** → pendiente tuyo (pegar en `js/main.js`).
+- [ ] **URLs de repositorios** en `projectDetails.repo` → pendiente tuyo.
+
+### Fase C — Roadmap (siguiente)
+- [ ] **Case studies con URL propia por proyecto** (`/proyectos/<slug>/`) — priorizado.
+- [ ] **Analytics Umami** (cargador ya preparado en `js/main.js`).
+- [ ] Versión en inglés · CI/CD (GitHub Actions + Lighthouse CI) · ESLint/Prettier · 404.
 
 ### Fase 5 — Medición ✅ (lista para activar con una línea)
 - [x] Cargador de analítica ligera y opt-in en `js/main.js` (`ANALYTICS_PROVIDER` + `ANALYTICS_ID`).

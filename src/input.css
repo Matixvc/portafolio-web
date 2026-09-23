@@ -87,6 +87,66 @@ h1, h2, h3, .font-heading {
     color: #00f2fe;
 }
 
+/* Transiciones suaves del menú móvil y del modal (sin saltos).
+   Se activan quitando/poniendo la clase .is-open desde js/main.js. */
+.anim-fade-down {
+    opacity: 0;
+    transform: translateY(-0.75rem);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.anim-fade-down.is-open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Overlay del modal: fade + scale. El estado cerrado vive en .modal-closing
+   (se añade al abrir y se quita tras el siguiente cuadro para animar). */
+.anim-modal-overlay {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.anim-modal-overlay.is-open {
+    opacity: 1;
+}
+
+.anim-modal-panel {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.anim-modal-panel.is-open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Scroll-spy: seccion activa en la navegacion (lo marca js/main.js) */
+header nav a[aria-current="location"] {
+    color: #00f2fe;
+}
+
+/* Links del menu movil: target tactil >= 44px (WCAG 2.5.5) */
+#mobile-menu a.mobile-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+/* Header con mas presencia al scrollear (sombra sutil, sin saltos) */
+#site-header.header-scrolled {
+    box-shadow: 0 10px 30px -18px rgba(0, 242, 254, 0.45);
+    border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Boton flotante de WhatsApp: solo en móvil (en desktop ya está en el header) */
+@media (min-width: 768px) {
+    .fab-whatsapp {
+        display: none;
+    }
+}
+
 /* ==========================================================================
    Accesibilidad
    ========================================================================== */
