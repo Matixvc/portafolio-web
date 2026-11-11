@@ -43,7 +43,7 @@ portafolio-web/
 │   ├── icons.svg           # Sprite SVG local (se regenera con npm run icons)
 │   ├── foto-perfil.jpg     # Foto de perfil (sección "Sobre mí")
 │   ├── cv-matias-villalobos.pdf  # CV (se regenera con npm run cv)
-│   └── og-image.png        # Vista previa para WhatsApp / LinkedIn
+│   └── og-image.png        # Vista previa para LinkedIn
 ├── tailwind.config.js      # Colores, fuentes y sombras
 ├── robots.txt
 ├── sitemap.xml
