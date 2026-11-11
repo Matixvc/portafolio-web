@@ -13,7 +13,6 @@ const FA = path.join(ROOT, 'node_modules', '@fortawesome', 'fontawesome-free', '
 const ICONS = [
     ['brands', 'github'],
     ['brands', 'linkedin'],
-    ['brands', 'whatsapp'],
     ['regular', 'envelope'],
     ['solid', 'arrow-right'],
     ['solid', 'arrow-up'],
