@@ -5,7 +5,7 @@
     const root = document.documentElement;
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
     const validPreferences = ['dark', 'light', 'system'];
-    let preference = 'dark';
+    let preference = 'system';
 
     try {
         const stored = localStorage.getItem('theme');

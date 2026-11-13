@@ -194,5 +194,79 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
   abreviado sigue pendiente de sincronización si se autoriza regenerarla.
 
 ## Próxima fase propuesta
-Coherencia de CV bilingüe y preparación de evidencia real de proyectos,
-con aprobación específica antes de editar PDF o publicar material.
+### Fase 9, Etapa 1 — tema predeterminado del sistema
+- Base: rama etapa1-integridad, commit b15a84f, Git limpio.
+- js/theme.js inicia la preferencia en system. Primera visita, valores inválidos
+  y storage inaccesible siguen prefers-color-scheme; preferencias manuales intactas.
+- Se conserva el script bloqueante antes del CSS y la sincronización del selector
+  responsive único, etiqueta Sistema e icono desktop. Sin cambios de HTML o estilos.
+- Edge local: primera visita con sistema claro, valor inválido, persistencia manual,
+  cambios del sistema, selector y layouts móvil/escritorio comprobados con el QA existente.
+- Prueba síncrona del script temprano: 10 combinaciones de sistema oscuro/claro
+  y storage vacío/inválido/bloqueado/manual; tema, selector e icono correctos.
+- node --check y git diff --check correctos. No se regeneraron CSS ni PDF.
+- Limitación: se comprobó el estado síncrono previo al CSS, pero no se capturó
+  un nuevo filmstrip de primera pintura; ausencia de flash no certificada visualmente.
+- Evidencia temporal: portafolio-theme-qa/phase9.mjs y stage12-after-regression.json.
+- Esta autorización sustituye la regla histórica de AGENTS.md de fallback oscuro;
+  AGENTS.md permanece intacto por el alcance limitado de esta etapa.
+- Sin dependencias, commits, push ni publicación.
+
+## Recuperación autorizada y cierre de Fases 9.1 / 9.2
+- Copia original conservada: D:/Proyectos/portafolio-web,
+  portfolio/professional-refresh en 20b49ad. Sin aplicar ese commit a la recuperación.
+- Snapshot protegido: recovery/mv-spatial-snapshot apunta a
+  623cac448a1c22801e2e498ecbfe6b0354eee6df. refs/stash intacta.
+- Bundle permanente completo verificado mediante git bundle verify y list-heads:
+  D:/Proyectos/Backups/portafolio-web/portafolio-web-20261113-013227-7452daf8.bundle.
+  Incluye snapshot, ambas ramas y 32 referencias; historial completo.
+- Worktree aislado: D:/Proyectos/portafolio-web-recovery, rama recovery/mv-spatial,
+  base b15a84f. Recuperados solo assets/brand, index.html, src/input.css,
+  dist/styles.css, js/theme.js y este documento. Todos estaban en el árbol principal
+  del snapshot (dos padres, sin tercer árbol de archivos no rastreados).
+- Hashes de cinco SVG, dos referencias PNG y ambos CV comparados byte por byte
+  contra el snapshot: todos coinciden. Los PDF conservan los SHA-256 anteriores.
+- Referencia oscura SHA-256:
+  ece06c0529051812bf27ec0e25df6e7964f99823adf51f42b3e9fb29a4e56512.
+  Referencia auxiliar SHA-256:
+  fc3505406ca8678c7290cf0c7fa4daab055fe8a53dccf585840157f6c4fd3dd7.
+- MV Spatial: identidad personal inspirada en videojuegos, desarrollo Unity,
+  tecnología XR y geometría espacial. Moderna, tecnológica, futurista, elegante,
+  profesional y creativa; firma visual verde esmeralda.
+- Recursos: mv-spatial.svg, variantes dark/light/monochrome y favicon.svg.
+  SVG con un path de tres formas, sin raster, filtros, sombras ni fondo dibujado.
+  Conserva M superior, V inferior y hexágono abierto. Variantes autónomas de
+  315–383 bytes para poder reutilizarlas sin dependencias externas.
+- Colores: #20D58F oscuro/principal, #07844F claro, currentColor monocromático;
+  favicon adapta su relleno a prefers-color-scheme. Paleta general sin cambios.
+- Encabezado con espacio reservado 40×44 px, móvil 32×38 px; símbolo decorativo
+  aria-hidden, imágenes alt vacío y nombre profesional visible en el enlace al inicio.
+- Contraste de rellenos opacos: 10.42:1 sobre #08090A y 4.75:1 sobre blanco;
+  sobre fondos de marca #0B1015 / #F4F7F5: 9.99:1 / 4.40:1.
+- Sin node_modules en el nuevo worktree: no se instalaron dependencias. Compilador
+  existente usado por ruta absoluta desde el worktree, salida temporal; resultado
+  idéntico byte por byte al CSS compilado recuperado. package/lock intactos.
+- QA nuevo, con servidores exclusivos de raíz portafolio-web-recovery:
+  nueve vistas 390/768/1440 × oscuro/claro/Sistema, sin desbordamiento del documento;
+  recursos locales presentes, JSON-LD válido, sin anclas rotas ni IDs duplicados.
+  Comparación visual referencia/SVG y lectura a 16/32/48 px revisadas en PNG nuevo.
+- 25 pruebas de regresión Edge aprobadas: persistencia, storage inválido/bloqueado,
+  Sistema en ambas direcciones, teclado/foco, menús, modal y movimiento reducido.
+  Sin excepciones JS ni errores de red en esa ejecución. Formulario no enviado.
+- Siete filmstrips nuevos: manual oscuro/claro, Sistema oscuro/claro, primera visita
+  sin preferencia en ambos sistemas y recarga clara. Caché desactivada, 200 ms,
+  150 KB/s. Entre 8 y 10 cuadros por caso. Muestras de contenido: cero temas
+  incorrectos y cero variantes visibles incorrectas; caja del logo estable 40×44.
+  Cuadros tempranos claro/oscuro revisados: no se observó flash de tema o logo.
+- Evidencia nueva: C:/Users/matia/AppData/Local/Temp/portfolio-recovered-qa/,
+  qa-results.json, comparación, encabezados y stage12-after/filmstrips.json.
+  Respaldo temporal portafolio-brand-phase92 preservado, sin reutilizarlo como QA final.
+- Fases 9.1 y 9.2 recuperadas y validadas localmente. Sintaxis y diff --check correctos.
+- Límites: Edge headless y sistema emulado; muestreo no descarta fenómenos
+  subfotograma. A 16 px se reconoce la silueta, con menos separación de detalles
+  que a 32/48 px. No se certifica compatibilidad visual con todos los navegadores.
+- Retirada de WhatsApp de 20b49ad: decisión pendiente, no integrada.
+- Etapas futuras no implementadas: sistema de diseño visual; fondo Hero original;
+  Projects Showcase; portadas/imágenes/videos/modelos 3D; animaciones/interacciones;
+  banners profesionales y Open Graph.
+- Sin commits de implementación, push, publicación, borrado de ramas ni respaldos.

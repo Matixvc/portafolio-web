@@ -388,6 +388,21 @@ input::placeholder, textarea::placeholder {
     #site-header > div > a > div:last-child > span:last-child { font-size: 0.6rem; }
 }
 
+/* Fixed brand geometry reserves space before the SVGs load. */
+#site-header > div > a > .brand-mark {
+    position: relative;
+    width: 40px;
+    height: 44px;
+    flex-shrink: 0;
+}
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; }
+.brand-light { display: none; }
+[data-theme='light'] .brand-dark { display: none; }
+[data-theme='light'] .brand-light { display: block; }
+@media (max-width: 639px) {
+    #site-header > div > a > .brand-mark { width: 32px; height: 38px; }
+}
+
 /* Si Tailwind purga motion-reduce, el CSS garantiza que el ping se detenga */
 @media (prefers-reduced-motion: reduce) {
     .animate-ping {
