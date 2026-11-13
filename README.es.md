@@ -1,15 +1,19 @@
+<p align="center">
+  <a href="https://matixvc.github.io/portafolio-web/"><img src="https://img.shields.io/badge/Ver_mi_portafolio-20D58F?style=for-the-badge&amp;logo=githubpages&amp;logoColor=0B1015" alt="Ver mi portafolio" height="40"></a><br>
+  <a href="https://matixvc.github.io/portafolio-web/">https://matixvc.github.io/portafolio-web/</a>
+</p>
 <p align="center"><img src="assets/brand/mv-spatial.svg" width="84" alt="Logo MV Spatial"></p>
 <h1 align="center">MV Spatial · Matías Villalobos</h1>
 <p align="center"><strong>Unity Developer | XR / VR Developer</strong></p>
-<p align="center">Proyectos personales, gameplay y experiencias 3D interactivas.</p>
-<p align="center"><a href="https://matixvc.github.io/portafolio-web/">Visitar el portafolio</a> · <a href="README.md">English</a> · <strong>Español</strong></p>
+<p align="center">Proyectos personales y académicos en Unity, gameplay e interacción 3D, con enfoque en exploración XR.</p>
+<p align="center"><a href="README.md" lang="en">English</a> · <a href="README.es.md" lang="es">Español</a></p>
 <p align="center"><img alt="HTML5" src="https://img.shields.io/badge/HTML5-static-E34F26"> <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-vanilla-F7DF1E"> <img alt="Tailwind CSS 3" src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4"></p>
 
 ## Sobre el portafolio
 
 Mi portafolio personal presenta proyectos personales y académicos de videojuegos, Unity, C#, interacción 3D y XR. Reúne resúmenes de proyectos, repositorios, descargas bilingües del CV y medios de contacto profesional.
 
-`main` contiene el portafolio estable aprobado hasta las fases 9.1 y 9.2. GitHub Pages todavía sirve la versión anterior desde `portfolio/professional-refresh`; cambiar su fuente a `main` queda pendiente de confirmación manual del autor.
+`main` es la rama estable y publicada. GitHub Pages sirve el portafolio actualizado en [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Las fases aprobadas 1–9.2 están completadas; la fase 9.3 sigue pendiente.
 
 ## Características
 
@@ -92,12 +96,12 @@ Comprobaciones básicas: `node --check js/main.js`, `node --check js/theme.js`, 
 
 ## Git y publicación
 
-- **Rama pública actual:** `portfolio/professional-refresh`, último despliegue verificado `20b49ad`. Mantener la configuración de Pages.
-- **Rama estable:** `main`, con el portafolio recuperado y aprobado hasta la fase 9.2.
+- **Rama publicada:** `main`, servida por GitHub Pages desde `/ (root)` mediante HTTPS. Mantener la configuración de Pages.
+- **Rama estable:** `main`, con el portafolio aprobado hasta la fase 9.2.
 - **Flujo de desarrollo:** ramas temporales `feature/*` desde `main`; sin `develop` permanente. Conservar `feature/portfolio-consolidation` y las ramas e historial existentes.
 - Revisar diff y staging, crear commits acotados y versionar CSS/iconos generados junto con sus fuentes.
-- Subir ramas feature únicamente tras verificar que los triggers de Pages/Actions no puedan publicarlas. Publicar requiere aprobación explícita.
-- **Paso manual de publicación pendiente:** el autor puede seleccionar Settings → Pages → Deploy from a branch → `main` → `/ (root)`. No describir `main` como fuente pública hasta verificar ese cambio y el despliegue. Actualizar `main` por sí solo no cambia la fuente actual de Pages.
+- Los pushes a `main` activan la compilación y publicación de Pages. Requieren autorización explícita; verificar los triggers de Pages/Actions antes de subir una rama feature.
+- **Alojamiento actual:** Deploy from a branch → `main` → `/ (root)`. El despliegue público está confirmado; no se necesita cambiar la configuración.
 
 GitHub es el respaldo principal tras verificar el commit remoto. Utilizar recursos temporales de recuperación solo cuando sean necesarios. Eliminar respaldos permanentes existentes, referencias de recuperación o stash requiere autorización explícita.
 
@@ -109,7 +113,7 @@ Verde esmeralda principal/oscuro: `#20D58F`; variante clara: `#07844F`; monocrom
 
 ## Estado y roadmap
 
-Completado hasta la fase 9.2: integridad y mejoras funcionales, posicionamiento profesional, preferencias de temas y símbolo/favicon MV Spatial aprobado. Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+Las fases aprobadas 1–9.2 están completadas: integridad y mejoras funcionales, posicionamiento profesional, preferencias de temas y símbolo/favicon MV Spatial aprobado. El portafolio está publicado desde `main`. Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 Previsto:
 

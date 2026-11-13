@@ -1,15 +1,19 @@
+<p align="center">
+  <a href="https://matixvc.github.io/portafolio-web/"><img src="https://img.shields.io/badge/Visit_My_Portfolio-20D58F?style=for-the-badge&amp;logo=githubpages&amp;logoColor=0B1015" alt="Visit My Portfolio" height="40"></a><br>
+  <a href="https://matixvc.github.io/portafolio-web/">https://matixvc.github.io/portafolio-web/</a>
+</p>
 <p align="center"><img src="assets/brand/mv-spatial.svg" width="84" alt="MV Spatial logo"></p>
 <h1 align="center">MV Spatial · Matías Villalobos</h1>
 <p align="center"><strong>Unity Developer | XR / VR Developer</strong></p>
-<p align="center">Personal projects, gameplay and interactive 3D experiences.</p>
-<p align="center"><a href="https://matixvc.github.io/portafolio-web/">Visit the portfolio</a> · <strong>English</strong> · <a href="README.es.md">Español</a></p>
+<p align="center">Personal and academic projects in Unity, gameplay and interactive 3D, with a focus on XR exploration.</p>
+<p align="center"><a href="README.md" lang="en">English</a> · <a href="README.es.md" lang="es">Español</a></p>
 <p align="center"><img alt="HTML5" src="https://img.shields.io/badge/HTML5-static-E34F26"> <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-vanilla-F7DF1E"> <img alt="Tailwind CSS 3" src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4"></p>
 
 ## About
 
 My personal portfolio presents personal and academic projects in game development, Unity, C#, interactive 3D and XR. It brings together project summaries, source repositories, bilingual CV downloads and professional contact details.
 
-`main` contains the approved stable portfolio through phases 9.1 and 9.2. GitHub Pages still serves the earlier version from `portfolio/professional-refresh`; switching its source to `main` is pending manual confirmation by the owner.
+`main` is the stable and published branch. GitHub Pages serves the updated portfolio at [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Approved phases 1–9.2 are complete; phase 9.3 remains pending.
 
 ## Features
 
@@ -92,12 +96,12 @@ Basic checks: `node --check js/main.js`, `node --check js/theme.js`, `node --che
 
 ## Git and publication
 
-- **Current public branch:** `portfolio/professional-refresh`, last verified deployment `20b49ad`. Keep Pages settings intact.
-- **Stable branch:** `main`, containing the recovered and approved portfolio through phase 9.2.
+- **Published branch:** `main`, served by GitHub Pages from `/ (root)` over HTTPS. Keep Pages settings intact.
+- **Stable branch:** `main`, containing the approved portfolio through phase 9.2.
 - **Development workflow:** temporary `feature/*` branches from `main`; no permanent `develop`. Preserve `feature/portfolio-consolidation` and existing branches/history.
 - Review diffs and staging, create focused commits, and version generated CSS/icons with their sources.
-- Push feature branches only after verifying Pages/Actions triggers cannot publish them. Publication requires explicit approval.
-- **Pending manual publication step:** the owner can select Settings → Pages → Deploy from a branch → `main` → `/ (root)`. Do not describe `main` as the live source until that change and deployment are verified. Updating `main` alone does not change the current Pages source.
+- Pushes to `main` trigger the Pages build and publication. Require explicit authorization before pushing; verify Pages/Actions triggers before pushing a feature branch.
+- **Current hosting:** Deploy from a branch → `main` → `/ (root)`. The live deployment is confirmed; no configuration change is needed.
 
 GitHub is the primary backup after verifying the remote commit. Use temporary recovery resources only when necessary. Existing permanent backups, recovery references and stash require explicit approval before removal.
 
@@ -109,7 +113,7 @@ Principal/dark emerald: `#20D58F`; light variant: `#07844F`; monochrome: `curren
 
 ## Status and roadmap
 
-Completed through phase 9.2: integrity and functional improvements, professional positioning, theme preferences, and the approved MV Spatial mark/favicon. Evidence and limitations: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+Approved phases 1–9.2 are complete: integrity and functional improvements, professional positioning, theme preferences, and the approved MV Spatial mark/favicon. The portfolio is live from `main`. Evidence and limitations: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 Planned:
 

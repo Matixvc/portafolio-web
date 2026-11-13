@@ -2,12 +2,12 @@
 
 Fecha: 2026-11-13 (America/Santiago).
 Rama estable y de trabajo actual: `main`.
-Base histórica inicial: `30750f5` — Cambio de CVs. Los apartados de fases anteriores conservan su contexto histórico; el último apartado de integración en main es el estado vigente.
+Base histórica inicial: `30750f5` — Cambio de CVs. Los apartados de fases anteriores conservan su contexto histórico; el apartado final de publicación confirmada y README es el estado vigente. Los registros anteriores describen el estado histórico de cada fase.
 
 ## Base confirmada
 - Sitio estático con HTML, JavaScript vanilla y Tailwind CSS.
 - Lockfile: Tailwind 3.4.19 y Font Awesome 6.4.0.
-- Publicación actual confirmada: portfolio/professional-refresh en 20b49ad. La referencia histórica a main / raíz era documental y no describía el último despliegue real.
+- Publicación vigente confirmada: main / raíz en GitHub Pages, mediante HTTPS. El autor confirmó el cambio de fuente; el deployment y la respuesta pública se verificaron antes de actualizar los README.
 - Fases 0–1: base técnica, CSS compilado, SEO y formulario.
 - Fase 2: accesibilidad de menú/modal, skip-link y movimiento reducido.
 - Fase 3: sprite local, fuentes recortadas y reducción de blur móvil.
@@ -403,3 +403,18 @@ Este apartado sustituye las referencias anteriores a la feature como única rama
 - Único worktree registrado en D:/Proyectos/portafolio-web, rama activa main, árbol limpio al verificar. Ramas existentes y stash conservados; rama remota feature/portfolio-consolidation permanece en e43626b. No se crearon carpetas, worktrees o respaldos nuevos.
 - Después del push: deployment más reciente todavía 20b49ad / portfolio/professional-refresh, y HTML público idéntico al de ese commit. No se modificó Settings → Pages ni se publicó la nueva versión. El autor puede realizar ahora el cambio manual a main / raíz y confirmar el nuevo despliegue.
 - Este registro final se confirma en un commit documental adicional sobre main; su hash y sincronización remota se entregan en el informe final. Fase 9.3 sin iniciar.
+
+## Publicación confirmada y README definitivo — 2026-11-13
+
+Estado vigente: main es la rama estable y publicada. Las referencias anteriores a otra rama pública o a un cambio pendiente corresponden únicamente al historial, no a la configuración actual.
+
+- Confirmación del autor: portafolio publicado correctamente en https://matixvc.github.io/portafolio-web/ desde main. Sin cambios de Settings → Pages por parte del agente.
+- Auditoría inicial: main en a8b56f8e61dd4f702227bc123935228ee548fc2a, Git limpio y sincronizado con origin/main después de fetch. Sin cambios inesperados.
+- Verificación pública inicial: deployment 7757818798 desde main / a8b56f8, ejecución pages-build-deployment completada con success. URL oficial HTTP 200 y HTML idéntico al index.html local aprobado.
+- README.md y README.es.md: primer bloque con badge esmeralda for-the-badge (Visit My Portfolio / Ver mi portafolio), ambos enlazados exactamente a la URL oficial, y URL completa visible como enlace independiente. A continuación logo MV Spatial aprobado, identidad profesional, descripción breve, idiomas y badges tecnológicos discretos.
+- Estado editorial actualizado: fases aprobadas 1–9.2 completadas; main estable y publicada; 9.3 pendiente. Conservados tecnologías, proyectos y su alcance, instalación, estructura, identidad visual, roadmap y contactos.
+- AGENTS.md: sustituida únicamente la referencia obsoleta a la rama de publicación por main / raíz. No se altera el diseño, código, logo, CV, dependencias ni configuración de Pages.
+- Validación de documentación: enlaces locales, URL visible antes de About/Sobre el portafolio, destinos de los badges, recursos SVG y renderizado HTML mediante GitHub; diff --check y exclusividad de los cuatro archivos documentales. Los resultados remotos del commit/push y despliegue se comprueban al cerrar y se informan en la sesión.
+- Commit solicitado: docs: highlight live portfolio and finalize bilingual README. Push autorizado exclusivamente a main, sin force; comprobar igualdad de HEAD remoto y local y esperar la ejecución correspondiente de Pages.
+- No se crean carpetas, worktrees ni ramas; no se eliminan historial o respaldos. Fase 9.3 preparada y sin iniciar. Se mantienen las limitaciones funcionales ya registradas, incluido QA sin envíos reales del formulario.
+- Validaciones previas al commit completadas: ocho enlaces relativos válidos por README, primer enlace y URL visible correctos, paridad de URLs salvo etiqueta traducida del badge, ausencia de avisos obsoletos en README/AGENTS y UTF-8 sin sustituciones. API GitHub Markdown renderiza ambos documentos conservando badge, enlace visible y logo; badges y SVG remoto HTTP 200. Solo los cuatro documentos autorizados difieren de a8b56f8; diff --check correcto. Estado inicial del deployment main confirmado además mediante status success y URL oficial.
