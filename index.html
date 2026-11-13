@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="dark scroll-smooth motion-reduce:scroll-auto">
+<html lang="es" data-theme="dark" class="dark scroll-smooth motion-reduce:scroll-auto">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +38,9 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
+    <!-- Blocking local script: resolves the theme before CSS and first paint. -->
+    <script src="js/theme.js"></script>
+
     <!-- CSS compilado con Tailwind CLI (npm run build). Sin CDN, sin FOUC. -->
     <link rel="stylesheet" href="dist/styles.css">
 
@@ -60,7 +63,7 @@
         "name": "Matías I. Villalobos Cautivo",
         "givenName": "Matías",
         "familyName": "Villalobos Cautivo",
-        "jobTitle": "Unity & XR Developer (en formación)",
+        "jobTitle": "Unity & XR Developer",
         "description": "Estudiante de Ingeniería en Realidad Virtual y Diseño de Juegos Digitales (UBO). Desarrollo interactivo 3D con Unity + C#: gameplay, simulaciones y entornos XR/VR/AR.",
         "url": "https://matixvc.github.io/portafolio-web/",
         "image": "https://matixvc.github.io/portafolio-web/assets/og-image.png",
@@ -70,7 +73,7 @@
             "addressLocality": "Santiago",
             "addressCountry": "CL"
         },
-        "alumniOf": {
+        "affiliation": {
             "@type": "CollegeOrUniversity",
             "name": "Universidad Bernardo O'Higgins",
             "alternateName": "UBO"
@@ -87,14 +90,14 @@
             "Desarrollo de videojuegos"
         ],
         "sameAs": [
-            "https://github.com/matiasvillalobosdev-web",
+            "https://github.com/Matixvc",
             "https://www.linkedin.com/in/matias-vc-dev"
         ]
     }
     </script>
 
 </head>
-<body class="bg-darkBg text-gray-100 antialiased selection:bg-accentCyan selection:text-black">
+<body class="bg-darkBg text-body antialiased selection:bg-accentCyan selection:text-black">
 
     <!-- Primer elemento enfocable: permite saltar la navegacion con teclado (WCAG 2.4.1) -->
     <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accentCyan focus:text-black focus:font-semibold">Saltar al contenido</a>
@@ -109,27 +112,27 @@
                     </div>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-bold text-base tracking-tight text-white group-hover:text-accentCyan transition-colors">Matías Villalobos</span>
-                    <span class="text-xs text-gray-400 -mt-1 font-medium">Unity & XR Developer</span>
+                    <span class="font-bold text-base tracking-tight text-primary group-hover:text-accentInk transition-colors">Matías Villalobos</span>
+                    <span class="text-xs text-muted -mt-1 font-medium">Unity & XR Developer</span>
                 </div>
             </a>
 
             <!-- Desktop Navigation Links -->
-            <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-                <a href="#inicio" class="hover:text-accentCyan transition-colors">Inicio</a>
-                <a href="#sobre-mi" class="hover:text-accentCyan transition-colors">Sobre mí</a>
-                <a href="#sistemas" class="hover:text-accentCyan transition-colors">Sistemas & Skills</a>
-                <a href="#proyectos" class="hover:text-accentCyan transition-colors">Proyectos</a>
-                <a href="#formacion" class="hover:text-accentCyan transition-colors">Formación</a>
-                <a href="#contacto" class="hover:text-accentCyan transition-colors">Contacto</a>
+            <nav aria-label="Navegación principal" class="hidden xl:flex items-center gap-4 text-sm font-medium text-secondary">
+                <a href="#inicio" class="hover:text-accentInk transition-colors">Inicio</a>
+                <a href="#sobre-mi" class="hover:text-accentInk transition-colors">Sobre mí</a>
+                <a href="#sistemas" class="hover:text-accentInk transition-colors">Sistemas & Skills</a>
+                <a href="#proyectos" class="hover:text-accentInk transition-colors">Proyectos</a>
+                <a href="#formacion" class="hover:text-accentInk transition-colors">Formación</a>
+                <a href="#contacto" class="hover:text-accentInk transition-colors">Contacto</a>
             </nav>
 
             <!-- CTA Actions Desktop -->
-            <div class="hidden md:flex items-center gap-3">
-                <a href="https://wa.me/56987576708" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 text-xs font-semibold transition-all flex items-center gap-2">
+            <div class="hidden xl:flex items-center gap-3">
+                <a href="https://wa.me/56987576708" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-successInk hover:bg-emerald-500/20 text-xs font-semibold transition-all flex items-center gap-2">
                     <svg aria-hidden="true" class="text-sm icon" ><use href="assets/icons.svg#icon-whatsapp"/></svg> WhatsApp
                 </a>
-                <a href="#contacto" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-semibold rounded-lg group bg-gradient-to-br from-accentCyan to-accentViolet text-white">
+                <a href="#contacto" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-semibold rounded-lg group bg-gradient-to-br from-accentCyan to-accentViolet text-primary">
                     <span class="relative px-4 py-2 transition-all ease-in duration-75 bg-darkBg rounded-md group-hover:bg-opacity-0">
                         Práctica Profesional <svg aria-hidden="true" class="ml-1 text-xs icon" ><use href="assets/icons.svg#icon-arrow-right"/></svg>
                     </span>
@@ -137,21 +140,31 @@
             </div>
 
             <!-- Mobile Hamburger Button -->
-            <button type="button" id="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden min-h-[44px] min-w-[44px] text-gray-300 hover:text-white p-2 rounded-lg flex items-center justify-center">
+            <button type="button" id="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu" class="xl:hidden min-h-[44px] min-w-[44px] text-secondary hover:text-primary p-2 rounded-lg flex items-center justify-center">
                 <svg aria-hidden="true" class="text-xl icon" id="menu-icon"><use href="assets/icons.svg#icon-bars"/></svg>
             </button>
+            <!-- One native selector, shared by desktop and mobile. -->
+            <div class="theme-control">
+                <svg aria-hidden="true" class="icon"><use id="theme-preference-icon" href="assets/icons.svg#icon-moon"/></svg>
+                <label for="theme-preference" class="sr-only">Tema de apariencia</label>
+                <select id="theme-preference" class="theme-select">
+                    <option value="dark">Oscuro</option>
+                    <option value="light">Claro</option>
+                    <option value="system">Sistema</option>
+                </select>
+            </div>
         </div>
 
         <!-- Mobile Navigation Drawer -->
-        <nav id="mobile-menu" aria-label="Navegación móvil" aria-hidden="true" class="hidden anim-fade-down md:hidden bg-cardBg border-b border-cardBorder px-4 pt-3 pb-6 space-y-3 overflow-hidden">
-            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Inicio</a>
-            <a href="#sobre-mi" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Sobre mí</a>
-            <a href="#sistemas" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Sistemas & Skills</a>
-            <a href="#proyectos" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Proyectos</a>
-            <a href="#formacion" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Formación</a>
-            <a href="#contacto" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Contacto</a>
+        <nav id="mobile-menu" aria-label="Navegación móvil" aria-hidden="true" class="hidden anim-fade-down xl:hidden bg-cardBg border-b border-cardBorder px-4 pt-3 pb-6 space-y-3 overflow-hidden">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-secondary hover:text-primary hover:bg-surfaceTint/5">Inicio</a>
+            <a href="#sobre-mi" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-secondary hover:text-primary hover:bg-surfaceTint/5">Sobre mí</a>
+            <a href="#sistemas" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-secondary hover:text-primary hover:bg-surfaceTint/5">Sistemas & Skills</a>
+            <a href="#proyectos" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-secondary hover:text-primary hover:bg-surfaceTint/5">Proyectos</a>
+            <a href="#formacion" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-secondary hover:text-primary hover:bg-surfaceTint/5">Formación</a>
+            <a href="#contacto" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-secondary hover:text-primary hover:bg-surfaceTint/5">Contacto</a>
             <div class="pt-2 flex flex-col gap-2">
-                <a href="https://wa.me/56987576708" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2.5 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-sm font-semibold flex items-center justify-center gap-2">
+                <a href="https://wa.me/56987576708" target="_blank" rel="noopener noreferrer" class="w-full text-center px-4 py-2.5 rounded-lg bg-emerald-500/20 text-successInk border border-emerald-500/30 text-sm font-semibold flex items-center justify-center gap-2">
                     <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-whatsapp"/></svg> Hablar por WhatsApp
                 </a>
                 <a href="#contacto" class="mobile-link block w-full text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-accentCyan to-accentBlue text-black font-semibold text-sm">
@@ -163,70 +176,56 @@
 
     <main id="contenido">
 
-    <section id="inicio" class="relative min-h-screen pt-32 pb-20 flex items-center justify-center grid-pattern overflow-hidden">
-        <!-- Resplandor ambiental: blur reducido en movil (perf), completo en desktop.
-             blur-[130px]+gradiente grande es de lo mas caro de pintar en GPUs moviles. -->
-        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-accentCyan/15 via-accentBlue/10 to-accentViolet/15 blur-[70px] md:blur-[130px] rounded-full pointer-events-none"></div>
+    <section id="inicio" class="relative min-h-screen pt-28 pb-24 flex items-center justify-center grid-pattern overflow-hidden">
+        <!-- Resplandor ambiental reducido para bajo costo en GPU -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-tr from-accentCyan/8 via-accentBlue/5 to-accentViolet/8 blur-[40px] sm:blur-[60px] md:blur-[80px] rounded-full pointer-events-none motion-reduce:hidden"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            
-            <!-- Status Badge -->
-            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-cardBorder bg-cardBg/90 text-xs font-semibold text-gray-200 mb-8 shadow-lg">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping motion-reduce:animate-none"></span>
-                <span>Busco Práctica Profesional (Part-Time) | Santiago, Chile</span>
-            </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Surface panel -->
+            <div class="inline-block p-8 sm:p-12 rounded-2xl bg-cardBg/80 backdrop-blur-sm border border-cardBorder/50 shadow-lg shadow-cyan-500/5">
 
-            <!-- Main Heading -->
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-                Desarrollador <span class="glow-gradient">Unity & XR</span> <br class="hidden sm:block" />
-                en Formación
-            </h1>
-
-            <!-- Subtitle Summary -->
-            <p class="max-w-3xl mx-auto text-base sm:text-lg text-gray-300 font-normal mb-10 leading-relaxed">
-                Especializado en la creación de <strong class="text-white font-semibold">videojuegos, simulaciones 3D y experiencias interactivas</strong>. Enfocado en escribir código en C# ordenado, modular, escalable y optimizado.
-            </p>
-
-            <!-- Hero Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#proyectos" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-accentCyan via-accentBlue to-accentViolet text-black font-bold text-sm hover:opacity-95 transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
-                    <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-gamepad"/></svg> Ver Proyectos & Demos
-                </a>
-                <a href="#contacto" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-cardBg border border-cardBorder text-gray-200 font-semibold text-sm hover:border-accentCyan hover:text-white transition-all flex items-center justify-center gap-2">
-                    <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-envelope"/></svg> Contactar para Práctica
-                </a>
-                <!-- El PDF se (re)genera con: npm run cv (plantilla src/cv.html).
-                     Si el PDF no existe, js/main.js atenúa el botón y ofrece el correo. -->
-                <a id="cv-btn" href="assets/cv-matias-villalobos.pdf" download="CV-Matias-Villalobos-Unity-XR.pdf" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-cardBg border border-cardBorder text-gray-200 font-semibold text-sm hover:border-accentCyan hover:text-white transition-all flex items-center justify-center gap-2">
-                    <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-floppy-disk"/></svg> <span id="cv-btn-label">Descargar CV</span>
-                </a>
-            </div>
-
-            <!-- Solo trayectoria académica (decisión tuya: sin métricas de prototipos) -->
-            <dl class="mt-12 flex justify-center">
-                <div class="px-6 py-4 rounded-xl bg-cardBg/70 border border-cardBorder backdrop-blur-sm text-center">
-                    <dt class="text-[11px] uppercase tracking-wider text-gray-500">Ingeniería UBO</dt>
-                    <dd class="text-xl font-bold text-white mt-1">2021 — Presente</dd>
+                <!-- Status Badge (static, sin animación) -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cardBorder bg-cardBg/90 text-[10px] font-semibold text-strong mb-8 uppercase tracking-wider">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accentCyan"></span>
+                    <span>Práctica Profesional Part-Time · Santiago, Chile</span>
                 </div>
-            </dl>
 
-            <!-- Quick Contacts Row -->
-            <div class="mt-14 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
-                <a href="https://wa.me/56987576708" target="_blank" rel="noopener noreferrer" class="hover:text-accentCyan transition-colors flex items-center gap-2">
-                    <svg aria-hidden="true" class="text-accentCyan icon" ><use href="assets/icons.svg#icon-whatsapp"/></svg> WhatsApp
-                </a>
-                <span class="text-gray-700 hidden sm:inline">•</span>
-                <a href="mailto:Matias.villalobos.dev@gmail.com" class="hover:text-accentCyan transition-colors flex items-center gap-2">
-                    <svg aria-hidden="true" class="text-accentCyan icon" ><use href="assets/icons.svg#icon-envelope"/></svg> Matias.villalobos.dev@gmail.com
-                </a>
-                <span class="text-gray-700 hidden sm:inline">•</span>
-                <a href="https://github.com/matiasvillalobosdev-web" target="_blank" rel="noopener noreferrer" class="hover:text-accentCyan transition-colors flex items-center gap-2">
-                    <svg aria-hidden="true" class="text-accentCyan icon" ><use href="assets/icons.svg#icon-github"/></svg> GitHub
-                </a>
-                <span class="text-gray-700 hidden sm:inline">•</span>
-                <a href="https://www.linkedin.com/in/matias-vc-dev" target="_blank" rel="noopener noreferrer" class="hover:text-accentCyan transition-colors flex items-center gap-2">
-                    <svg aria-hidden="true" class="text-accentCyan icon" ><use href="assets/icons.svg#icon-linkedin"/></svg> LinkedIn
-                </a>
+                <!-- Main Heading -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-primary mb-6 leading-tight">
+                    Unity <span class="glow-gradient"> &amp; XR </span>Developer
+                </h1>
+
+                <!-- Subtitle Summary -->
+                <p class="max-w-2xl mx-auto text-base sm:text-lg text-secondary font-normal mb-10 leading-relaxed">
+                    Desarrollo interactivo 3D con <strong class="text-primary font-semibold">Unity y C#</strong>, enfocado en sistemas de gameplay, simulaciones y experiencias XR/VR.
+                </p>
+
+                <!-- Hero Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#proyectos" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-accentCyan via-accentBlue to-accentViolet text-black font-bold text-sm hover:opacity-95 transition-all shadow-lg shadow-cyan-500/10 flex items-center justify-center gap-2">
+                        <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-gamepad"/></svg> Ver Proyectos
+                    </a>
+                    <a href="#contacto" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-cardBg border border-cardBorder text-strong font-semibold text-sm hover:border-accentCyan hover:text-primary transition-all flex items-center justify-center gap-2">
+                        <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-envelope"/></svg> Contactar
+                    </a>
+                    <!-- CV Bilingüe -->
+                    <div class="flex gap-2 w-full sm:w-auto max-w-xs">
+                        <a id="cv-btn-es" href="assets/Matias_Villalobos_CV_Unity_XR_ES.pdf" download="CV-Matias-Villalobos-ES.pdf" class="flex-1 px-6 py-3.5 rounded-xl bg-cardBg border border-cardBorder text-xs sm:text-sm font-medium text-secondary hover:border-accentCyan hover:text-accentInk transition-all flex items-center justify-center gap-2">
+                        <span class="text-[10px] uppercase tracking-wider text-accentInk">ES</span> CV
+                    </a>
+                    <a href="assets/Matias_Villalobos_CV_Unity_XR_EN.pdf" download="CV-Matias-Villalobos-EN.pdf" id="cv-btn-en" class="flex-1 px-6 py-3.5 rounded-xl bg-cardBg border border-cardBorder text-xs sm:text-sm font-medium text-secondary hover:border-accentCyan hover:text-accentInk transition-all flex items-center justify-center gap-2">
+                        <span class="text-[10px] uppercase tracking-wider text-accentInk">EN</span> CV
+                    </a>
+                    </div>
+                </div>
+
+                <!-- Información académica (sutil) -->
+                <dl class="mt-10 flex justify-center gap-4 text-[10px] uppercase tracking-wider text-subtle">
+                    <div class="px-4 py-2 rounded-lg bg-cardBg/50 border border-cardBorder/50">
+                        <dt>Formación</dt>
+                        <dd class="text-sm text-secondary mt-1">Ingeniería en Realidad Virtual y Diseño de Juegos Digitales — UBO</dd>
+                    </div>
+                </dl>
             </div>
         </div>
     </section>
@@ -240,23 +239,23 @@
                     <div class="relative mx-auto max-w-md rounded-2xl bg-cardBg border border-cardBorder p-6 overflow-hidden">
                         <div class="absolute -top-12 -right-12 w-40 h-40 bg-accentCyan/15 rounded-full blur-3xl"></div>
                         
-                        <div class="aspect-square rounded-xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700/60 flex flex-col items-center justify-center p-8 text-center relative overflow-hidden group">
+                        <div class="profile-portrait aspect-square rounded-xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-dividerStrong/60 flex flex-col items-center justify-center p-8 text-center relative overflow-hidden group">
                             
                             <img src="assets/foto-perfil.jpg" alt="Foto de Matías I. Villalobos Cautivo" width="112" height="112" class="w-28 h-28 rounded-full object-cover border-2 border-accentCyan/50 shadow-neon-cyan mb-4 group-hover:scale-105 transition-transform duration-500">
 
-                            <h3 class="font-bold text-xl text-white">Matías I. Villalobos Cautivo</h3>
-                            <p class="text-xs text-accentCyan mt-1 font-mono font-medium">Unity Developer Trainee / XR</p>
-                            <p class="text-xs text-gray-400 mt-2"><svg aria-hidden="true" class="text-accentViolet icon" ><use href="assets/icons.svg#icon-graduation-cap"/></svg> UBO - Ing. en Realidad Virtual y Diseño de Juegos Digitales</p>
+                            <h3 class="font-bold text-xl text-primary">Matías I. Villalobos Cautivo</h3>
+                            <p class="text-xs text-accentInk mt-1 font-mono font-medium">Unity Developer Trainee / XR</p>
+                            <p class="text-xs text-muted mt-2"><svg aria-hidden="true" class="text-accentViolet icon" ><use href="assets/icons.svg#icon-graduation-cap"/></svg> UBO - Ing. en Realidad Virtual y Diseño de Juegos Digitales</p>
                         </div>
 
                         <!-- Highlights list -->
-                        <div class="mt-6 space-y-2.5 text-xs text-gray-300">
-                            <div class="flex items-center gap-3 p-3 rounded-lg bg-neutral-900/80 border border-neutral-800">
-                                <svg aria-hidden="true" class="text-rose-400 text-sm icon" ><use href="assets/icons.svg#icon-location-dot"/></svg>
+                        <div class="mt-6 space-y-2.5 text-xs text-secondary">
+                            <div class="flex items-center gap-3 p-3 rounded-lg bg-surfaceInset/80 border border-divider">
+                                <svg aria-hidden="true" class="text-roseInk text-sm icon" ><use href="assets/icons.svg#icon-location-dot"/></svg>
                                 <span>Santiago, Chile (Remoto / Híbrido / Presencial)</span>
                             </div>
-                            <div class="flex items-center gap-3 p-3 rounded-lg bg-neutral-900/80 border border-neutral-800">
-                                <svg aria-hidden="true" class="text-accentCyan text-sm icon" ><use href="assets/icons.svg#icon-briefcase"/></svg>
+                            <div class="flex items-center gap-3 p-3 rounded-lg bg-surfaceInset/80 border border-divider">
+                                <svg aria-hidden="true" class="text-accentInk text-sm icon" ><use href="assets/icons.svg#icon-briefcase"/></svg>
                                 <span>Disponibilidad inmediata para práctica part-time</span>
                             </div>
                         </div>
@@ -265,33 +264,33 @@
 
                 <!-- Academic and Profile Narrative -->
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-block px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentCyan text-xs font-semibold uppercase tracking-widest">
+                    <div class="inline-block px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentInk text-xs font-semibold uppercase tracking-widest">
                         Acerca de mí
                     </div>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-                        Aportando soluciones de desarrollo <span class="text-transparent bg-clip-text bg-gradient-to-r from-accentCyan to-accentBlue">limpias, ordenadas y escalables</span>.
+                    <h2 class="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
+                        Aportando soluciones de desarrollo <span class="profile-heading-accent text-transparent bg-clip-text bg-gradient-to-r from-accentCyan to-accentBlue">limpias, ordenadas y escalables</span>.
                     </h2>
                     
-                    <p class="text-gray-300 text-base leading-relaxed">
-                        Soy estudiante de <strong class="text-white">Ingeniería en Realidad Virtual y Diseño de Juegos Digitales</strong> en la Universidad Bernardo O'Higgins (UBO). Mi enfoque principal es el desarrollo interactivo 3D con <strong class="text-white">Unity + C#</strong>.
+                    <p class="text-secondary text-base leading-relaxed">
+                        Soy estudiante de <strong class="text-primary">Ingeniería en Realidad Virtual y Diseño de Juegos Digitales</strong> en la Universidad Bernardo O'Higgins (UBO). Mi enfoque principal es el desarrollo interactivo 3D con <strong class="text-primary">Unity + C#</strong>.
                     </p>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Actualmente busco integrarme a un equipo profesional a través de una <strong class="text-white">práctica profesional part-time</strong>, donde pueda aportar valor real programando lógica de gameplay, sistemas mecánicos y optimizaciones de rendimiento, mientras continúo expandiendo mis conocimientos en desarrollo de simulación y entornos XR/VR/AR.
+                    <p class="text-muted text-sm leading-relaxed">
+                        Actualmente busco integrarme a un equipo profesional a través de una <strong class="text-primary">práctica profesional part-time</strong>, donde pueda aportar valor real programando lógica de gameplay, sistemas mecánicos y optimizaciones de rendimiento, mientras continúo expandiendo mis conocimientos en desarrollo de simulación y entornos XR/VR/AR.
                     </p>
 
                     <!-- Core Strengths -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                         <div class="p-4 rounded-xl bg-cardBg border border-cardBorder">
-                            <h4 class="font-semibold text-white text-sm mb-1 flex items-center gap-2">
-                                <svg aria-hidden="true" class="text-accentCyan icon" ><use href="assets/icons.svg#icon-layer-group"/></svg> Código Arquitecturado
+                            <h4 class="font-semibold text-primary text-sm mb-1 flex items-center gap-2">
+                                <svg aria-hidden="true" class="text-accentInk icon" ><use href="assets/icons.svg#icon-layer-group"/></svg> Código Arquitecturado
                             </h4>
-                            <p class="text-sm text-gray-400">Implementación de mecánicas mediante ScriptableObjects, Eventos, Interfaces y Patrones OOP.</p>
+                            <p class="text-sm text-muted">Implementación de mecánicas mediante ScriptableObjects, Eventos, Interfaces y Patrones OOP.</p>
                         </div>
                         <div class="p-4 rounded-xl bg-cardBg border border-cardBorder">
-                            <h4 class="font-semibold text-white text-sm mb-1 flex items-center gap-2">
+                            <h4 class="font-semibold text-primary text-sm mb-1 flex items-center gap-2">
                                 <svg aria-hidden="true" class="text-accentViolet icon" ><use href="assets/icons.svg#icon-vr-cardboard"/></svg> Orientado a XR & Simulaciones
                             </h4>
-                            <p class="text-sm text-gray-400">Interés en simuladores técnicos, entornos inmersivos y hardware VR/AR.</p>
+                            <p class="text-sm text-muted">Interés en simuladores técnicos, entornos inmersivos y hardware VR/AR.</p>
                         </div>
                     </div>
                 </div>
@@ -306,10 +305,10 @@
                 <span class="px-3 py-1 rounded-md bg-accentViolet/10 border border-accentViolet/20 text-accentViolet text-xs font-semibold uppercase tracking-widest">
                     Capacidades Prácticas
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary tracking-tight mt-2">
                     Sistemas Desarrollados en Unity + C#
                 </h2>
-                <p class="text-gray-400 text-sm mt-3">
+                <p class="text-muted text-sm mt-3">
                     Módulos y arquitectura de gameplay con los que he trabajado en proyectos personales y académicos — con mi nivel autoevaluado en cada tarjeta:
                 </p>
             </div>
@@ -319,14 +318,14 @@
                 
                 <!-- System Item 1 -->
                 <div class="bg-cardBg border border-cardBorder rounded-xl p-6 card-hover">
-                    <div class="w-12 h-12 rounded-lg bg-accentCyan/10 border border-accentCyan/20 flex items-center justify-center text-accentCyan text-xl mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-accentCyan/10 border border-accentCyan/20 flex items-center justify-center text-accentInk text-xl mb-4">
                         <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-person-walking"/></svg>
                     </div>
                     <div class="flex items-start justify-between gap-2 mb-2 flex-wrap">
-                        <h3 class="text-base font-bold text-white">Movimiento &amp; Físicas</h3>
-                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">Sólido</span>
+                        <h3 class="text-base font-bold text-primary">Movimiento &amp; Físicas</h3>
+                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-500/10 border border-emerald-500/30 text-successInk">Sólido</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="text-muted text-sm leading-relaxed">
                         Controladores de personaje primera y tercera persona utilizando CharacterController y Rigidbody, saltos, colisiones y raycasting.
                     </p>
                 </div>
@@ -337,94 +336,94 @@
                         <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-box-archive"/></svg>
                     </div>
                     <div class="flex items-start justify-between gap-2 mb-2 flex-wrap">
-                        <h3 class="text-base font-bold text-white">Sistema de Inventario</h3>
-                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">Sólido</span>
+                        <h3 class="text-base font-bold text-primary">Sistema de Inventario</h3>
+                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-500/10 border border-emerald-500/30 text-successInk">Sólido</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="text-muted text-sm leading-relaxed">
                         Gestión de ítems modulares desacoplados con ScriptableObjects, manipulación de slots de UI, equipamiento y slots reutilizables.
                     </p>
                 </div>
 
                 <!-- System Item 3 -->
                 <div class="bg-cardBg border border-cardBorder rounded-xl p-6 card-hover">
-                    <div class="w-12 h-12 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 text-xl mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-roseInk text-xl mb-4">
                         <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-heart-pulse"/></svg>
                     </div>
                     <div class="flex items-start justify-between gap-2 mb-2 flex-wrap">
-                        <h3 class="text-base font-bold text-white">Vida / Daño &amp; Interfaces</h3>
-                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">Sólido</span>
+                        <h3 class="text-base font-bold text-primary">Vida / Daño &amp; Interfaces</h3>
+                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-500/10 border border-emerald-500/30 text-successInk">Sólido</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Arquitectura limpia basada en Interfaces (<code class="text-gray-200">IDamageable</code>), cálculo de daño, efectos de hit/impacto y actualización reactiva de HUD.
+                    <p class="text-muted text-sm leading-relaxed">
+                        Arquitectura limpia basada en Interfaces (<code class="text-strong">IDamageable</code>), cálculo de daño, efectos de hit/impacto y actualización reactiva de HUD.
                     </p>
                 </div>
 
                 <!-- System Item 4 -->
                 <div class="bg-cardBg border border-cardBorder rounded-xl p-6 card-hover">
-                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-successInk text-xl mb-4">
                         <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-brain"/></svg>
                     </div>
                     <div class="flex items-start justify-between gap-2 mb-2 flex-wrap">
-                        <h3 class="text-base font-bold text-white">IA Básica &amp; NavMesh</h3>
-                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-amber-500/10 border border-amber-500/30 text-amber-400">En curso</span>
+                        <h3 class="text-base font-bold text-primary">IA Básica &amp; NavMesh</h3>
+                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-amber-500/10 border border-amber-500/30 text-warningInk">En curso</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="text-muted text-sm leading-relaxed">
                         Comportamiento de enemigos con NavMeshAgent, patrullaje, detección por rango/visión y máquinas de estado simples (FSM).
                     </p>
                 </div>
 
                 <!-- System Item 5 -->
                 <div class="bg-cardBg border border-cardBorder rounded-xl p-6 card-hover">
-                    <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-xl mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-warningInk text-xl mb-4">
                         <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-sliders"/></svg>
                     </div>
                     <div class="flex items-start justify-between gap-2 mb-2 flex-wrap">
-                        <h3 class="text-base font-bold text-white">UI / HUD &amp; Menús</h3>
-                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">Sólido</span>
+                        <h3 class="text-base font-bold text-primary">UI / HUD &amp; Menús</h3>
+                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-500/10 border border-emerald-500/30 text-successInk">Sólido</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="text-muted text-sm leading-relaxed">
                         Interfaces de usuario adaptativas para distintas resoluciones, menús de pausa, configuraciones de gráficos/audio y EventSystem.
                     </p>
                 </div>
 
                 <!-- System Item 6 -->
                 <div class="bg-cardBg border border-cardBorder rounded-xl p-6 card-hover">
-                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-infoInk text-xl mb-4">
                         <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-floppy-disk"/></svg>
                     </div>
                     <div class="flex items-start justify-between gap-2 mb-2 flex-wrap">
-                        <h3 class="text-base font-bold text-white">Guardado &amp; Carga</h3>
-                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-amber-500/10 border border-amber-500/30 text-amber-400">En curso</span>
+                        <h3 class="text-base font-bold text-primary">Guardado &amp; Carga</h3>
+                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-amber-500/10 border border-amber-500/30 text-warningInk">En curso</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="text-muted text-sm leading-relaxed">
                         Persistencia de datos del juego y progreso del jugador serializando en JSON y PlayerPrefs para estado de partidas.
                     </p>
                 </div>
 
                 <!-- System Item 7 -->
                 <div class="bg-cardBg border border-cardBorder rounded-xl p-6 card-hover">
-                    <div class="w-12 h-12 rounded-lg bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center text-fuchsia-400 text-xl mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center text-fuchsiaInk text-xl mb-4">
                         <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-film"/></svg>
                     </div>
                     <div class="flex items-start justify-between gap-2 mb-2 flex-wrap">
-                        <h3 class="text-base font-bold text-white">Animaciones &amp; Audio</h3>
-                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-amber-500/10 border border-amber-500/30 text-amber-400">En curso</span>
+                        <h3 class="text-base font-bold text-primary">Animaciones &amp; Audio</h3>
+                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-amber-500/10 border border-amber-500/30 text-warningInk">En curso</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="text-muted text-sm leading-relaxed">
                         Configuración de Animator Controllers, Blend Trees para transiciones suaves y AudioMixer para efectos 3D y música.
                     </p>
                 </div>
 
                 <!-- System Item 8 -->
                 <div class="bg-cardBg border border-cardBorder rounded-xl p-6 card-hover">
-                    <div class="w-12 h-12 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 text-xl mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-tealInk text-xl mb-4">
                         <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-cube"/></svg>
                     </div>
                     <div class="flex items-start justify-between gap-2 mb-2 flex-wrap">
-                        <h3 class="text-base font-bold text-white">Blender &amp; Workflow IA</h3>
-                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-gray-500/10 border border-gray-500/30 text-gray-300">Expuesto</span>
+                        <h3 class="text-base font-bold text-primary">Blender &amp; Workflow IA</h3>
+                        <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-gray-500/10 border border-gray-500/30 text-secondary">Expuesto</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="text-muted text-sm leading-relaxed">
                         Integración de assets 3D optimizados desde Blender, junto al uso de herramientas de IA Generativa/Prompting para prototipado y documentación.
                     </p>
                 </div>
@@ -438,14 +437,14 @@
             
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
-                    <span class="px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentCyan text-xs font-semibold uppercase tracking-widest">
+                    <span class="px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentInk text-xs font-semibold uppercase tracking-widest">
                         Portafolio de Prototipos
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-primary tracking-tight mt-2">
                         Proyectos & Prototipos
                     </h2>
                 </div>
-                <p class="text-gray-400 text-sm max-w-md mt-2 md:mt-0">
+                <p class="text-muted text-sm max-w-md mt-2 md:mt-0">
                     Proyectos personales y académicos en Unity, web y móvil. Código público en GitHub y demo jugable cuando el proyecto lo permite.
                 </p>
             </div>
@@ -485,18 +484,18 @@
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Physics VR Prototype — Agarre y Lanzamiento</h3>
-                            <p class="text-gray-400 text-sm line-clamp-3 mb-4 leading-relaxed">
+                            <h3 class="text-xl font-bold text-primary mb-2">Physics VR Prototype — Agarre y Lanzamiento</h3>
+                            <p class="text-muted text-sm line-clamp-3 mb-4 leading-relaxed">
                                 Prototipo en Unity para probar físicas de agarre, manipulación y lanzamiento de objetos en primera persona, con la interacción planteada para escalar a VR y realidad mixta.
                             </p>
                             <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">Unity 3D</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">C#</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">Físicas 3D</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">Repo privado</span>
+                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Unity 3D</span>
+                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">C#</span>
+                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Físicas 3D</span>
+
                             </div>
                         </div>
-                        <button type="button" data-project="proj1" aria-haspopup="dialog" class="w-full min-h-[44px] py-3 rounded-lg bg-white/5 hover:bg-accentCyan hover:text-black border border-white/10 text-white font-medium text-sm transition-all flex items-center justify-center gap-2">
+                        <button type="button" data-project="proj1" aria-haspopup="dialog" class="w-full min-h-[44px] py-3 rounded-lg bg-surfaceTint/5 hover:bg-accentCyan hover:text-black border border-surfaceTint/10 text-primary font-medium text-sm transition-all flex items-center justify-center gap-2">
                             Ver Detalles del Prototipo <svg aria-hidden="true" class="text-xs icon" ><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg>
                         </button>
                     </div>
@@ -541,25 +540,25 @@
                                 <path d="M17 6 L28 17 L17 28 L6 17 Z" fill="#7928ca" fill-opacity="0.9"/>
                             </g>
                         </svg>
-                        <span class="absolute top-3 right-3 bg-black/70 text-accentBlue text-xs font-mono font-bold px-2.5 py-1 rounded-full border border-accentBlue/30">Roguelike Web · Jugable</span>
+                        <span class="project-demo-badge absolute top-3 right-3 bg-black/70 text-accentBlue text-xs font-mono font-bold px-2.5 py-1 rounded-full border border-accentBlue/30">Roguelike Web · Jugable</span>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Basura Fighters — Roguelike de Reciclaje</h3>
-                            <p class="text-gray-400 text-sm line-clamp-3 mb-4 leading-relaxed">
+                            <h3 class="text-xl font-bold text-primary mb-2">Basura Fighters — Roguelike de Reciclaje</h3>
+                            <p class="text-muted text-sm line-clamp-3 mb-4 leading-relaxed">
                                 Roguelike jugable en el navegador: loop de combate contra oleadas de enemigos, experiencia y progresión de habilidades y armas entre partidas. Todo en un único documento HTML con Canvas 2D.
                             </p>
                             <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">JavaScript</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">Canvas 2D</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">Sistemas de juego</span>
+                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">JavaScript</span>
+                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Canvas 2D</span>
+                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Sistemas de juego</span>
                             </div>
                         </div>
                         <div class="space-y-2">
-                            <a href="https://trash-rogelike.netlify.app" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] py-3 rounded-lg bg-accentCyan/10 hover:bg-accentCyan hover:text-black border border-accentCyan/40 text-accentCyan font-semibold text-sm transition-all flex items-center justify-center gap-2">
+                            <a href="https://trash-rogelike.netlify.app" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] py-3 rounded-lg bg-accentCyan/10 hover:bg-accentCyan hover:text-black border border-accentCyan/40 text-accentInk font-semibold text-sm transition-all flex items-center justify-center gap-2">
                                 Jugar demo <svg aria-hidden="true" class="text-xs icon"><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg>
                             </a>
-                            <button type="button" data-project="proj2" aria-haspopup="dialog" class="w-full min-h-[44px] py-3 rounded-lg bg-white/5 hover:bg-accentCyan hover:text-black border border-white/10 text-white font-medium text-sm transition-all flex items-center justify-center gap-2">
+                            <button type="button" data-project="proj2" aria-haspopup="dialog" class="w-full min-h-[44px] py-3 rounded-lg bg-surfaceTint/5 hover:bg-accentCyan hover:text-black border border-surfaceTint/10 text-primary font-medium text-sm transition-all flex items-center justify-center gap-2">
                                 Ver Detalles del Proyecto <svg aria-hidden="true" class="text-xs icon" ><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg>
                             </button>
                         </div>
@@ -626,17 +625,17 @@
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-white mb-2">App Mobile — Organizador Personal</h3>
-                            <p class="text-gray-400 text-sm line-clamp-3 mb-4 leading-relaxed">
+                            <h3 class="text-xl font-bold text-primary mb-2">App Mobile — Organizador Personal</h3>
+                            <p class="text-muted text-sm line-clamp-3 mb-4 leading-relaxed">
                                 Aplicación móvil para organizar el día a día: horario universitario, fechas importantes con notificación de calendario, cumpleaños y evaluaciones de asignaturas.
                             </p>
                             <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">React Native</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">TypeScript</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-neutral-800 text-gray-300 border border-neutral-700">Notificaciones</span>
+                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">React Native</span>
+                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">TypeScript</span>
+                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Notificaciones</span>
                             </div>
                         </div>
-                        <button type="button" data-project="proj3" aria-haspopup="dialog" class="w-full min-h-[44px] py-3 rounded-lg bg-white/5 hover:bg-accentCyan hover:text-black border border-white/10 text-white font-medium text-sm transition-all flex items-center justify-center gap-2">
+                        <button type="button" data-project="proj3" aria-haspopup="dialog" class="w-full min-h-[44px] py-3 rounded-lg bg-surfaceTint/5 hover:bg-accentCyan hover:text-black border border-surfaceTint/10 text-primary font-medium text-sm transition-all flex items-center justify-center gap-2">
                             Ver Detalles del Proyecto <svg aria-hidden="true" class="text-xs icon"><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg>
                         </button>
                     </div>
@@ -650,13 +649,13 @@
     <section id="formacion" class="py-24 relative" aria-labelledby="formacion-titulo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentCyan text-xs font-semibold uppercase tracking-widest">
+                <span class="px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentInk text-xs font-semibold uppercase tracking-widest">
                     Trayectoria
                 </span>
-                <h2 id="formacion-titulo" class="text-3xl sm:text-4xl font-bold text-white tracking-tight mt-2">
+                <h2 id="formacion-titulo" class="text-3xl sm:text-4xl font-bold text-primary tracking-tight mt-2">
                     Formación & Experiencia
                 </h2>
-                <p class="text-gray-400 text-sm mt-3">
+                <p class="text-muted text-sm mt-3">
                     Estudios formales y experiencia práctica en desarrollo Unity y XR.
                 </p>
             </div>
@@ -665,25 +664,25 @@
                 <li class="relative pl-12">
                     <span class="absolute left-4 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-accentCyan shadow-neon-cyan" aria-hidden="true"></span>
                     <div class="bg-cardBg border border-cardBorder rounded-xl p-5 card-hover">
-                        <p class="text-xs font-mono text-accentCyan mb-1">2021 — Presente <span class="text-gray-500">(matrícula congelada 2024–2025)</span></p>
-                        <h3 class="text-base font-bold text-white">Ingeniería en Realidad Virtual y Diseño de Juegos Digitales</h3>
-                        <p class="text-sm text-gray-400 mt-1">Universidad Bernardo O'Higgins (UBO), Santiago</p>
+                        <p class="text-xs font-mono text-accentInk mb-1">2021 — Presente <span class="text-subtle">(matrícula congelada 2024–2025)</span></p>
+                        <h3 class="text-base font-bold text-primary">Ingeniería en Realidad Virtual y Diseño de Juegos Digitales</h3>
+                        <p class="text-sm text-muted mt-1">Universidad Bernardo O'Higgins (UBO), Santiago</p>
                     </div>
                 </li>
                 <li class="relative pl-12">
                     <span class="absolute left-4 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-accentViolet" aria-hidden="true"></span>
                     <div class="bg-cardBg border border-cardBorder rounded-xl p-5 card-hover">
                         <p class="text-xs font-mono text-accentViolet mb-1">2021 — Presente · en paralelo</p>
-                        <h3 class="text-base font-bold text-white">Proyectos personales Unity + C#</h3>
-                        <p class="text-sm text-gray-400 mt-1">Prototipos de gameplay, simulaciones 3D y entornos XR (ver sección Proyectos).</p>
+                        <h3 class="text-base font-bold text-primary">Proyectos personales Unity + C#</h3>
+                        <p class="text-sm text-muted mt-1">Prototipos de gameplay, simulaciones 3D y entornos XR (ver sección Proyectos).</p>
                     </div>
                 </li>
                 <li class="relative pl-12">
                     <span class="absolute left-4 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-gray-500" aria-hidden="true"></span>
                     <div class="bg-cardBg border border-cardBorder rounded-xl p-5 card-hover">
-                        <p class="text-xs font-mono text-gray-400 mb-1">Buscando — Part-Time</p>
-                        <h3 class="text-base font-bold text-white">Práctica Profesional — Unity Developer Trainee / XR</h3>
-                        <p class="text-sm text-gray-400 mt-1">Disponibilidad inmediata (Remoto / Híbrido / Presencial en Santiago).</p>
+                        <p class="text-xs font-mono text-muted mb-1">Buscando — Part-Time</p>
+                        <h3 class="text-base font-bold text-primary">Práctica Profesional — Unity Developer Trainee / XR</h3>
+                        <p class="text-sm text-muted mt-1">Disponibilidad inmediata (Remoto / Híbrido / Presencial en Santiago).</p>
                     </div>
                 </li>
             </ol>
@@ -696,40 +695,40 @@
                 
                 <!-- Contact Details -->
                 <div class="lg:col-span-5 space-y-6">
-                    <span class="px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentCyan text-xs font-semibold uppercase tracking-widest">
+                    <span class="px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentInk text-xs font-semibold uppercase tracking-widest">
                         Contacto Directo
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
                         ¿Interesado en mi perfil para una Práctica Profesional?
                     </h2>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Estoy buscando incorporarme como <strong class="text-white">Unity Developer Trainee / XR Developer</strong> en modalidad Part-Time (Remoto, Híbrido o Presencial en Santiago). ¡Conversemos!
+                    <p class="text-muted text-sm leading-relaxed">
+                        Estoy buscando incorporarme como <strong class="text-primary">Unity Developer Trainee / XR Developer</strong> en modalidad Part-Time (Remoto, Híbrido o Presencial en Santiago). ¡Conversemos!
                     </p>
 
                     <div class="space-y-3 pt-2">
                         <!-- WhatsApp (sin número visible: solo enlace wa.me) -->
                         <a href="https://wa.me/56987576708" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl bg-cardBg border border-cardBorder hover:border-emerald-500/50 transition-all group">
-                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg group-hover:scale-105 transition-transform">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-successInk text-lg group-hover:scale-105 transition-transform">
                                 <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-whatsapp"/></svg>
                             </div>
                             <div>
-                                <span class="block text-xs text-gray-400 font-medium">WhatsApp</span>
-                                <span class="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors">Abrir conversación →</span>
+                                <span class="block text-xs text-muted font-medium">WhatsApp</span>
+                                <span class="text-sm font-semibold text-primary group-hover:text-successInk transition-colors">Abrir conversación →</span>
                             </div>
                         </a>
 
                         <!-- Email (con copiar al portapapeles) -->
                         <div class="flex items-center gap-2 p-4 rounded-xl bg-cardBg border border-cardBorder hover:border-accentCyan/50 transition-all group">
                             <a href="mailto:Matias.villalobos.dev@gmail.com" class="flex items-center gap-4 flex-1 min-w-0" aria-label="Enviar correo a Matías">
-                                <div class="w-10 h-10 rounded-lg bg-accentCyan/10 border border-accentCyan/20 flex items-center justify-center text-accentCyan text-lg group-hover:scale-105 transition-transform shrink-0">
+                                <div class="w-10 h-10 rounded-lg bg-accentCyan/10 border border-accentCyan/20 flex items-center justify-center text-accentInk text-lg group-hover:scale-105 transition-transform shrink-0">
                                     <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-envelope"/></svg>
                                 </div>
                                 <div class="min-w-0">
-                                    <span class="block text-xs text-gray-400 font-medium">Correo Electrónico</span>
-                                    <span class="text-sm font-semibold text-white group-hover:text-accentCyan transition-colors break-all">Matias.villalobos.dev@gmail.com</span>
+                                    <span class="block text-xs text-muted font-medium">Correo Electrónico</span>
+                                    <span class="text-sm font-semibold text-primary group-hover:text-accentInk transition-colors break-all">Matias.villalobos.dev@gmail.com</span>
                                 </div>
                             </a>
-                            <button type="button" id="copy-email" aria-live="polite" class="shrink-0 px-3 min-h-[44px] rounded-lg border border-cardBorder text-xs font-semibold text-gray-300 hover:text-accentCyan hover:border-accentCyan/50 transition-colors">Copiar</button>
+                            <button type="button" id="copy-email" aria-live="polite" class="shrink-0 px-3 min-h-[44px] rounded-lg border border-cardBorder text-xs font-semibold text-secondary hover:text-accentInk hover:border-accentCyan/50 transition-colors">Copiar</button>
                         </div>
 
                         <!-- Location -->
@@ -738,20 +737,20 @@
                                 <svg aria-hidden="true" class="icon" ><use href="assets/icons.svg#icon-location-dot"/></svg>
                             </div>
                             <div>
-                                <span class="block text-xs text-gray-400 font-medium">Ubicación</span>
-                                <span class="text-sm font-semibold text-white">Santiago, Chile (Remoto / Híbrido / Presencial)</span>
+                                <span class="block text-xs text-muted font-medium">Ubicación</span>
+                                <span class="text-sm font-semibold text-primary">Santiago, Chile (Remoto / Híbrido / Presencial)</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Social profiles -->
                     <div class="pt-2">
-                        <span class="block text-xs text-gray-400 font-medium mb-3">Redes y Repositorios:</span>
+                        <span class="block text-xs text-muted font-medium mb-3">Redes y Repositorios:</span>
                         <div class="flex gap-3">
-                            <a href="https://github.com/matiasvillalobosdev-web" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="px-4 py-2.5 rounded-xl bg-cardBg border border-cardBorder flex items-center gap-2 text-xs font-semibold text-gray-200 hover:border-accentCyan hover:text-accentCyan transition-all">
+                            <a href="https://github.com/Matixvc" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="px-4 py-2.5 rounded-xl bg-cardBg border border-cardBorder flex items-center gap-2 text-xs font-semibold text-strong hover:border-accentCyan hover:text-accentInk transition-all">
                                 <svg aria-hidden="true" class="text-base icon" ><use href="assets/icons.svg#icon-github"/></svg> GitHub
                             </a>
-                            <a href="https://www.linkedin.com/in/matias-vc-dev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="px-4 py-2.5 rounded-xl bg-cardBg border border-cardBorder flex items-center gap-2 text-xs font-semibold text-gray-200 hover:border-accentCyan hover:text-accentCyan transition-all">
+                            <a href="https://www.linkedin.com/in/matias-vc-dev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="px-4 py-2.5 rounded-xl bg-cardBg border border-cardBorder flex items-center gap-2 text-xs font-semibold text-strong hover:border-accentCyan hover:text-accentInk transition-all">
                                 <svg aria-hidden="true" class="text-base icon" ><use href="assets/icons.svg#icon-linkedin"/></svg> LinkedIn
                             </a>
                         </div>
@@ -761,12 +760,12 @@
                 <!-- Form Card -->
                 <div class="lg:col-span-7">
                     <form id="contact-form" class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-5 relative">
-                        <h3 class="text-xl font-bold text-white mb-2">Enviar un Mensaje Directo</h3>
+                        <h3 class="text-xl font-bold text-primary mb-2">Enviar un Mensaje Directo</h3>
 
                         <noscript>
-                            <p class="text-xs text-gray-300 bg-neutral-900 border border-cardBorder rounded-xl p-3 leading-relaxed">
+                            <p class="text-xs text-secondary bg-surfaceInset border border-cardBorder rounded-xl p-3 leading-relaxed">
                                 JavaScript está desactivado: al enviar se abrirá tu cliente de correo con el mensaje
-                                listo para <strong class="text-white">Matias.villalobos.dev@gmail.com</strong>.
+                                listo para <strong class="text-primary">Matias.villalobos.dev@gmail.com</strong>.
                             </p>
                         </noscript>
 
@@ -775,29 +774,29 @@
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div>
-                                <label for="name" class="block text-xs font-medium text-gray-300 mb-2">Tu Nombre / Empresa *</label>
-                                <input type="text" id="name" name="name" autocomplete="name" required maxlength="80" placeholder="Nombre de contacto" aria-describedby="name-error" class="w-full bg-neutral-900 border border-cardBorder rounded-xl px-4 py-3 text-sm text-white focus:border-accentCyan transition-colors">
-                                <p id="name-error" class="hidden text-xs text-red-400 mt-1" role="alert"></p>
+                                <label for="name" class="block text-xs font-medium text-secondary mb-2">Tu Nombre / Empresa *</label>
+                                <input type="text" id="name" name="name" autocomplete="name" required maxlength="80" placeholder="Nombre de contacto" aria-describedby="name-error" class="w-full bg-surfaceInset border border-cardBorder rounded-xl px-4 py-3 text-sm text-primary focus:border-accentCyan transition-colors">
+                                <p id="name-error" class="hidden text-xs text-errorInk mt-1" role="alert"></p>
                             </div>
                             <div>
-                                <label for="email" class="block text-xs font-medium text-gray-300 mb-2">Tu Correo Electrónico *</label>
-                                <input type="email" id="email" name="email" autocomplete="email" required maxlength="120" placeholder="contacto@empresa.com" aria-describedby="email-error" class="w-full bg-neutral-900 border border-cardBorder rounded-xl px-4 py-3 text-sm text-white focus:border-accentCyan transition-colors">
-                                <p id="email-error" class="hidden text-xs text-red-400 mt-1" role="alert"></p>
+                                <label for="email" class="block text-xs font-medium text-secondary mb-2">Tu Correo Electrónico *</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required maxlength="120" placeholder="contacto@empresa.com" aria-describedby="email-error" class="w-full bg-surfaceInset border border-cardBorder rounded-xl px-4 py-3 text-sm text-primary focus:border-accentCyan transition-colors">
+                                <p id="email-error" class="hidden text-xs text-errorInk mt-1" role="alert"></p>
                             </div>
                         </div>
 
                         <div>
-                            <label for="subject" class="block text-xs font-medium text-gray-300 mb-2">Asunto / Oportunidad</label>
-                            <input type="text" id="subject" name="subject" autocomplete="off" maxlength="120" placeholder="Ej. Oportunidad Práctica Unity Developer" aria-describedby="subject-error" class="w-full bg-neutral-900 border border-cardBorder rounded-xl px-4 py-3 text-sm text-white focus:border-accentCyan transition-colors">
-                            <p id="subject-error" class="hidden text-xs text-red-400 mt-1" role="alert"></p>
+                            <label for="subject" class="block text-xs font-medium text-secondary mb-2">Asunto / Oportunidad</label>
+                            <input type="text" id="subject" name="subject" autocomplete="off" maxlength="120" placeholder="Ej. Oportunidad Práctica Unity Developer" aria-describedby="subject-error" class="w-full bg-surfaceInset border border-cardBorder rounded-xl px-4 py-3 text-sm text-primary focus:border-accentCyan transition-colors">
+                            <p id="subject-error" class="hidden text-xs text-errorInk mt-1" role="alert"></p>
                         </div>
 
                         <div>
-                            <label for="message" class="block text-xs font-medium text-gray-300 mb-2">Mensaje *</label>
-                            <textarea id="message" name="message" rows="4" required maxlength="2000" placeholder="Escribe aquí los detalles o consulta..." aria-describedby="message-error message-count" class="w-full bg-neutral-900 border border-cardBorder rounded-xl px-4 py-3 text-sm text-white focus:border-accentCyan transition-colors resize-none"></textarea>
+                            <label for="message" class="block text-xs font-medium text-secondary mb-2">Mensaje *</label>
+                            <textarea id="message" name="message" rows="4" required maxlength="2000" placeholder="Escribe aquí los detalles o consulta..." aria-describedby="message-error message-count" class="w-full bg-surfaceInset border border-cardBorder rounded-xl px-4 py-3 text-sm text-primary focus:border-accentCyan transition-colors resize-none"></textarea>
                             <div class="flex justify-between gap-3 mt-1">
-                                <p id="message-error" class="hidden text-xs text-red-400" role="alert"></p>
-                                <p id="message-count" class="text-xs text-gray-500 ml-auto" aria-live="polite">0 / 2000</p>
+                                <p id="message-error" class="hidden text-xs text-errorInk" role="alert"></p>
+                                <p id="message-count" class="text-xs text-subtle ml-auto" aria-live="polite">0 / 2000</p>
                             </div>
                         </div>
 
@@ -812,7 +811,7 @@
                             <svg aria-hidden="true" class="text-xs icon" ><use href="assets/icons.svg#icon-paper-plane"/></svg>
                         </button>
 
-                        <p class="text-xs text-gray-500 text-center leading-relaxed">
+                        <p class="text-xs text-subtle text-center leading-relaxed">
                             Uso exclusivamente laboral. Los datos del formulario solo se utilizan para responderte.
                         </p>
                     </form>
@@ -825,11 +824,11 @@
     <!-- Banda CTA final: la propuesta de valor, sin exigir scroll -->
     <section class="py-16 border-t border-cardBorder bg-cardBg/40 relative">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <h2 class="text-2xl sm:text-3xl font-bold text-primary tracking-tight">
                 ¿Buscas un Unity Developer para tu equipo?
             </h2>
-            <p class="text-gray-400 text-sm sm:text-base mt-3 leading-relaxed">
-                Disponible ahora para <strong class="text-white">práctica profesional part-time</strong>:
+            <p class="text-muted text-sm sm:text-base mt-3 leading-relaxed">
+                Disponible ahora para <strong class="text-primary">práctica profesional part-time</strong>:
                 gameplay en C#, simulaciones 3D y entornos XR. Remoto, híbrido o presencial en Santiago.
             </p>
             <div class="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
@@ -847,15 +846,15 @@
 
     <footer class="border-t border-cardBorder py-8 bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-xs text-gray-500">
+            <p class="text-xs text-subtle">
                 &copy; <span id="year">2026</span> Matías I. Villalobos Cautivo. Santiago, Chile.
             </p>
-            <div class="flex gap-6 text-xs text-gray-400">
-                <a href="#inicio" class="hover:text-accentCyan transition-colors">Inicio</a>
-                <a href="#sistemas" class="hover:text-accentCyan transition-colors">Sistemas</a>
-                <a href="#proyectos" class="hover:text-accentCyan transition-colors">Proyectos</a>
-                <a href="#formacion" class="hover:text-accentCyan transition-colors">Formación</a>
-                <a href="#contacto" class="hover:text-accentCyan transition-colors">Contacto</a>
+            <div class="flex gap-6 text-xs text-muted">
+                <a href="#inicio" class="hover:text-accentInk transition-colors">Inicio</a>
+                <a href="#sistemas" class="hover:text-accentInk transition-colors">Sistemas</a>
+                <a href="#proyectos" class="hover:text-accentInk transition-colors">Proyectos</a>
+                <a href="#formacion" class="hover:text-accentInk transition-colors">Formación</a>
+                <a href="#contacto" class="hover:text-accentInk transition-colors">Contacto</a>
             </div>
         </div>
     </footer>
@@ -864,13 +863,13 @@
     <a href="https://wa.me/56987576708?text=Hola%20Mat%C3%ADas%2C%20vengo%20de%20tu%20portafolio%20web" target="_blank" rel="noopener noreferrer" aria-label="Escríbeme por WhatsApp" class="fab-whatsapp fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black shadow-lg shadow-emerald-500/30 flex items-center justify-center transition-all hover:scale-105 active:scale-95">
         <svg aria-hidden="true" class="text-2xl icon"><use href="assets/icons.svg#icon-whatsapp"/></svg>
     </a>
-    <button type="button" id="back-to-top" aria-label="Volver arriba" class="fixed bottom-5 left-5 z-40 w-11 h-11 rounded-full bg-cardBg border border-cardBorder text-gray-300 hover:text-accentCyan hover:border-accentCyan shadow-lg flex items-center justify-center transition-all opacity-0 pointer-events-none" tabindex="-1">
+    <button type="button" id="back-to-top" aria-label="Volver arriba" class="fixed bottom-5 left-5 z-40 w-11 h-11 rounded-full bg-cardBg border border-cardBorder text-secondary hover:text-accentInk hover:border-accentCyan shadow-lg flex items-center justify-center transition-all opacity-0 pointer-events-none" tabindex="-1">
         <svg aria-hidden="true" class="text-base icon"><use href="assets/icons.svg#icon-arrow-up"/></svg>
     </button>
 
     <div id="project-modal" class="fixed inset-0 z-50 hidden anim-modal-overlay flex items-center justify-center p-4 bg-black/80 md:backdrop-blur-md" role="dialog" aria-modal="true" aria-label="Detalles del proyecto" aria-hidden="true">
         <div id="modal-panel" tabindex="-1" class="bg-cardBg border border-cardBorder w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl relative anim-modal-panel">
-            <button type="button" id="modal-close-btn" aria-label="Cerrar detalles del proyecto" class="absolute top-4 right-4 z-10 min-h-[44px] min-w-[44px] rounded-full bg-neutral-900 border border-neutral-700 text-gray-400 hover:text-white flex items-center justify-center transition-colors">
+            <button type="button" id="modal-close-btn" aria-label="Cerrar detalles del proyecto" class="absolute top-4 right-4 z-10 min-h-[44px] min-w-[44px] rounded-full bg-surfaceInset border border-dividerStrong text-muted hover:text-primary flex items-center justify-center transition-colors">
                 <svg aria-hidden="true" class="text-sm icon"><use href="assets/icons.svg#icon-xmark"/></svg>
             </button>
             <div id="modal-content" class="p-6 sm:p-8">

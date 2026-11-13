@@ -13,7 +13,7 @@ Sitio estático: HTML + Tailwind CSS + JavaScript vanilla. Sin frameworks ni dep
 |---|---|---|---|
 | **App Mobile — Organizador Personal** | App para organizar el día a día: horario universitario, fechas con notificación de calendario, cumpleaños y evaluaciones | Expo · React Native · TypeScript | [Repo](https://github.com/Matixvc/App-Mobile) |
 | **Basura Fighters — Roguelike de Reciclaje** | Roguelike web jugable: oleadas, EXP, habilidades/armas, 3 héroes, jefes, modo infinito. Un solo HTML con Canvas 2D | JavaScript · Canvas 2D · HTML5 | [Repo](https://github.com/Matixvc/Trash-Roguelike) · [Demo](https://trash-rogelike.netlify.app) |
-| **PhysicsVR Prototype** | Prototipo Unity de físicas e interacción: agarrar y lanzar objetos en primera persona, escalable a VR/MR | Unity 3D · C# · Rigidbody | Código bajo solicitud (repo privado) |
+| **PhysicsVR Prototype** | Prototipo Unity de físicas e interacción: agarrar y lanzar objetos en primera persona, escalable a VR/MR | Unity 3D · C# · Rigidbody | [Repo](https://github.com/Matixvc/PhysicsVR_Prototype) |
 
 > Sin capturas por ahora: las tarjetas usan mockups SVG que se sustituirán por capturas/GIF reales cuando estén listas.
 

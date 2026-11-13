@@ -83,7 +83,7 @@
                 description: "Prototipo en Unity para probar físicas de agarre, manipulación y lanzamiento de objetos en primera persona, con la interacción planteada para escalar a realidad virtual y realidad mixta.",
                 role: "Desarrollo individual — prototipo de práctica personal (Unity + C#)",
                 metrics: [],
-                repo: "",
+                repo: "https://github.com/Matixvc/PhysicsVR_Prototype",
                 demo: "",
                 features: [
                     "Agarre de objetos con física (Rigidbody) en primera persona",
@@ -176,44 +176,44 @@
 
             // Bloques opcionales (Fase 4): si el campo esta vacio, no se pinta nada
             const roleBlock = data.role
-                ? `<p class="text-sm text-gray-400 mb-6"><span class="font-semibold text-gray-200">Mi rol:</span> ${data.role}</p>`
+                ? `<p class="text-sm text-muted mb-6"><span class="font-semibold text-strong">Mi rol:</span> ${data.role}</p>`
                 : '';
 
             const metricsBlock = (data.metrics && data.metrics.length)
-                ? `<h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Resultados / Métricas:</h4>
+                ? `<h4 class="text-xs font-bold text-strong uppercase tracking-wider mb-2">Resultados / Métricas:</h4>
                 <ul class="space-y-2 mb-6">
-                    ${data.metrics.map(m => `<li class="flex items-start gap-2 text-sm text-gray-400"><svg class="text-accentViolet mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-gauge-high"/></svg> <span>${m}</span></li>`).join('')}
+                    ${data.metrics.map(m => `<li class="flex items-start gap-2 text-sm text-muted"><svg class="text-accentViolet mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-gauge-high"/></svg> <span>${m}</span></li>`).join('')}
                 </ul>`
                 : '';
 
             const links = [];
             if (data.repo) {
-                links.push(`<a href="${data.repo}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-neutral-900 border border-neutral-700 text-xs font-semibold text-gray-200 hover:border-accentCyan hover:text-accentCyan transition-all flex items-center gap-2"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-github"/></svg> Ver repositorio</a>`);
+                links.push(`<a href="${data.repo}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-surfaceInset border border-dividerStrong text-xs font-semibold text-strong hover:border-accentCyan hover:text-accentInk transition-all flex items-center gap-2"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-github"/></svg> Ver repositorio</a>`);
             }
             if (data.demo) {
-                links.push(`<a href="${data.demo}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-neutral-900 border border-neutral-700 text-xs font-semibold text-gray-200 hover:border-accentCyan hover:text-accentCyan transition-all flex items-center gap-2"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg> Probar demo</a>`);
+                links.push(`<a href="${data.demo}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-surfaceInset border border-dividerStrong text-xs font-semibold text-strong hover:border-accentCyan hover:text-accentInk transition-all flex items-center gap-2"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg> Probar demo</a>`);
             }
             const linksBlock = links.length
                 ? `<div class="flex flex-wrap gap-3 mt-6 pt-6 border-t border-cardBorder">${links.join('')}</div>`
                 : '';
 
             modalContent.innerHTML = `
-                <span class="inline-block px-2.5 py-1 rounded bg-accentCyan/10 border border-accentCyan/30 text-accentCyan text-xs font-semibold mb-3">
+                <span class="inline-block px-2.5 py-1 rounded bg-accentCyan/10 border border-accentCyan/30 text-accentInk text-xs font-semibold mb-3">
                     ${data.badge}
                 </span>
-                <h3 class="text-2xl font-bold text-white mb-3">${data.title}</h3>
-                <p class="text-gray-300 text-sm leading-relaxed mb-6">${data.description}</p>
+                <h3 class="text-2xl font-bold text-primary mb-3">${data.title}</h3>
+                <p class="text-secondary text-sm leading-relaxed mb-6">${data.description}</p>
                 ${roleBlock}
 
-                <h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Aspectos Destacados:</h4>
+                <h4 class="text-xs font-bold text-strong uppercase tracking-wider mb-2">Aspectos Destacados:</h4>
                 <ul class="space-y-2 mb-6">
-                    ${data.features.map(f => `<li class="flex items-start gap-2 text-sm text-gray-400"><svg class="text-accentCyan mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg> <span>${f}</span></li>`).join('')}
+                    ${data.features.map(f => `<li class="flex items-start gap-2 text-sm text-muted"><svg class="text-accentInk mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg> <span>${f}</span></li>`).join('')}
                 </ul>
                 ${metricsBlock}
 
-                <h4 class="text-xs font-bold text-gray-200 uppercase tracking-wider mb-2">Tecnologías / Herramientas:</h4>
+                <h4 class="text-xs font-bold text-strong uppercase tracking-wider mb-2">Tecnologías / Herramientas:</h4>
                 <div class="flex flex-wrap gap-2">
-                    ${data.tech.map(t => `<span class="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-700 text-xs text-gray-300">${t}</span>`).join('')}
+                    ${data.tech.map(t => `<span class="px-2.5 py-1 rounded-md bg-surfaceInset border border-dividerStrong text-xs text-secondary">${t}</span>`).join('')}
                 </div>
                 ${linksBlock}
             `;
@@ -540,50 +540,35 @@
         });
 
         // =====================================================================
-        // BOTON DE CV - se activa solo cuando el PDF existe
+        // BOTONES DE CV - comprueba disponibilidad individual de cada PDF
         // ---------------------------------------------------------------------
-        // Sube tu CV como assets/cv-matias-villalobos.pdf (nombre exacto) y el
-        // boton del hero queda operativo solo. Mientras el archivo no exista, el
-        // boton se atenua y lo avisa, en vez de ofrecer una descarga que
-        // terminaria en un error 404.
+        // Si un PDF no existe, su boton correspondiente se atenua. El otro sigue
+        // operativo independientemente. No hay mensajes de "proximamente" ni
+        // fallos en cascada.
         // =====================================================================
-        const cvBtn = document.getElementById('cv-btn');
-        const cvBtnLabel = document.getElementById('cv-btn-label');
+        const cvButtons = [
+            { btn: document.getElementById('cv-btn-es'), href: 'assets/Matias_Villalobos_CV_Unity_XR_ES.pdf' },
+            { btn: document.getElementById('cv-btn-en'), href: 'assets/Matias_Villalobos_CV_Unity_XR_EN.pdf' }
+        ];
 
-        if (cvBtn && cvBtnLabel) {
-            // Abierto como file:// el navegador no deja comprobar el archivo:
-            // no tocamos el boton para no dar un falso "no disponible".
-            if (window.location.protocol !== 'file:') {
-                fetch(cvBtn.getAttribute('href'), { method: 'HEAD', cache: 'no-store' })
+        if (window.location.protocol !== 'file:') {
+            cvButtons.forEach(({ btn, href }) => {
+                if (!btn) return;
+                fetch(href, { method: 'HEAD', cache: 'no-store' })
                     .then((response) => {
                         if (response.ok) return;
                         throw new Error('HTTP ' + response.status);
                     })
                     .catch(() => {
-                        let cvNote = null;
-
-                        cvBtn.classList.add('cv-pending');
-                        cvBtn.setAttribute('aria-disabled', 'true');
-                        cvBtn.setAttribute('title', 'CV en preparación: escríbeme y te lo envío');
-                        cvBtn.removeAttribute('download');
-                        cvBtnLabel.textContent = 'CV disponible próximamente';
-
-                        cvBtn.addEventListener('click', (event) => {
+                        btn.classList.add('cv-pending');
+                        btn.setAttribute('aria-disabled', 'true');
+                        btn.setAttribute('title', 'CV no disponible');
+                        btn.removeAttribute('download');
+                        btn.addEventListener('click', (event) => {
                             event.preventDefault();
-
-                            if (!cvNote) {
-                                cvNote = document.createElement('p');
-                                cvNote.id = 'cv-note';
-                                cvNote.setAttribute('role', 'status');
-                                cvNote.className = 'mt-4 text-xs text-gray-400';
-                                cvNote.innerHTML = 'CV en preparación. Escríbeme a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a> o por <a class="underline" href="' + WHATSAPP_LINK + '" target="_blank" rel="noopener noreferrer">WhatsApp</a> y te lo envío.';
-                                // Se inserta DESPUES del contenedor flex: dentro encogería
-                                // los botones del hero (el contenedor no hace wrap).
-                                cvBtn.parentElement.insertAdjacentElement('afterend', cvNote);
-                            }
                         });
                     });
-            }
+            });
         }
 
         // Copiar correo con microfeedback (✓ temporal en el botón)
