@@ -323,5 +323,15 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
 - Referencias locales recovery/mv-spatial y recovery/mv-spatial-snapshot; referencias históricas etapa1-integridad y checkpoints. Stash conservado; no inspeccionado ni alterado.
 - Ramas remotas origin/main, origin/etapa1-integridad y origin/portfolio/professional-refresh conservadas. No se propone eliminar la rama pública actual.
 - Worktree de recuperación: retirar únicamente tras Git limpio y respaldo remoto verificado.
-- Recursos temporales de QA/recuperación registrados históricamente y caché npm temporal: no se ha hecho borrado masivo ni se certificó un inventario exhaustivo de TEMP.
+- Inventario por nombre en TEMP: portafolio-brand-phase92, portafolio-etapa12-backup-20261112-234743, portafolio-fase8-20261113-002111, portafolio-web-backup-20261112-230355, portafolio-theme-qa, portfolio-recovered-qa, portfolio-consolidation-qa, portafolio-theme-npm-cache, portfolio-consolidation-npm-cache y 21 perfiles portfolio-edge-qa-*. No se inspeccionaron sus contenidos para autorizar borrado; no se hizo limpieza.
 - No todos los objetos del snapshot/stash/checkpoints están certificados como protegidos por referencias remotas. El bundle sigue siendo necesario hasta una decisión explícita; no aprobar su eliminación por inferencia.
+
+### Cierre local y estado remoto efectivo
+- cf11d67: docs: document MV Spatial portfolio and consolidation workflow (README bilingüe e instrucciones internas).
+- Checkout principal trasladado de forma segura a feature/portfolio-consolidation en D:/Proyectos/portafolio-web. No se movió ni borró el almacén .git.
+- Worktree portafolio-web-recovery conservado limpio en HEAD separado cf11d67; ya no aloja la rama activa. Es un recurso temporal pendiente de retirada, no otra línea de desarrollo.
+- Validación desde la carpeta definitiva: npm run build correcto y sin diff generado; cuatro comprobaciones Edge aprobadas de ambos CV, validación local del formulario, contactos profesionales y ausencia de excepciones JS. Recursos de marca y ambos PDF idénticos al snapshot aprobado.
+- No se hizo push: feature/portfolio-consolidation aún no existe en origin, según ls-remote. No hay coincidencia local/remota que certificar para esta rama. Confirmación de Source/Branch/carpeta de Pages solicitada al autor y pendiente al cierre local.
+- Comprobación remota final: main sigue en 30750f5 y portfolio/professional-refresh en 20b49ad. El deployment más reciente conserva sha 20b49ad y fecha 2026-11-11T13:36:31Z. Único workflow visible: dynamic/pages/pages-build-deployment.
+- No se cambiaron ajustes de Pages, workflows, ramas públicas ni publicación. No se eliminaron worktrees, respaldos, ramas, stash o historial.
+- Pendientes para terminar la consolidación física: verificar configuración de publicación, push autorizado exclusivamente a feature/portfolio-consolidation, comparar HEAD con origin y retirar el worktree limpio mediante git worktree remove sin --force. Solo después evaluar el inventario de limpieza con autorización explícita; snapshot/stash/checkpoints no están certificados como respaldados remotamente.
