@@ -79,17 +79,17 @@
         const projectDetails = {
             proj1: {
                 title: "Physics VR Prototype — Agarre y Lanzamiento",
-                badge: "XR / Físicas 3D",
-                description: "Prototipo en Unity para probar físicas de agarre, manipulación y lanzamiento de objetos en primera persona, con la interacción planteada para escalar a realidad virtual y realidad mixta.",
+                badge: "Físicas 3D · En desarrollo",
+                description: "Prototipo de interacción física en Unity, actualmente en desarrollo, orientado a una futura integración con realidad virtual. Todavía no es funcional con visor.",
                 role: "Desarrollo individual — prototipo de práctica personal (Unity + C#)",
                 metrics: [],
                 repo: "https://github.com/Matixvc/PhysicsVR_Prototype",
                 demo: "",
                 features: [
-                    "Agarre de objetos con física (Rigidbody) en primera persona",
-                    "Lanzamiento con impulso según movimiento del jugador",
-                    "Interacción diseñada para escalar a VR y realidad mixta",
-                    "Prototipo de exploración técnica, sin demo pública por ahora"
+                    "Exploración de interacción física y manipulación de objetos en Unity",
+                    "Integración con realidad virtual prevista para una etapa futura",
+                    "Todavía no es funcional en VR con visor",
+                    "Proyecto personal en desarrollo, sin demo pública"
                 ],
                 tech: ["Unity 3D", "C#", "Físicas 3D", "Rigidbody"]
             },

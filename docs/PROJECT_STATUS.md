@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Fecha: 2026-11-12 (America/Santiago).
+Fecha: 2026-11-13 (America/Santiago).
 Rama de trabajo: `etapa1-integridad`.
 Último commit al iniciar: `30750f5` — Cambio de CVs.
 
@@ -16,8 +16,9 @@ Rama de trabajo: `etapa1-integridad`.
 - No existe evidencia documental suficiente para certificar toda la Fase 6.
 
 ## Fase activa
-Fase 7, Etapas 1.1 y 1.2: completadas dentro de sus alcances aprobados.
-Integridad, temas, rutas de CV y correcciones de contraste/carga validados localmente.
+Fase 8, Etapa 1: identidad profesional implementada dentro del alcance aprobado.
+Fase 7, Etapas 1.1 y 1.2: completadas y consolidadas en `42ba4f4`.
+Los apartados de Fase 7 conservan su registro histórico de validaciones.
 
 ## Punto de partida y respaldo
 - Seis archivos ya modificados: README.md, index.html, js/main.js, src/cv.html,
@@ -139,13 +140,59 @@ Integridad, temas, rutas de CV y correcciones de contraste/carga validados local
   y cambios del sistema operativo real (se utilizó emulación de navegador).
 - Auditoría exhaustiva de contraste, especialmente gradientes y estados heredados oscuros.
 - Envío real de formulario no probado; no se enviaron mensajes de prueba.
-- README y npm run cv aún apuntan al nombre antiguo de PDF.
-- Plantilla del CV y metadatos conservan «en formación».
-- Confirmar vigencia de datos académicos y disponibilidad profesional.
+- npm run cv conserva su salida histórica; README distingue ahora esa plantilla de los PDF ES/EN.
+- Actualizar en una fase autorizada los PDF ES/EN para corregir el alcance real de PhysicsVR.
+- Protección adicional de Web3Forms pendiente: CAPTCHA validado por el servicio,
+  honeypot estándar y restricción de dominio según plan. Access key pública por diseño.
 - Capturas/GIF reales de proyectos; actualmente hay mockups SVG.
 - Verificación externa de repositorios y de configuración de GitHub Pages.
 - Versión en inglés del sitio y casos de estudio con URL propia.
 
+## Fase 8, Etapa 1 — identidad profesional
+- Estado inicial limpio, rama etapa1-integridad, commit `42ba4f4`.
+- Respaldo de los cinco archivos del alcance verificado por SHA-256:
+  `C:\Users\matia\AppData\Local\Temp\portafolio-fase8-20261113-002111`.
+- Titular unificado: Unity Developer | XR / VR Developer, en Hero, perfil,
+  cabecera, metadatos y plantilla. Sin Trainee ni «en formación» como posicionamiento.
+- Sobre mí centrado en proyectos personales/académicos, gameplay e interacción 3D.
+- Disponibilidad centralizada en Contacto: Junior o práctica profesional;
+  inmediata, part-time/full-time, remoto/híbrido/presencial en Santiago.
+- Formación confirmada por el autor: inicio 2021, retomada en 2026,
+  egreso estimado 2028. Sin afirmar titulación ni mencionar congelación.
+- Tarjetas existentes conservadas con categorías descriptivas, sin autoevaluaciones.
+  Unity y C# principales; gameplay/interacción 3D y VR/XR como enfoque;
+  Unreal Engine, Python, Git/GitHub, Blender y Photoshop como complementos.
+  Retiradas atribuciones de técnicas de arquitectura no comprobadas por proyecto.
+- PhysicsVR corregido en tarjeta, modal, README y plantilla: interacción física
+  en desarrollo, futura integración VR, todavía no funcional con visor.
+- Colaboración académica bajo NDA descrita únicamente como pruebas funcionales
+  en Meta Quest 3 y reporte de incidencias. Independiente de PhysicsVR y sin
+  atribuir empleo formal, desarrollo integral ni revelar información interna.
+- README documenta ambos PDF, theme.js y comandos reales. La plantilla histórica
+  se actualizó editorialmente; no se ejecutaron npm run cv ni npm run og.
+- No cambiaron clases CSS ni estilos: no fue necesario regenerar el build.
+- Edge headless local: seis vistas 390/768/1440 px en oscuro/claro, sin scroll
+  horizontal del documento y con titular dentro del viewport; capturas revisadas.
+  Sin excepciones JS, IDs duplicados ni anclas rotas. Recursos locales presentes.
+- Modal PhysicsVR abierto y contenido comprobado; Escape enviado para cerrarlo.
+  Sintaxis main.js/theme.js y git diff --check correctos. Formulario no enviado.
+- Evidencia: qa.mjs, qa-results.json y seis PNG en el directorio temporal del respaldo.
+- PDF intactos por SHA-256, antes/después:
+  EN: 84D80D73007508833C9876DC52BBB2BBCF882927933BCFD34739B60729305C89.
+  ES: 2EA02319FB95C2877E52BA8720F0A43B38CFFEAA3A03982E5DBDF2496BAD159E.
+- Discrepancias conservadas en PDF: PhysicsVR se presenta como prototipo VR,
+  aunque el autor confirma que todavía no es funcional con visor. Los PDF incluyen
+  40 Days of Light y tecnologías/técnicas más detalladas que esta versión web.
+- 40 Days of Light: proyecto personal roguelike en desarrollo con ayuda de IA;
+  contribuciones del autor en programación, mecánicas, personajes y modelos.
+  Pendiente de preparar alcance verificable y evidencia que desee publicar.
+  No se añadió tarjeta, demo, captura, métrica ni enlace público al sitio.
+- Límite: comprobaciones responsive en Edge headless, no dispositivos reales.
+  La plantilla no se exportó ni se certificó su paginación A4.
+- Sin dependencias nuevas, cambios del sistema de temas, formulario, despliegue,
+  commits, push ni publicación. Imagen OG existente conservada; su titular gráfico
+  abreviado sigue pendiente de sincronización si se autoriza regenerarla.
+
 ## Próxima fase propuesta
-Coherencia de contenido profesional, metadatos y flujo de CV bilingüe,
-previa revisión del autor y aprobación del alcance.
+Coherencia de CV bilingüe y preparación de evidencia real de proyectos,
+con aprobación específica antes de editar PDF o publicar material.
