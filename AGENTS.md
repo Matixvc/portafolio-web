@@ -42,7 +42,7 @@
 - No modificar el framework ni instalar dependencias globales sin aprobación.
 - Carpeta definitiva: D:/Proyectos/portafolio-web; rama actual: feature/portfolio-consolidation.
 - Flujo futuro: main estable y ramas temporales feature/*; sin develop permanente.
-- Publicación actual: portfolio/professional-refresh, último despliegue verificado 20b49ad. No modificar Pages ni trasladar la publicación a main sin autorización.
+- Publicación actual: portfolio/professional-refresh / raíz, Source: Deploy from a branch, HTTPS activado (confirmado por el autor); último despliegue verificado 20b49ad. No modificar Pages ni trasladar la publicación a main sin autorización.
 - Antes de push a feature/*, verificar los triggers remotos de Pages/Actions. Si no es posible garantizar que no publique, completar commits locales y detenerse antes del push.
 - El CSS compilado y el sprite se versionan; no editarlos a mano.
 - No publicar automáticamente al terminar una fase.

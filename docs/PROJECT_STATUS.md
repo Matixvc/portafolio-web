@@ -311,7 +311,7 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
 - Evidencia temporal: %TEMP%/portfolio-consolidation-qa/ (regresión, nueve vistas, supplemental-results.json y npm-audit.json). No incorporada al repositorio.
 - Límites: Edge headless y sistema emulado; lector de pantalla, otros navegadores/dispositivos y entrega real de mensajes pendientes. Se mantienen los pendientes históricos de contenido PDF, protección adicional del formulario y recursos visuales futuros.
 
-### Seguridad del push y traslado
+### Seguridad del push y traslado — registro previo
 - API pública: único workflow activo pages-build-deployment, ruta dinámica de GitHub Pages; sin workflows YAML versionados en las ramas remotas main o portfolio/professional-refresh.
 - Último deployment github-pages y ejecución dinámica exitosos en portfolio/professional-refresh / 20b49ad. HTML público coincide con ese commit.
 - GET de configuración /pages devuelve 404 sin autenticación; gh no instalado y navegador conectado no disponible. No se leyeron credenciales.
@@ -326,7 +326,7 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
 - Inventario por nombre en TEMP: portafolio-brand-phase92, portafolio-etapa12-backup-20261112-234743, portafolio-fase8-20261113-002111, portafolio-web-backup-20261112-230355, portafolio-theme-qa, portfolio-recovered-qa, portfolio-consolidation-qa, portafolio-theme-npm-cache, portfolio-consolidation-npm-cache y 21 perfiles portfolio-edge-qa-*. No se inspeccionaron sus contenidos para autorizar borrado; no se hizo limpieza.
 - No todos los objetos del snapshot/stash/checkpoints están certificados como protegidos por referencias remotas. El bundle sigue siendo necesario hasta una decisión explícita; no aprobar su eliminación por inferencia.
 
-### Cierre local y estado remoto efectivo
+### Cierre local anterior al push
 - cf11d67: docs: document MV Spatial portfolio and consolidation workflow (README bilingüe e instrucciones internas).
 - Checkout principal trasladado de forma segura a feature/portfolio-consolidation en D:/Proyectos/portafolio-web. No se movió ni borró el almacén .git.
 - Worktree portafolio-web-recovery conservado limpio en HEAD separado cf11d67; ya no aloja la rama activa. Es un recurso temporal pendiente de retirada, no otra línea de desarrollo.
@@ -335,3 +335,45 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
 - Comprobación remota final: main sigue en 30750f5 y portfolio/professional-refresh en 20b49ad. El deployment más reciente conserva sha 20b49ad y fecha 2026-11-11T13:36:31Z. Único workflow visible: dynamic/pages/pages-build-deployment.
 - No se cambiaron ajustes de Pages, workflows, ramas públicas ni publicación. No se eliminaron worktrees, respaldos, ramas, stash o historial.
 - Pendientes para terminar la consolidación física: verificar configuración de publicación, push autorizado exclusivamente a feature/portfolio-consolidation, comparar HEAD con origin y retirar el worktree limpio mediante git worktree remove sin --force. Solo después evaluar el inventario de limpieza con autorización explícita; snapshot/stash/checkpoints no están certificados como respaldados remotamente.
+
+## Cierre definitivo de consolidación — 2026-11-13
+
+Este apartado sustituye los bloqueos y pendientes de push/traslado registrados anteriormente.
+
+### Configuración y respaldo remoto
+- El autor verificó personalmente Settings → Pages: Deploy from a branch; portfolio/professional-refresh; / (root); Enforce HTTPS activado. No cambió la configuración y autorizó expresamente el push exclusivo de feature/portfolio-consolidation.
+- Nueva revisión por API: único workflow activo pages-build-deployment, ruta dynamic/pages/pages-build-deployment. Sin YAML adicionales en la feature, main ni la rama publicada. Comprobación satisfactoria para subir la feature sin publicar.
+- Push con refspec explícito únicamente a refs/heads/feature/portfolio-consolidation, sin force. Upstream origin/feature/portfolio-consolidation configurado.
+- Primer respaldo remoto verificado: d282cb5fd2aebf18732f1328f543e2eb6c6b5c32 idéntico a HEAD local. Diff entre árboles local/remoto vacío; SVG, referencias PNG, ambos CV, HTML, JS, fuentes/generados y documentación incluidos en Git.
+- Esta actualización de cierre se incorpora mediante un commit adicional de documentación y se verifica otra vez contra ls-remote al terminar; el hash final se informa en el cierre de sesión.
+- Tras el push inicial: cero ejecuciones Actions en la feature. Deployment público más reciente sin cambios: id 7711545259, portfolio/professional-refresh, 20b49ad0f3a704e92b79a86d4d65b240f6733b8f, 2026-11-11T13:36:31Z. Sin push a main o rama publicada, merge, cambio de Pages ni despliegue nuevo.
+
+### Una sola carpeta activa
+- Único worktree registrado: D:/Proyectos/portafolio-web, feature/portfolio-consolidation. Repositorio principal y almacén .git conservados.
+- Recuperación comprobada limpia, sin archivos no rastreados; único contenido ignorado: node_modules regenerable. Su HEAD cf11d67 era ancestro de la feature ya respaldada en origin.
+- Se utilizó git worktree remove sin --force. Retiró archivos y registro del worktree, pero Windows impidió borrar el directorio raíz vacío por estar abierto en otro proceso.
+- Verificación posterior: portafolio-web-recovery vacío, sin .git ni archivos, y ausente de git worktree list. Intento no recursivo de eliminar solo ese directorio confirmó bloqueo por otro proceso. Queda únicamente ese residuo vacío; puede retirarse al liberar el proceso, sin afectar datos ni historial.
+
+### Validación final desde la carpeta definitiva
+- npm run build correcto: 33 símbolos y CSS minificado; árbol sin cambios de recursos generados. No cambiaron dependencias ni lockfile. Aviso previo de caniuse-lite y dos vulnerabilidades transitivas conservados como pendientes.
+- node --check correcto en main.js, theme.js, build-icons.mjs y tailwind.config.js; git diff --check sin errores.
+- Reejecutadas las 25 pruebas de regresión Edge headless desde la carpeta principal: todas aprobadas, sin excepciones JS ni errores de red. Cubren Sistema predeterminado, preferencias Claro/Oscuro, persistencia, cambios del sistema emulado, storage inválido/bloqueado, responsive, navegación, teclado/foco, scroll-spy, modal y movimiento reducido.
+- Nueve vistas finales 390/768/1440 × oscuro/claro/Sistema: sin desbordamiento del documento, recursos faltantes, anclas rotas ni IDs duplicados. Logo y favicon presentes. Encabezados móvil claro y escritorio oscuro inspeccionados en las nuevas capturas.
+- Cuatro comprobaciones adicionales finales: descargas ES/EN habilitadas y HEAD HTTP 200; validación de email y contador de mensaje; ausencia de WhatsApp y presencia de correo/GitHub/LinkedIn; ausencia de excepciones JS. Formulario no enviado.
+- Ambos README: siete enlaces relativos válidos por idioma. Marca y PDF idénticos a los recursos aprobados y a los respaldados remotamente. Hashes PDF ES/EN conservados según el registro anterior.
+- Evidencias finales temporales en %TEMP%/portfolio-consolidation-qa/: final-regression.mjs, final-qa.mjs, stage12-after-regression.json, qa-results.json, primary-results.json y capturas. No se incorporaron perfiles ni QA al repositorio.
+- Se mantienen los límites de Edge headless, sistema emulado y QA sin envíos reales; no se certifica lector de pantalla ni todos los navegadores/dispositivos.
+
+### Inventario para una limpieza futura autorizada
+- Directorio vacío portafolio-web-recovery: puede eliminarse sin pérdida al liberar el proceso que lo mantiene abierto. No es una segunda copia activa.
+- Cachés %TEMP%/portfolio-consolidation-npm-cache y portafolio-theme-npm-cache, y perfiles temporales portfolio-edge-qa-*: candidatos regenerables para limpieza posterior; no eliminados en esta fase.
+- Evidencias %TEMP%/portfolio-consolidation-qa, portfolio-recovered-qa y portafolio-theme-qa: conservar al menos la evidencia final antes de aprobar descarte de QA antiguo; no son respaldos permanentes del código.
+- Copias temporales portafolio-brand-phase92, portafolio-etapa12-backup-20261112-234743, portafolio-fase8-20261113-002111 y portafolio-web-backup-20261112-230355: requieren comparación específica de sus contenidos antes de certificar eliminación sin pérdida; no borradas.
+- recovery/mv-spatial (e0a18eb) y etapa1-integridad (b15a84f): commits incluidos en la rama remota consolidada; referencias locales redundantes candidatas a retirada futura autorizada. No se borraron ramas locales ni remotas.
+- Mantener recovery/mv-spatial-snapshot, stash y checkpoints: antes de este cierre se contaron 42 commits locales no alcanzables desde referencias remotas, pertenecientes al historial de recuperación. El respaldo remoto del proyecto actual no equivale a respaldo remoto de todo ese historial.
+- Bundle permanente Backups/portafolio-web/portafolio-web-20261113-013227-7452daf8.bundle: conservado y previamente verificado con historial completo. No recomendar su eliminación mientras se quiera conservar snapshot/stash/checkpoints sin verificar otro respaldo equivalente.
+- No se crearon backups permanentes nuevos ni se borraron bundle, stash, referencias de recuperación, checkpoints, historial o ramas remotas.
+
+### Preparación de la siguiente fase
+- Consolidación funcional y respaldo de la versión aprobada completados; rama feature como única línea activa y Pages anterior preservado.
+- Próxima fase: 9.3, sistema de diseño visual MV Spatial. No iniciada; requiere autorización propia.

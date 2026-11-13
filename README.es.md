@@ -74,7 +74,7 @@ npm run build
 npm run serve
 ```
 
-Clonar esta rama requiere un push completado; consulta el estado remoto en [PROJECT_STATUS.md](docs/PROJECT_STATUS.md). Las copias existentes pueden utilizar la rama feature local. `npm ci` instala las versiones bloqueadas. `npm run serve` utiliza `npx --yes serve .` y puede descargar el servidor; usa la URL indicada en la terminal, normalmente `http://localhost:3000`. Detén el servidor con Ctrl+C. Si PowerShell bloquea `npm.ps1`, utiliza `npm.cmd`.
+La rama de desarrollo está disponible en GitHub; consulta las evidencias de consolidación en [PROJECT_STATUS.md](docs/PROJECT_STATUS.md). Las copias existentes pueden utilizar la rama feature local. `npm ci` instala las versiones bloqueadas. `npm run serve` utiliza `npx --yes serve .` y puede descargar el servidor; usa la URL indicada en la terminal, normalmente `http://localhost:3000`. Detén el servidor con Ctrl+C. Si PowerShell bloquea `npm.ps1`, utiliza `npm.cmd`.
 
 | Comando | Función |
 | --- | --- |

@@ -74,7 +74,7 @@ npm run build
 npm run serve
 ```
 
-Cloning this branch requires a completed push; check [PROJECT_STATUS.md](docs/PROJECT_STATUS.md) for remote status. Existing checkouts can use the local feature branch. `npm ci` installs locked versions. `npm run serve` uses `npx --yes serve .` and may download the server; use the URL printed in the terminal, normally `http://localhost:3000`. Stop with Ctrl+C. Use `npm.cmd` if PowerShell blocks `npm.ps1`.
+The development branch is available on GitHub; see [PROJECT_STATUS.md](docs/PROJECT_STATUS.md) for consolidation evidence. Existing checkouts can use the local feature branch. `npm ci` installs locked versions. `npm run serve` uses `npx --yes serve .` and may download the server; use the URL printed in the terminal, normally `http://localhost:3000`. Stop with Ctrl+C. Use `npm.cmd` if PowerShell blocks `npm.ps1`.
 
 | Command | Purpose |
 | --- | --- |
