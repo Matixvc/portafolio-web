@@ -394,3 +394,12 @@ Este apartado sustituye las referencias anteriores a la feature como única rama
 - Pages confirmado previamente por el autor: Deploy from a branch, portfolio/professional-refresh, / (root), HTTPS activado. Revisión remota previa: solo workflow dinámico pages-build-deployment; deployment 7711545259 / 20b49ad, sin workflows YAML adicionales.
 - No se modifica Settings → Pages. Próximo paso del autor, después de verificar main: seleccionar Deploy from a branch → main → / (root), guardar y comprobar el nuevo despliegue. No afirmar publicación desde main antes de esa verificación.
 - Carpeta activa única: D:/Proyectos/portafolio-web. Fase 9.3 preparada pero no iniciada. Se conservan las limitaciones y pendientes técnicos documentados en las fases anteriores.
+
+### Resultado verificado de la integración
+- Commit documental b55a5b44545c051c11744f1e2b250bd784203dd5 creado y main avanzado desde 30750f5 mediante --ff-only, sin commit de merge. Push exclusivo de main completado sin force; HEAD local y remoto idénticos en la comprobación posterior.
+- GitHub confirma default_branch main. El README por defecto tiene blob dd2e3a6ad9cf591ad8d8d227db3ec29ed93ef8ce, idéntico al README local; la página principal del repositorio muestra MV Spatial.
+- Todos los archivos ajenos a README.md, README.es.md, AGENTS.md y PROJECT_STATUS.md coinciden exactamente con e43626b. La base aprobada e43626b sigue siendo ancestro de main; no se perdió contenido ni se alteraron PDF, SVG, referencias, CSS o funcionalidades.
+- Siete enlaces locales por README válidos, URLs externas equivalentes, UTF-8 correcto, sintaxis de main.js/theme.js/tailwind.config.js y diff --check sin errores. No se necesitó recompilar ni repetir QA funcional porque el cambio posterior a e43626b es exclusivamente documental.
+- Único worktree registrado en D:/Proyectos/portafolio-web, rama activa main, árbol limpio al verificar. Ramas existentes y stash conservados; rama remota feature/portfolio-consolidation permanece en e43626b. No se crearon carpetas, worktrees o respaldos nuevos.
+- Después del push: deployment más reciente todavía 20b49ad / portfolio/professional-refresh, y HTML público idéntico al de ese commit. No se modificó Settings → Pages ni se publicó la nueva versión. El autor puede realizar ahora el cambio manual a main / raíz y confirmar el nuevo despliegue.
+- Este registro final se confirma en un commit documental adicional sobre main; su hash y sincronización remota se entregan en el informe final. Fase 9.3 sin iniciar.
