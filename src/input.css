@@ -240,12 +240,6 @@ header nav a[aria-current="location"] {
     border-bottom-color: var(--header-border-scrolled);
 }
 
-/* Boton flotante de WhatsApp: solo en móvil (en desktop ya está en el header) */
-@media (min-width: 768px) {
-    .fab-whatsapp {
-        display: none;
-    }
-}
 
 /* ==========================================================================
    Accesibilidad

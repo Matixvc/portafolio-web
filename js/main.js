@@ -291,7 +291,6 @@
                 const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
         const WEB3FORMS_ACCESS_KEY = '65c144b4-4c81-4610-8057-4df6b8a2b605';
         const CONTACT_EMAIL = 'Matias.villalobos.dev@gmail.com';
-        const WHATSAPP_LINK = 'https://wa.me/56987576708';
 
                 const contactForm = document.getElementById('contact-form');
         const formAlert = document.getElementById('form-alert');
@@ -470,19 +469,17 @@
             window.location.href = mailtoLink(payload.subject, body);
             resetFormState();
                         showAlert('info', infoIcon + ' <span>Se abrió tu cliente de correo con el mensaje listo para enviar. ' +
-                'Si no se abrió, escríbeme directo a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a> ' +
-                'o por <a class="underline" href="' + WHATSAPP_LINK + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</span>');
+                'Si no se abrió, escríbeme directo a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.</span>');
         }
 
         // Mensaje visible cuando el envío real falla o el endpoint no responde:
-        // SIEMPRE incluye alternativas reales (WhatsApp + correo directo).
+        // SIEMPRE incluye una alternativa real (correo directo).
         function showFallbackAlert(extraMessage) {
             const base = extraMessage
                 ? '<strong class="block font-semibold mb-1">No se pudo enviar el formulario.</strong><span>' + extraMessage + '</span>'
                 : '<strong class="block font-semibold mb-1">No se pudo enviar el formulario.</strong><span>';
             showAlert('error', errorIcon + ' ' + base +
-                ' Puedes escribirme directamente por <a class="underline" href="' + WHATSAPP_LINK + '" target="_blank" rel="noopener noreferrer">WhatsApp</a> ' +
-                'o a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>. Gracias por tu paciencia.</span>');
+                ' Puedes escribirme directamente a <a class="underline" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>. Gracias por tu paciencia.</span>');
         }
 
         contactForm.addEventListener('submit', async (e) => {
