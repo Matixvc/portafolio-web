@@ -9,7 +9,7 @@
 
 My personal portfolio presents personal and academic projects in game development, Unity, C#, interactive 3D and XR. It brings together project summaries, source repositories, bilingual CV downloads and professional contact details.
 
-This development branch contains approved work through phases 9.1 and 9.2. The public website currently serves an earlier version from `portfolio/professional-refresh` and may differ from this branch.
+`main` contains the approved stable portfolio through phases 9.1 and 9.2. GitHub Pages still serves the earlier version from `portfolio/professional-refresh`; switching its source to `main` is pending manual confirmation by the owner.
 
 ## Features
 
@@ -64,17 +64,17 @@ portafolio-web/
 
 ## Local development
 
-Requires Node.js and npm. Clone the development branch explicitly while publication remains separate:
+Requires Node.js and npm. Clone the stable version from `main`:
 
 ```sh
-git clone --branch feature/portfolio-consolidation https://github.com/Matixvc/portafolio-web.git
+git clone --branch main https://github.com/Matixvc/portafolio-web.git
 cd portafolio-web
 npm ci
 npm run build
 npm run serve
 ```
 
-The development branch is available on GitHub; see [PROJECT_STATUS.md](docs/PROJECT_STATUS.md) for consolidation evidence. Existing checkouts can use the local feature branch. `npm ci` installs locked versions. `npm run serve` uses `npx --yes serve .` and may download the server; use the URL printed in the terminal, normally `http://localhost:3000`. Stop with Ctrl+C. Use `npm.cmd` if PowerShell blocks `npm.ps1`.
+The stable version lives on `main`; `feature/portfolio-consolidation` is preserved as the consolidation branch. See [PROJECT_STATUS.md](docs/PROJECT_STATUS.md) for integration evidence. `npm ci` installs locked versions. `npm run serve` uses `npx --yes serve .` and may download the server; use the URL printed in the terminal, normally `http://localhost:3000`. Stop with Ctrl+C. Use `npm.cmd` if PowerShell blocks `npm.ps1`.
 
 | Command | Purpose |
 | --- | --- |
@@ -93,11 +93,11 @@ Basic checks: `node --check js/main.js`, `node --check js/theme.js`, `node --che
 ## Git and publication
 
 - **Current public branch:** `portfolio/professional-refresh`, last verified deployment `20b49ad`. Keep Pages settings intact.
-- **Development:** `feature/portfolio-consolidation`, based on the recovered approved version.
-- **Future workflow:** `main` for stable work and temporary `feature/*` branches; no permanent `develop`.
+- **Stable branch:** `main`, containing the recovered and approved portfolio through phase 9.2.
+- **Development workflow:** temporary `feature/*` branches from `main`; no permanent `develop`. Preserve `feature/portfolio-consolidation` and existing branches/history.
 - Review diffs and staging, create focused commits, and version generated CSS/icons with their sources.
 - Push feature branches only after verifying Pages/Actions triggers cannot publish them. Publication requires explicit approval.
-- Moving publication to `main` is a future, separately authorized operation. This consolidation does not publish the new version.
+- **Pending manual publication step:** the owner can select Settings → Pages → Deploy from a branch → `main` → `/ (root)`. Do not describe `main` as the live source until that change and deployment are verified. Updating `main` alone does not change the current Pages source.
 
 GitHub is the primary backup after verifying the remote commit. Use temporary recovery resources only when necessary. Existing permanent backups, recovery references and stash require explicit approval before removal.
 

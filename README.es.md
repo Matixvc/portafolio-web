@@ -9,7 +9,7 @@
 
 Mi portafolio personal presenta proyectos personales y académicos de videojuegos, Unity, C#, interacción 3D y XR. Reúne resúmenes de proyectos, repositorios, descargas bilingües del CV y medios de contacto profesional.
 
-Esta rama de desarrollo contiene el trabajo aprobado hasta las fases 9.1 y 9.2. El sitio público sirve actualmente una versión anterior desde `portfolio/professional-refresh` y puede diferir de esta rama.
+`main` contiene el portafolio estable aprobado hasta las fases 9.1 y 9.2. GitHub Pages todavía sirve la versión anterior desde `portfolio/professional-refresh`; cambiar su fuente a `main` queda pendiente de confirmación manual del autor.
 
 ## Características
 
@@ -64,17 +64,17 @@ portafolio-web/
 
 ## Desarrollo local
 
-Requiere Node.js y npm. Clona explícitamente la rama de desarrollo mientras la publicación permanece separada:
+Requiere Node.js y npm. Clona la versión estable desde `main`:
 
 ```sh
-git clone --branch feature/portfolio-consolidation https://github.com/Matixvc/portafolio-web.git
+git clone --branch main https://github.com/Matixvc/portafolio-web.git
 cd portafolio-web
 npm ci
 npm run build
 npm run serve
 ```
 
-La rama de desarrollo está disponible en GitHub; consulta las evidencias de consolidación en [PROJECT_STATUS.md](docs/PROJECT_STATUS.md). Las copias existentes pueden utilizar la rama feature local. `npm ci` instala las versiones bloqueadas. `npm run serve` utiliza `npx --yes serve .` y puede descargar el servidor; usa la URL indicada en la terminal, normalmente `http://localhost:3000`. Detén el servidor con Ctrl+C. Si PowerShell bloquea `npm.ps1`, utiliza `npm.cmd`.
+La versión estable está en `main`; `feature/portfolio-consolidation` se conserva como rama de consolidación. Consulta las evidencias de integración en [PROJECT_STATUS.md](docs/PROJECT_STATUS.md). `npm ci` instala las versiones bloqueadas. `npm run serve` utiliza `npx --yes serve .` y puede descargar el servidor; usa la URL indicada en la terminal, normalmente `http://localhost:3000`. Detén el servidor con Ctrl+C. Si PowerShell bloquea `npm.ps1`, utiliza `npm.cmd`.
 
 | Comando | Función |
 | --- | --- |
@@ -93,11 +93,11 @@ Comprobaciones básicas: `node --check js/main.js`, `node --check js/theme.js`, 
 ## Git y publicación
 
 - **Rama pública actual:** `portfolio/professional-refresh`, último despliegue verificado `20b49ad`. Mantener la configuración de Pages.
-- **Desarrollo:** `feature/portfolio-consolidation`, basada en la versión recuperada aprobada.
-- **Flujo futuro:** `main` estable y ramas temporales `feature/*`; sin `develop` permanente.
+- **Rama estable:** `main`, con el portafolio recuperado y aprobado hasta la fase 9.2.
+- **Flujo de desarrollo:** ramas temporales `feature/*` desde `main`; sin `develop` permanente. Conservar `feature/portfolio-consolidation` y las ramas e historial existentes.
 - Revisar diff y staging, crear commits acotados y versionar CSS/iconos generados junto con sus fuentes.
 - Subir ramas feature únicamente tras verificar que los triggers de Pages/Actions no puedan publicarlas. Publicar requiere aprobación explícita.
-- Trasladar la publicación a `main` es una operación futura con autorización separada. Esta consolidación no publica la nueva versión.
+- **Paso manual de publicación pendiente:** el autor puede seleccionar Settings → Pages → Deploy from a branch → `main` → `/ (root)`. No describir `main` como fuente pública hasta verificar ese cambio y el despliegue. Actualizar `main` por sí solo no cambia la fuente actual de Pages.
 
 GitHub es el respaldo principal tras verificar el commit remoto. Utilizar recursos temporales de recuperación solo cuando sean necesarios. Eliminar respaldos permanentes existentes, referencias de recuperación o stash requiere autorización explícita.
 

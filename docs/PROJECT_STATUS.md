@@ -1,8 +1,8 @@
 # Estado del proyecto
 
 Fecha: 2026-11-13 (America/Santiago).
-Rama de trabajo actual: `feature/portfolio-consolidation`.
-Base histórica inicial: `30750f5` — Cambio de CVs. Los apartados de fases anteriores conservan su contexto histórico; el cierre de consolidación al final es el estado vigente.
+Rama estable y de trabajo actual: `main`.
+Base histórica inicial: `30750f5` — Cambio de CVs. Los apartados de fases anteriores conservan su contexto histórico; el último apartado de integración en main es el estado vigente.
 
 ## Base confirmada
 - Sitio estático con HTML, JavaScript vanilla y Tailwind CSS.
@@ -377,3 +377,20 @@ Este apartado sustituye los bloqueos y pendientes de push/traslado registrados a
 ### Preparación de la siguiente fase
 - Consolidación funcional y respaldo de la versión aprobada completados; rama feature como única línea activa y Pages anterior preservado.
 - Próxima fase: 9.3, sistema de diseño visual MV Spatial. No iniciada; requiere autorización propia.
+
+## Integración estable en main — 2026-11-13
+
+Este apartado sustituye las referencias anteriores a la feature como única rama activa. La publicación de Pages continúa separada.
+
+- Autorización expresa del autor para actualizar documentación, integrar mediante fast-forward y subir main sin force; sin modificar Settings → Pages ni iniciar Fase 9.3.
+- Auditoría inicial: Git limpio, feature/portfolio-consolidation en e43626bb70ef7a71c66840c8a4c59a790bdce94e y sincronizada con origin; main y origin/main en 30750f56e0daf8f1a160ebf758b6d84e6c447fe0. Fetch sin novedades inesperadas; main 0 commits por delante / 7 por detrás de la feature.
+- Fast-forward confirmado mediante merge-base --is-ancestor. Sin conflictos, divergencia ni necesidad de reescribir historial. La versión aprobada ya está protegida remotamente; no se crean carpetas, worktrees o backups nuevos.
+- Revisados antes de integrar: logo MV Spatial y referencias originales; tema Sistema predeterminado y opciones Claro/Oscuro; Hero e identidad Unity Developer | XR / VR Developer; descripción de PhysicsVR sin funcionamiento con visor; colaboración académica XR bajo NDA independiente; ambos CV; integración Web3Forms; ausencia de enlaces WhatsApp; README bilingüe, CSS compilado, código y documentación.
+- Cambios de esta etapa limitados a README.md, README.es.md, AGENTS.md y este registro: main como rama estable y fuente futura; clonación desde main; feature conservada; publicación actual y paso manual futuro claramente separados.
+- Procedimiento autorizado: commit documental sobre la feature, git switch main, git merge --ff-only feature/portfolio-consolidation y push con refspec explícito únicamente a refs/heads/main; comparar HEAD con ls-remote y comprobar el README servido por GitHub.
+- feature/portfolio-consolidation y las demás ramas se conservan. No se elimina bundle, stash, referencias ni historial. El commit remoto previo de la feature sigue disponible; el commit documental adicional queda incluido en main.
+- Preservación verificable: el árbol de archivos ajenos a esos cuatro documentos debe coincidir exactamente con e43626b. Se reutilizan las validaciones funcionales de la consolidación: no se repite QA de navegador al no cambiar HTML, CSS, JS ni recursos.
+- Checks de esta etapa: diff --check, enlaces relativos de ambos README, paridad de URLs, UTF-8, sintaxis JS/configuración y comparación de recursos con la versión aprobada. La coincidencia local/remota y el README principal se comprueban tras el push y se informan al cerrar la sesión.
+- Pages confirmado previamente por el autor: Deploy from a branch, portfolio/professional-refresh, / (root), HTTPS activado. Revisión remota previa: solo workflow dinámico pages-build-deployment; deployment 7711545259 / 20b49ad, sin workflows YAML adicionales.
+- No se modifica Settings → Pages. Próximo paso del autor, después de verificar main: seleccionar Deploy from a branch → main → / (root), guardar y comprobar el nuevo despliegue. No afirmar publicación desde main antes de esa verificación.
+- Carpeta activa única: D:/Proyectos/portafolio-web. Fase 9.3 preparada pero no iniciada. Se conservan las limitaciones y pendientes técnicos documentados en las fases anteriores.
