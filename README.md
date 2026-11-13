@@ -1,161 +1,128 @@
-# Portafolio Web — Matías Villalobos
+<p align="center"><img src="assets/brand/mv-spatial.svg" width="84" alt="MV Spatial logo"></p>
+<h1 align="center">MV Spatial · Matías Villalobos</h1>
+<p align="center"><strong>Unity Developer | XR / VR Developer</strong></p>
+<p align="center">Personal projects, gameplay and interactive 3D experiences.</p>
+<p align="center"><a href="https://matixvc.github.io/portafolio-web/">Visit the portfolio</a> · <strong>English</strong> · <a href="README.es.md">Español</a></p>
+<p align="center"><img alt="HTML5" src="https://img.shields.io/badge/HTML5-static-E34F26"> <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-vanilla-F7DF1E"> <img alt="Tailwind CSS 3" src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4"></p>
 
-Portafolio profesional de **Unity Developer | XR / VR Developer**.
-Proyectos personales y académicos con Unity y C#, centrados en gameplay,
-interacción física y experiencias 3D, con especial interés en realidad virtual y XR.
-Sitio estático: HTML + Tailwind CSS + JavaScript vanilla. Sin frameworks ni dependencias en producción.
+## About
 
-🌐 **Demo:** https://matixvc.github.io/portafolio-web/
+My personal portfolio presents personal and academic projects in game development, Unity, C#, interactive 3D and XR. It brings together project summaries, source repositories, bilingual CV downloads and professional contact details.
 
----
+This development branch contains approved work through phases 9.1 and 9.2. The public website currently serves an earlier version from `portfolio/professional-refresh` and may differ from this branch.
 
-## Proyectos mostrados
+## Features
 
-| Proyecto | Qué es | Stack | Enlaces |
-|---|---|---|---|
-| **App Mobile — Organizador Personal** | App para organizar el día a día: horario universitario, fechas con notificación de calendario, cumpleaños y evaluaciones | Expo · React Native · TypeScript | [Repo](https://github.com/Matixvc/App-Mobile) |
-| **Basura Fighters — Roguelike de Reciclaje** | Roguelike web jugable: oleadas, EXP, habilidades/armas, 3 héroes, jefes, modo infinito. Un solo HTML con Canvas 2D | JavaScript · Canvas 2D · HTML5 | [Repo](https://github.com/Matixvc/Trash-Roguelike) · [Demo](https://trash-rogelike.netlify.app) |
-| **PhysicsVR Prototype** | Prototipo de interacción física en Unity, en desarrollo y orientado a una futura integración con VR. Todavía no es funcional con visor | Unity · C# · Físicas 3D | [Repo](https://github.com/Matixvc/PhysicsVR_Prototype) |
+- Responsive layouts for mobile, tablet and desktop.
+- Light, Dark and System themes; System is the default. Explicit preferences persist when browser storage is available.
+- MV Spatial SVG identity and a favicon that follows the system color scheme.
+- Semantic sections, keyboard navigation, visible focus, a mobile menu, project dialogs and reduced-motion support.
+- Project cards with details and repository links.
+- Separate Spanish and English CV downloads.
+- Web3Forms contact integration, field validation, duplicate submission prevention, email copying and email fallback.
+- Static GitHub Pages hosting, with compiled CSS and the icon sprite committed to Git.
 
-> Sin capturas por ahora: las tarjetas usan mockups SVG que se sustituirán por capturas/GIF reales cuando estén listas.
+Real contact delivery is not tested during consolidation; no form submissions are authorized for QA.
 
----
+## Projects and professional scope
 
-## Estructura del proyecto
+| Project | Current scope | Source |
+| --- | --- | --- |
+| PhysicsVR Prototype | Unity/C# physical interaction prototype in development, intended for future VR integration. **Not yet functional with a VR headset.** | [Repository](https://github.com/Matixvc/PhysicsVR_Prototype) |
+| Basura Fighters | Browser recycling roguelike with JavaScript and Canvas 2D. | [Repository](https://github.com/Matixvc/Trash-Roguelike) · [Demo](https://trash-rogelike.netlify.app) |
+| App Mobile | Personal organizer with Expo, React Native and TypeScript. | [Repository](https://github.com/Matixvc/App-Mobile) |
 
-```
+The academic XR collaboration under NDA is separate from PhysicsVR. Its public description is limited to functional testing on Meta Quest 3 and issue reporting. Project illustrations currently use SVG mockups; real screenshots and media remain planned.
+
+## Technologies
+
+**Website:** static HTML, vanilla JavaScript and Tailwind CSS 3. Font Awesome supplies SVG sources for a local icon sprite. npm dependencies are development tools; the site requires no frontend framework or runtime npm bundle. Contact submission uses Web3Forms.
+
+**Professional profile:** Unity and C# are the main focus, alongside gameplay, physical interaction, 3D and XR exploration. Unreal Engine, Python, Git/GitHub, Blender and Photoshop appear as complementary tools. They are not website dependencies. Expo, React Native and TypeScript belong to App Mobile.
+
+## Project structure
+
+```text
 portafolio-web/
-├── index.html              # Página única (todo el contenido)
-├── src/
-│   ├── input.css           # CSS fuente: directivas de Tailwind + estilos propios
-│   ├── og-card.html        # Plantilla para generar assets/og-image.png (build time)
-│   ├── icon-card.html      # Plantilla para generar assets/apple-touch-icon.png (build time)
-│   └── cv.html             # Plantilla histórica del CV, separada de los PDF vigentes
-├── scripts/
-│   ├── build-icons.mjs     # Genera el sprite assets/icons.svg
-│   ├── render.mjs          # og-image.png y CV en PDF vía Edge headless
-│   └── set-url.mjs         # Cambia el dominio en todos los metadatos
-├── js/
-│   ├── main.js             # Menú, modal, scroll-spy, formulario de contacto y CV (IIFE)
-│   └── theme.js            # Inicialización temprana y preferencias oscuro/claro/sistema
-├── docs/
-│   └── PROJECT_STATUS.md   # Estado, validaciones y pendientes
-├── AGENTS.md               # Instrucciones del proyecto
-├── dist/
-│   └── styles.css          # CSS compilado y minificado (no editar a mano)
+├── index.html
+├── js/                     # main.js: interactions; theme.js: theme preferences
+├── src/                    # input.css and historical CV/OG/icon templates
+├── scripts/                # Icon generation, rendering and URL updates
 ├── assets/
-│   ├── favicon.svg
-│   ├── apple-touch-icon.png
-│   ├── icons.svg           # Sprite SVG local (se regenera con npm run icons)
-│   ├── foto-perfil.jpg     # Foto de perfil (sección "Sobre mí")
-│   ├── Matias_Villalobos_CV_Unity_XR_ES.pdf  # CV vigente español
-│   ├── Matias_Villalobos_CV_Unity_XR_EN.pdf  # CV vigente inglés
-│   └── og-image.png        # Vista previa para WhatsApp / LinkedIn
-├── tailwind.config.js      # Colores, fuentes y sombras
-├── robots.txt
-├── sitemap.xml
-└── site.webmanifest
+│   ├── brand/              # MV Spatial SVGs, favicon and references/
+│   ├── icons.svg           # Generated sprite
+│   ├── Matias_Villalobos_CV_Unity_XR_ES.pdf
+│   └── Matias_Villalobos_CV_Unity_XR_EN.pdf
+├── dist/styles.css         # Generated CSS
+├── docs/PROJECT_STATUS.md
+├── AGENTS.md
+├── README.md / README.es.md
+├── package.json / package-lock.json
+├── tailwind.config.js
+└── site.webmanifest / robots.txt / sitemap.xml
 ```
 
----
+## Local development
 
-## Ver en local
+Requires Node.js and npm. Clone the development branch explicitly while publication remains separate:
 
-> ⚠️ No lo abras con doble clic (`file:///`): iconos, estilos y scripts necesitan un servidor local y con doble clic se ve roto.
-
-```bash
-npm ci        # instala las versiones del lockfile
-npm run build # genera dist/styles.css e icons.svg (solo la primera vez o si editas estilos/iconos)
-npm run serve # abre http://localhost:3000 en el navegador
+```sh
+git clone --branch feature/portfolio-consolidation https://github.com/Matixvc/portafolio-web.git
+cd portafolio-web
+npm ci
+npm run build
+npm run serve
 ```
 
-- `npm run serve` usa `npx serve`: la primera vez tarda (descarga el servidor).
-- Para detenerlo: `Ctrl + C` en la terminal.
-- Si editas `src/input.css` mientras pruebas, deja `npm run watch` corriendo en otra terminal para que `dist/styles.css` se regenere solo.
-- Alternativas sin npm: `python -m http.server 8000` o la extensión **Live Server** de VS Code (clic derecho sobre `index.html`).
+Cloning this branch requires a completed push; check [PROJECT_STATUS.md](docs/PROJECT_STATUS.md) for remote status. Existing checkouts can use the local feature branch. `npm ci` installs locked versions. `npm run serve` uses `npx --yes serve .` and may download the server; use the URL printed in the terminal, normally `http://localhost:3000`. Stop with Ctrl+C. Use `npm.cmd` if PowerShell blocks `npm.ps1`.
 
----
+| Command | Purpose |
+| --- | --- |
+| `npm run build` | Regenerate the icon sprite and minified CSS. |
+| `npm run watch` | Recompile CSS while editing `src/input.css`. |
+| `npm run icons` | Regenerate only `assets/icons.svg` from `scripts/build-icons.mjs`. |
+| `npm run serve` | Serve the project locally. |
+| `npm run set-url -- --dry https://example.com` | Preview metadata URL changes; remove `--dry` only for an intentional domain change. |
+| `npm run og` | Render existing OG artwork through Microsoft Edge; overwrites generated resources. |
+| `npm run cv` | Export historical `src/cv.html` to `assets/cv-matias-villalobos.pdf` through Edge. Does **not** update current ES/EN PDFs. |
 
-## Comandos
+Edit CSS/icon sources and regenerate outputs. Do not manually edit `dist/styles.css` or `assets/icons.svg`. Run OG/CV exports only within an approved resource update.
 
-```bash
-npm ci         # instala las versiones del lockfile
-npm run build  # icons + CSS minificado (regenera dist/styles.css)
-npm run watch  # recompila el CSS al guardar cambios
-npm run serve  # servidor local → http://localhost:3000
-npm run icons  # regenera assets/icons.svg desde FontAwesome
-npm run og     # regenera assets/og-image.png (requiere Microsoft Edge)
-npm run cv     # exporta la plantilla histórica a assets/cv-matias-villalobos.pdf; no actualiza ES/EN
-npm run set-url -- https://tudominio.com  # cambia el dominio en los metadatos
-```
+Basic checks: `node --check js/main.js`, `node --check js/theme.js`, `node --check tailwind.config.js`, `git diff --check`. There is no configured `npm test` or lint script. Browser QA should cover themes, reload/persistence, keyboard controls, menus, dialogs, CV links and responsive widths 390/768/1440. Do not submit the contact form without authorization.
 
----
+## Git and publication
 
-## Formulario de contacto
+- **Current public branch:** `portfolio/professional-refresh`, last verified deployment `20b49ad`. Keep Pages settings intact.
+- **Development:** `feature/portfolio-consolidation`, based on the recovered approved version.
+- **Future workflow:** `main` for stable work and temporary `feature/*` branches; no permanent `develop`.
+- Review diffs and staging, create focused commits, and version generated CSS/icons with their sources.
+- Push feature branches only after verifying Pages/Actions triggers cannot publish them. Publication requires explicit approval.
+- Moving publication to `main` is a future, separately authorized operation. This consolidation does not publish the new version.
 
-Funciona con **Web3Forms** y envía a `Matias.villalobos.dev@gmail.com`.
-Incluye validación en tiempo real, honeypot anti-spam, prevención de doble envío
-y botón de copiar correo.
+GitHub is the primary backup after verifying the remote commit. Use temporary recovery resources only when necessary. Existing permanent backups, recovery references and stash require explicit approval before removal.
 
-Si vacías `FORM_ENDPOINT` en `js/main.js`, el formulario no miente: abre el cliente
-de correo del visitante con el mensaje ya redactado y listo para enviar.
+## MV Spatial identity
 
----
+The approved mark combines an upper M, lower V and open hexagonal geometry. Reusable resources in [`assets/brand/`](assets/brand/): `mv-spatial.svg`, `mv-spatial-dark.svg`, `mv-spatial-light.svg`, `mv-spatial-monochrome.svg`, `favicon.svg`; original images are in `references/`.
 
-## CV (descargable)
+Principal/dark emerald: `#20D58F`; light variant: `#07844F`; monochrome: `currentColor`. The header selects the effective theme variant. The interface retains cyan `#00F2FE`, violet `#7928CA` and blue `#0070F3` accents, with semantic light/dark tokens in `src/input.css`. A full MV Spatial design system remains pending.
 
-El Hero ofrece dos descargas independientes:
+## Status and roadmap
 
-- Español: `assets/Matias_Villalobos_CV_Unity_XR_ES.pdf`.
-- Inglés: `assets/Matias_Villalobos_CV_Unity_XR_EN.pdf`.
+Completed through phase 9.2: integrity and functional improvements, professional positioning, theme preferences, and the approved MV Spatial mark/favicon. Evidence and limitations: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
-- Si el PDF está accesible, el botón permite la descarga.
-- Si falta un archivo, solo se deshabilita su botón correspondiente.
+Planned:
 
-`src/cv.html` es una plantilla histórica actualizada editorialmente; no es la fuente
-de los dos PDF vigentes. El comando existente siguiente exporta esa plantilla a un
-tercer archivo con nombre antiguo y no debe usarse para actualizar los CV ES/EN:
+- Phase 9.3: MV Spatial visual design system.
+- Original Hero artwork and Projects Showcase.
+- Project covers, screenshots and video.
+- 3D models and experiences, animations and interactions.
+- Professional banners and refreshed Open Graph artwork.
 
-```bash
-npm run cv   # requiere Microsoft Edge
-```
+Existing ES/EN PDFs are preserved. Their PhysicsVR description needs a separately approved correction. They also mention 40 Days of Light, whose scope and evidence must be prepared before adding it to the website. Additional contact protection, broader browser/accessibility testing, an English website and case studies remain pending. No new AI banners are included.
 
-Los PDF vigentes se conservan intactos. Queda pendiente corregir en ambos la
-descripción de PhysicsVR: todavía no es funcional en VR con visor. También incluyen
-40 Days of Light, cuya preparación para el portafolio web sigue pendiente.
+## Contact
 
----
+[Portfolio](https://matixvc.github.io/portafolio-web/) · [GitHub](https://github.com/Matixvc) · [LinkedIn](https://www.linkedin.com/in/matias-vc-dev) · [Email](mailto:Matias.villalobos.dev@gmail.com)
 
-## Dominio y deploy
-
-El sitio apunta a **https://matixvc.github.io/portafolio-web/** en `canonical`,
-Open Graph, Twitter Card, JSON-LD, `robots.txt` y `sitemap.xml`.
-
-- **GitHub Pages:** `Settings → Pages → Source: Deploy from a branch → main / (root)`.
-  El CSS compilado (`dist/styles.css`) está versionado, así que funciona sin build.
-- **Netlify / Vercel:** conecta el repo y publica la raíz (sin comando de build,
-  o `npm run build` si prefieres regenerar el CSS en cada deploy).
-
-Para cambiar de dominio:
-
-```bash
-npm run set-url -- --dry https://tudominio.com   # muestra los cambios sin escribir
-npm run set-url -- https://tudominio.com         # los aplica
-git add -A && git commit -m "chore: cambiar dominio" && git push
-```
-
----
-
-## Pendiente
-
-- [ ] Protección adicional de Web3Forms: CAPTCHA validado por el servicio; honeypot estándar y restricción de dominio según plan. La access key es pública por diseño.
-- [ ] Preparar evidencia y alcance de 40 Days of Light antes de incorporarlo al sitio.
-- [ ] Sincronizar futuras revisiones de los PDF con el estado confirmado de PhysicsVR.
-- [ ] Capturas/GIF reales de los proyectos (sustituyen los mockups SVG).
-- [ ] Versión en inglés del sitio.
-
-## Roadmap
-
-- [ ] Case studies con URL propia por proyecto (`/proyectos/<slug>/`).
-- [ ] Analytics (cargador ya preparado en `js/main.js`, inactivo por defecto).
-- [ ] CI/CD (GitHub Actions + Lighthouse CI) · ESLint/Prettier · página 404.
+[CV · Español](assets/Matias_Villalobos_CV_Unity_XR_ES.pdf) · [CV · English](assets/Matias_Villalobos_CV_Unity_XR_EN.pdf)

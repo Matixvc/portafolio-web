@@ -27,8 +27,9 @@
 - No pedir nuevamente autorización para acciones ya aprobadas.
 - Identificar y conservar cambios pendientes del usuario u otros agentes.
 - No atribuir autoría sin evidencia.
-- Antes de cambios importantes, proponer un respaldo fuera de la raíz publicada.
-- Verificar el respaldo y comunicar su ubicación.
+- GitHub es el respaldo principal tras verificar coincidencia local/remota.
+- No crear copias permanentes innecesarias. Usar recursos temporales fuera de la raíz publicada solo cuando sean necesarios, verificarlos y comunicar su ubicación.
+- No eliminar respaldos permanentes, stash ni referencias de recuperación sin autorización explícita e inventario previo.
 - No usar stash ni alterar cambios pendientes sin autorización.
 - Evitar refactorizaciones ajenas a la tarea.
 - Registrar estado y validaciones en docs/PROJECT_STATUS.md.
@@ -39,7 +40,10 @@
 - Nunca ejecutar reset --hard, clean -fd o push --force sin autorización.
 - No reescribir el historial ni eliminar archivos importantes sin autorización.
 - No modificar el framework ni instalar dependencias globales sin aprobación.
-- GitHub Pages está documentado desde main / raíz.
+- Carpeta definitiva: D:/Proyectos/portafolio-web; rama actual: feature/portfolio-consolidation.
+- Flujo futuro: main estable y ramas temporales feature/*; sin develop permanente.
+- Publicación actual: portfolio/professional-refresh, último despliegue verificado 20b49ad. No modificar Pages ni trasladar la publicación a main sin autorización.
+- Antes de push a feature/*, verificar los triggers remotos de Pages/Actions. Si no es posible garantizar que no publique, completar commits locales y detenerse antes del push.
 - El CSS compilado y el sprite se versionan; no editarlos a mano.
 - No publicar automáticamente al terminar una fase.
 
@@ -54,7 +58,8 @@
 - Temas: js/theme.js es la única fuente de gestión de preferencias.
 - Cargar theme.js antes del CSS; no duplicar la lógica en main.js.
 - data-theme contiene dark o light; system es una preferencia, no un tema efectivo.
-- Usar oscuro si falta una preferencia válida y tolerar fallos de localStorage.
+- Usar system si falta una preferencia válida o falla localStorage; resolver dark/light según prefers-color-scheme. El CSS sin JavaScript conserva fallback oscuro.
+- Marca aprobada: assets/brand/ (variantes SVG, favicon y references/). No iniciar Fase 9.3 sin autorización.
 - Preferir variables semánticas; preservar colores propios de ilustraciones.
 - No cambiar dependencias ni lockfile sin autorización.
 

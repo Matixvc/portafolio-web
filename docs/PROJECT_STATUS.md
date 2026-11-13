@@ -1,13 +1,13 @@
 # Estado del proyecto
 
 Fecha: 2026-11-13 (America/Santiago).
-Rama de trabajo: `etapa1-integridad`.
-Último commit al iniciar: `30750f5` — Cambio de CVs.
+Rama de trabajo actual: `feature/portfolio-consolidation`.
+Base histórica inicial: `30750f5` — Cambio de CVs. Los apartados de fases anteriores conservan su contexto histórico; el cierre de consolidación al final es el estado vigente.
 
 ## Base confirmada
 - Sitio estático con HTML, JavaScript vanilla y Tailwind CSS.
 - Lockfile: Tailwind 3.4.19 y Font Awesome 6.4.0.
-- GitHub Pages desde main / raíz, según README; configuración remota no verificada.
+- Publicación actual confirmada: portfolio/professional-refresh en 20b49ad. La referencia histórica a main / raíz era documental y no describía el último despliegue real.
 - Fases 0–1: base técnica, CSS compilado, SEO y formulario.
 - Fase 2: accesibilidad de menú/modal, skip-link y movimiento reducido.
 - Fase 3: sprite local, fuentes recortadas y reducción de blur móvil.
@@ -24,7 +24,7 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
 - Seis archivos ya modificados: README.md, index.html, js/main.js, src/cv.html,
   src/input.css y tailwind.config.js; sin cambios staged ni archivos no rastreados.
 - Respaldo verificado por SHA-256 antes de editar:
-  `C:\Users\matia\AppData\Local\Temp\portafolio-web-backup-20261112-230355`.
+  `%TEMP%/portafolio-web-backup-20261112-230355`.
 - Incluye los seis archivos, git-status.txt, working-tree.diff y staged.diff.
 
 ## Problemas detectados
@@ -76,7 +76,7 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
 - Tokens de texto del tema claro sobre tarjeta clara: contraste calculado >= 4.55:1.
   No equivale a una certificación completa de contraste de todos los estados.
 - Evidencia y script temporal, fuera del proyecto:
-  `C:\Users\matia\AppData\Local\Temp\portafolio-theme-qa` (results.json y PNG).
+  `%TEMP%/portafolio-theme-qa` (results.json y PNG).
 - El navegador integrado no estaba disponible; Edge requirió ejecutar QA fuera
   del sandbox para que respondiera el canal de automatización.
 - El build avisa de caniuse-lite desactualizado; no se actualizó por alcance.
@@ -98,7 +98,7 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
 
 ## Etapa 1.2 — validación visual y pulido aprobado
 - Respaldo previo verificado por SHA-256:
-  `C:\Users\matia\AppData\Local\Temp\portafolio-etapa12-backup-20261112-234743`.
+  `%TEMP%/portafolio-etapa12-backup-20261112-234743`.
   Incluye HTML, CSS fuente/compilado, theme.js, este documento, sprite y diff previo.
 - Implementadas únicamente las cuatro mejoras aprobadas: superficie clara de la ficha,
   degradado claro del titular de Sobre mí y badge de demo, bordes del formulario y
@@ -151,7 +151,7 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
 ## Fase 8, Etapa 1 — identidad profesional
 - Estado inicial limpio, rama etapa1-integridad, commit `42ba4f4`.
 - Respaldo de los cinco archivos del alcance verificado por SHA-256:
-  `C:\Users\matia\AppData\Local\Temp\portafolio-fase8-20261113-002111`.
+  `%TEMP%/portafolio-fase8-20261113-002111`.
 - Titular unificado: Unity Developer | XR / VR Developer, en Hero, perfil,
   cabecera, metadatos y plantilla. Sin Trainee ni «en formación» como posicionamiento.
 - Sobre mí centrado en proyectos personales/académicos, gameplay e interacción 3D.
@@ -258,7 +258,7 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
   150 KB/s. Entre 8 y 10 cuadros por caso. Muestras de contenido: cero temas
   incorrectos y cero variantes visibles incorrectas; caja del logo estable 40×44.
   Cuadros tempranos claro/oscuro revisados: no se observó flash de tema o logo.
-- Evidencia nueva: C:/Users/matia/AppData/Local/Temp/portfolio-recovered-qa/,
+- Evidencia nueva: %TEMP%/portfolio-recovered-qa/,
   qa-results.json, comparación, encabezados y stage12-after/filmstrips.json.
   Respaldo temporal portafolio-brand-phase92 preservado, sin reutilizarlo como QA final.
 - Fases 9.1 y 9.2 recuperadas y validadas localmente. Sintaxis y diff --check correctos.
@@ -270,3 +270,58 @@ Los apartados de Fase 7 conservan su registro histórico de validaciones.
   Projects Showcase; portadas/imágenes/videos/modelos 3D; animaciones/interacciones;
   banners profesionales y Open Graph.
 - Sin commits de implementación, push, publicación, borrado de ramas ni respaldos.
+
+## Consolidación autorizada — 2026-11-13
+
+### Decisiones vigentes
+- Base definitiva: versión recuperada aprobada hasta fases 9.1 y 9.2, sobre b15a84f.
+- Rama de desarrollo: feature/portfolio-consolidation. Carpeta definitiva acordada: D:/Proyectos/portafolio-web.
+- Flujo futuro: main estable y ramas temporales feature/*; sin develop permanente.
+- Publicación actual: portfolio/professional-refresh, commit 20b49ad0f3a704e92b79a86d4d65b240f6733b8f. Mantener Pages intacto; no merge ni push a esa rama o a main.
+- Fase 9.3 (sistema de diseño visual MV Spatial) no iniciada.
+- GitHub será el respaldo principal tras verificar coincidencia de commits. No crear nuevos respaldos permanentes innecesarios.
+
+### Auditoría y preservación
+- Original limpio en portfolio/professional-refresh / 20b49ad; recuperación en recovery/mv-spatial / b15a84f, con los cambios esperados de marca y tema sin commit.
+- Staging inicial vacío. Ambas carpetas son worktrees del mismo repositorio; el almacén Git está en la carpeta principal.
+- Fetch de origin completado; sin nuevos commits remotos ni divergencias respecto del estado esperado. main/origin-main siguen en 30750f5; origin/etapa1-integridad en 30750f5; origin/portfolio/professional-refresh en 20b49ad.
+- Bundle existente verificado de nuevo: Backups/portafolio-web/portafolio-web-20261113-013227-7452daf8.bundle (relativo al directorio padre de los proyectos). Contiene historial completo y 32 referencias, incluido snapshot 623cac448a1c22801e2e498ecbfe6b0354eee6df. Sin nuevo backup permanente.
+- Ramas, snapshot, referencias de checkpoints, stash e historial conservados. No force push, reset, clean, rebase ni borrado de referencias.
+
+### Implementación y documentación
+- e0a18eb: feat: establish MV Spatial brand identity and system theme. Staging explícito, inventario y diff --cached --check revisados antes del commit.
+- feature/portfolio-consolidation creada desde e0a18eb, no desde la versión pública antigua.
+- bf5c85b: fix: preserve WhatsApp removal on recovered portfolio. Revisión completa de 20b49ad: exclusivamente retirada de enlaces, mensajes alternativos, icono, estilos y referencias a WhatsApp; integración manual acotada, sin cherry-pick ni restaurar código antiguo.
+- Retirados cinco enlaces de contacto de la versión recuperada, el texto asociado, la constante y los mensajes alternativos JS, la referencia de la plantilla histórica, el icono fuente y la regla CSS obsoleta. Sprite y CSS regenerados. Correo, formulario, GitHub y LinkedIn conservados.
+- README.md reescrito en inglés y README.es.md equivalente: logo aprobado, badges de tecnologías reales, proyectos y limitaciones verificables, stack web separado del perfil, árbol actual, scripts reales, CV, Git/Pages, marca, estado, roadmap y contacto.
+- AGENTS.md actualizado con carpeta/rama acordadas, política de respaldo, publicación actual y Sistema predeterminado. Eliminadas rutas de perfil de usuario innecesarias de este registro, manteniendo referencias temporales como %TEMP%.
+- Recursos de marca completos en assets/brand/, incluidas las dos referencias PNG. PDF ES/EN sin modificaciones; OG, apple-touch-icon y manifest heredados sin regenerar ni rediseñar.
+
+### Validaciones de consolidación
+- npm ci completado con las versiones bloqueadas (73 paquetes). package.json y package-lock.json intactos. Sin dependencias nuevas.
+- npm run build correcto: 33 símbolos tras retirar WhatsApp y CSS minificado generado. Aviso de caniuse-lite desactualizado; no se actualizó.
+- npm audit detectó dos vulnerabilidades transitivas de herramientas de desarrollo: postcss-selector-parser (moderada) y source-map-js (alta). Actualización pendiente de autorización; no se ejecutó audit fix ni se cambió el lockfile.
+- node --check en main.js, theme.js, build-icons.mjs y tailwind.config.js; git diff --check correctos.
+- Edge headless: 25 pruebas de regresión aprobadas (temas, Sistema inicial, persistencia, cambio del sistema emulado, storage inválido/bloqueado, responsive, scroll-spy, teclado/foco, menú, modal/Escape y movimiento reducido). Sin excepciones JS ni errores de red registrados.
+- Nueve vistas adicionales: 390/768/1440 × oscuro/claro/Sistema, sin desbordamiento del documento; sin IDs duplicados, anclas rotas ni recursos locales faltantes. JSON-LD válido y contenido confirmado de PhysicsVR conservado.
+- Cuatro comprobaciones adicionales aprobadas: ambos CV HTTP 200 y habilitados, validación local de email y contador, retirada de WhatsApp con contactos restantes presentes y ausencia de excepciones JS. Ningún formulario enviado.
+- Capturas nuevas de encabezados móvil claro y escritorio oscuro inspeccionadas; marca y controles visibles. No se repitió el filmstrip anterior ni se certifica ausencia de flash en esta consolidación.
+- README/README.es: siete enlaces relativos válidos por documento, mismas URLs externas y UTF-8 sin caracteres de sustitución. Enlaces profesionales coinciden con el sitio; disponibilidad externa de todos los perfiles no certificada.
+- Hashes PDF conservados: ES 2EA02319FB95C2877E52BA8720F0A43B38CFFEAA3A03982E5DBDF2496BAD159E; EN 84D80D73007508833C9876DC52BBB2BBCF882927933BCFD34739B60729305C89.
+- Evidencia temporal: %TEMP%/portfolio-consolidation-qa/ (regresión, nueve vistas, supplemental-results.json y npm-audit.json). No incorporada al repositorio.
+- Límites: Edge headless y sistema emulado; lector de pantalla, otros navegadores/dispositivos y entrega real de mensajes pendientes. Se mantienen los pendientes históricos de contenido PDF, protección adicional del formulario y recursos visuales futuros.
+
+### Seguridad del push y traslado
+- API pública: único workflow activo pages-build-deployment, ruta dinámica de GitHub Pages; sin workflows YAML versionados en las ramas remotas main o portfolio/professional-refresh.
+- Último deployment github-pages y ejecución dinámica exitosos en portfolio/professional-refresh / 20b49ad. HTML público coincide con ese commit.
+- GET de configuración /pages devuelve 404 sin autenticación; gh no instalado y navegador conectado no disponible. No se leyeron credenciales.
+- A falta de confirmación de Source/Branch/carpeta actuales, el push permanece condicionado. No atribuir coincidencia local/remota a una rama aún no subida.
+- El traslado al checkout principal puede completarse localmente conservando el worktree limpio como recurso temporal. Retirarlo requiere que el trabajo esté respaldado en GitHub; no usar --force.
+
+### Inventario pendiente de limpieza (sin autorización de borrado)
+- Bundle permanente verificado en Backups/portafolio-web/.
+- Referencias locales recovery/mv-spatial y recovery/mv-spatial-snapshot; referencias históricas etapa1-integridad y checkpoints. Stash conservado; no inspeccionado ni alterado.
+- Ramas remotas origin/main, origin/etapa1-integridad y origin/portfolio/professional-refresh conservadas. No se propone eliminar la rama pública actual.
+- Worktree de recuperación: retirar únicamente tras Git limpio y respaldo remoto verificado.
+- Recursos temporales de QA/recuperación registrados históricamente y caché npm temporal: no se ha hecho borrado masivo ni se certificó un inventario exhaustivo de TEMP.
+- No todos los objetos del snapshot/stash/checkpoints están certificados como protegidos por referencias remotas. El bundle sigue siendo necesario hasta una decisión explícita; no aprobar su eliminación por inferencia.
