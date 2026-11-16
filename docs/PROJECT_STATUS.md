@@ -418,3 +418,124 @@ Estado vigente: main es la rama estable y publicada. Las referencias anteriores 
 - Commit solicitado: docs: highlight live portfolio and finalize bilingual README. Push autorizado exclusivamente a main, sin force; comprobar igualdad de HEAD remoto y local y esperar la ejecución correspondiente de Pages.
 - No se crean carpetas, worktrees ni ramas; no se eliminan historial o respaldos. Fase 9.3 preparada y sin iniciar. Se mantienen las limitaciones funcionales ya registradas, incluido QA sin envíos reales del formulario.
 - Validaciones previas al commit completadas: ocho enlaces relativos válidos por README, primer enlace y URL visible correctos, paridad de URLs salvo etiqueta traducida del badge, ausencia de avisos obsoletos en README/AGENTS y UTF-8 sin sustituciones. API GitHub Markdown renderiza ambos documentos conservando badge, enlace visible y logo; badges y SVG remoto HTTP 200. Solo los cuatro documentos autorizados difieren de a8b56f8; diff --check correcto. Estado inicial del deployment main confirmado además mediante status success y URL oficial.
+
+## Fase 9.3A — base visual MV Spatial 2.0 — 2026-11-16
+
+Estado: implementada localmente en `feature/portfolio-consolidation` y pendiente
+de aprobación visual. No publicada.
+
+### Preparación y Git
+
+- `git fetch --prune` confirmó `main` y `origin/main` en
+  `ba257254e0159dfb1a4c436ed475d62cba70efbb`.
+- `feature/portfolio-consolidation` era ancestro directo de `main` y se adelantó
+  mediante `git merge --ff-only main`, sin divergencia ni conflictos.
+- No se crearon ramas, worktrees, carpetas de proyecto duplicadas, commits o
+  pushes. `main` y GitHub Pages no se modificaron.
+
+### Implementación
+
+- Dirección aprobada: Spatial Instrument Panel.
+- Paleta consolidada alrededor de grafito `#0B1015`, profundidad verde
+  `#15231F`, esmeralda de marca `#20D58F` y blanco frío `#F4F7F5`.
+- El esmeralda interactivo del tema claro usa `#057346` para alcanzar contraste
+  AA; las variantes SVG aprobadas de la marca conservan sus colores originales.
+- Hero renovado con composición editorial, CTA principal, accesos a CV y un
+  instrumento MV decorativo estático. La pieza se oculta en móvil y no se
+  presenta como demo o funcionalidad existente.
+- Header reagrupado para que marca, tema y menú conserven límites explícitos.
+  El CTA del header se limita a escritorio desde 1280 px.
+- Botones Primary, Secondary y Ghost, tarjetas, superficies, bordes, sombras,
+  retícula, formularios y estados interactivos usan tokens coherentes.
+- Se redujeron gradientes genéricos y halos; se preservaron colores semánticos y
+  colores propios de las ilustraciones de proyectos.
+- `docs/DESIGN_SYSTEM.md` documenta únicamente el sistema implementado.
+
+### Diagnóstico responsive
+
+- La captura inicial que mostraba el Hero recortado a 390 px usó `--window-size`
+  sin emulación móvil. Con `deviceMetrics` y viewport móvil real, el Hero base no
+  producía scroll a 390 px.
+- Sí existía un overflow real a 320 px: el grupo de cinco enlaces del footer no
+  permitía wrapping y forzaba un layout de 341 px. El grupo ahora permite salto
+  de línea y centra sus filas.
+- Resultado final a 320 px: `innerWidth`, `clientWidth`, `scrollWidth` y
+  `visualViewport.width` iguales a 320 px. Header, tema, menú, Hero, CTA y footer
+  permanecen dentro del viewport.
+- Se comprobaron 320, 360, 390, 414, 768, 1024 y 1440 px. En los anchos con
+  scrollbar vertical, `scrollWidth` coincide con `clientWidth`; no existe scroll
+  horizontal accidental.
+
+### Validaciones locales
+
+- `npm run build`: correcto; 33 símbolos y CSS minificado regenerado.
+- Sintaxis correcta en `js/main.js`, `js/theme.js` y `tailwind.config.js`.
+- `git diff --check`: correcto después de normalizar el final de
+  `src/input.css`.
+- Edge mediante HTTP local: temas Oscuro y Claro efectivos comprobados mediante
+  `data-theme`, selector, `localStorage` y capturas reales.
+- Sistema predeterminado comprobado en preferencia oscura y cambio emulado a
+  clara; el tema efectivo cambió de `dark` a `light` conservando `system` como
+  preferencia.
+- Menú móvil: apertura, `aria-expanded`, `aria-hidden`, cierre con Escape y
+  devolución de foco al botón correctos.
+- Modal de PhysicsVR: `role="dialog"`, foco inicial en el panel y cierre con
+  Escape correctos. No se cambió el contenido profesional.
+- Formulario: validación local de email incorrecto y mensaje asociado correctos;
+  no se realizó ningún envío.
+- CV ES/EN: HTTP 200 mediante HEAD local. Logo, favicon, GitHub y LinkedIn
+  conservados.
+- `prefers-reduced-motion`: coincidencia activa, transiciones reducidas y scroll
+  automático confirmados.
+- Sin excepciones JavaScript ni fallos de red en la pasada HTTP de regresión.
+- Contraste medido en pares principales: oscuro, texto base 16.36:1, secundario
+  11.04:1, acento 11.97:1 y botón primario 10.08:1; claro, texto base 15.11:1,
+  secundario 7.02:1, acento y botón primario 5.49:1. Los pares comprobados
+  superan WCAG AA.
+
+### Evidencia y límites
+
+- Capturas antes/después, vistas de proyectos, páginas completas y reportes de
+  layout/QA se guardaron fuera del repositorio en
+  `%TEMP%/mv-spatial-93a-review-20261116`.
+- No se ejecutó Lighthouse porque no está instalado. No se inventan métricas de
+  Core Web Vitals.
+- Quedan pendientes lector de pantalla, navegadores distintos de Edge y prueba
+  en hardware móvil real.
+- No se modificaron PDF, dependencias, lockfile, JavaScript, configuración de
+  Pages ni publicación. No se inició 9.3B, Three.js o REALITY CORE.
+
+### Refinamiento visual final de 9.3A — 2026-11-16
+
+- Se retiró la etiqueta redundante «MV / 001 — SPATIAL DEVELOPER» sin añadir un
+  reemplazo decorativo. El estado profesional «Unity · C# · Santiago, Chile» y
+  el resto del Hero se conservan.
+- El `h1` sigue siendo único y semántico. Su columna usa una proporción mayor,
+  el instrumento MV una proporción menor y la tipografía
+  `clamp(3rem, 5vw, 4.75rem)`: «Unity Developer» y «XR / VR Developer» forman
+  dos líneas totales en los siete anchos comprobados, sin `nowrap` ni overflow.
+- Se eliminó el CTA final «Conversemos sobre tu equipo y sus proyectos». Antes
+  se comprobó que solo repetía el acceso a `#contacto` y no contenía lógica o
+  enlaces únicos.
+- El footer existente integra las variantes aprobadas del logo, identidad MV
+  Spatial, frase de marca, cinco enlaces internos, acción funcional a `#inicio`,
+  crédito de autor y copyright 2026. No se añadieron redes ni otro formulario.
+- `npm run build` regeneró correctamente el sprite de 33 iconos y
+  `dist/styles.css`; las verificaciones de sintaxis no reportaron errores.
+- QA real en Edge headless por HTTP local a 320, 390, 768, 1024, 1280, 1440 y
+  1920 px: una línea por especialidad, un único `h1`, `scrollWidth` igual a
+  `clientWidth`, etiqueta y CTA ausentes, footer completo y formulario vacío
+  bloqueado por validación nativa sin envío.
+- Temas Oscuro, Claro y Sistema comprobados. Sistema resolvió tanto preferencia
+  clara como oscura conservando `system` en el selector. El menú móvil abrió con
+  `aria-expanded=true` y `aria-hidden=false`; «Volver al inicio» terminó en
+  `#inicio` con `scrollY=0`.
+- CV ES/EN y las dos variantes del logo del footer respondieron HTTP 200 en el
+  servidor local. El foco visible global mantiene anillo de 2 px y offset de
+  2 px para enlaces, botones y controles.
+- Capturas finales reales de Hero y footer, en escritorio y móvil y en ambos
+  temas, quedaron fuera del repositorio en
+  `%TEMP%/mv-spatial-93a-refinamiento-20261116`.
+- Se mantienen como límites de QA los navegadores distintos de Edge, lector de
+  pantalla y hardware móvil real. No hubo commit, push, merge, publicación ni
+  modificación de `main` o GitHub Pages.

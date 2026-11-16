@@ -105,16 +105,16 @@
     <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accentCyan focus:text-black focus:font-semibold">Saltar al contenido</a>
 
     <header id="site-header" class="fixed top-0 left-0 w-full z-50 glass-header transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div class="site-header-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
-            <a href="#inicio" class="flex items-center gap-3 group">
+            <a href="#inicio" class="site-brand flex items-center gap-3 group">
                 <div class="brand-mark" aria-hidden="true">
                     <img class="brand-dark" src="assets/brand/mv-spatial-dark.svg" alt="" width="40" height="40">
                     <img class="brand-light" src="assets/brand/mv-spatial-light.svg" alt="" width="40" height="40">
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-bold text-base tracking-tight text-primary group-hover:text-accentInk transition-colors">Matías Villalobos</span>
-                    <span class="text-xs text-muted -mt-1 font-medium">Unity Developer | XR / VR Developer</span>
+                <div class="brand-copy flex flex-col">
+                    <span class="brand-name font-bold text-base tracking-tight text-primary group-hover:text-accentInk transition-colors">Matías Villalobos</span>
+                    <span class="brand-role text-xs text-muted -mt-1 font-medium">Unity Developer | XR / VR Developer</span>
                 </div>
             </a>
 
@@ -128,28 +128,26 @@
                 <a href="#contacto" class="hover:text-accentInk transition-colors">Contacto</a>
             </nav>
 
-            <!-- CTA Actions Desktop -->
-            <div class="hidden xl:flex items-center gap-3">
-                <a href="#contacto" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-semibold rounded-lg group bg-gradient-to-br from-accentCyan to-accentViolet text-primary">
-                    <span class="relative px-4 py-2 transition-all ease-in duration-75 bg-darkBg rounded-md group-hover:bg-opacity-0">
-                        Contactar <svg aria-hidden="true" class="ml-1 text-xs icon" ><use href="assets/icons.svg#icon-arrow-right"/></svg>
-                    </span>
+            <div class="header-actions flex items-center">
+                <a href="#contacto" class="btn btn-ghost header-contact">
+                    Contactar <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-arrow-right"/></svg>
                 </a>
-            </div>
 
-            <!-- Mobile Hamburger Button -->
-            <button type="button" id="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu" class="xl:hidden min-h-[44px] min-w-[44px] text-secondary hover:text-primary p-2 rounded-lg flex items-center justify-center">
-                <svg aria-hidden="true" class="text-xl icon" id="menu-icon"><use href="assets/icons.svg#icon-bars"/></svg>
-            </button>
-            <!-- One native selector, shared by desktop and mobile. -->
-            <div class="theme-control">
-                <svg aria-hidden="true" class="icon"><use id="theme-preference-icon" href="assets/icons.svg#icon-moon"/></svg>
-                <label for="theme-preference" class="sr-only">Tema de apariencia</label>
-                <select id="theme-preference" class="theme-select">
-                    <option value="dark">Oscuro</option>
-                    <option value="light">Claro</option>
-                    <option value="system">Sistema</option>
-                </select>
+                <!-- One native selector, shared by desktop and mobile. -->
+                <div class="theme-control">
+                    <svg aria-hidden="true" class="icon theme-control-icon"><use id="theme-preference-icon" href="assets/icons.svg#icon-moon"/></svg>
+                    <label for="theme-preference" class="sr-only">Tema de apariencia</label>
+                    <select id="theme-preference" class="theme-select">
+                        <option value="dark">Oscuro</option>
+                        <option value="light">Claro</option>
+                        <option value="system">Sistema</option>
+                    </select>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <button type="button" id="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu" class="xl:hidden min-h-[44px] min-w-[44px] text-secondary hover:text-primary p-2 rounded-lg flex items-center justify-center">
+                    <svg aria-hidden="true" class="text-xl icon" id="menu-icon"><use href="assets/icons.svg#icon-bars"/></svg>
+                </button>
             </div>
         </div>
 
@@ -171,56 +169,65 @@
 
     <main id="contenido">
 
-    <section id="inicio" class="relative min-h-screen pt-28 pb-24 flex items-center justify-center grid-pattern overflow-hidden">
-        <!-- Resplandor ambiental reducido para bajo costo en GPU -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-tr from-accentCyan/8 via-accentBlue/5 to-accentViolet/8 blur-[40px] sm:blur-[60px] md:blur-[80px] rounded-full pointer-events-none motion-reduce:hidden"></div>
+    <section id="inicio" class="hero-section relative min-h-screen pt-28 pb-20 flex items-center grid-pattern">
+        <div class="hero-shell max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="hero-layout">
+                <div class="hero-copy">
+                    <div class="hero-status">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        <span>Unity · C# · Santiago, Chile</span>
+                    </div>
 
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <!-- Surface panel -->
-            <div class="inline-block p-8 sm:p-12 rounded-2xl bg-cardBg/80 backdrop-blur-sm border border-cardBorder/50 shadow-lg shadow-cyan-500/5">
+                    <h1 class="hero-title">
+                        <span>Unity Developer</span>
+                        <span class="hero-title-accent">XR / VR Developer</span>
+                    </h1>
 
-                <!-- Status Badge (static, sin animación) -->
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cardBorder bg-cardBg/90 text-[10px] font-semibold text-strong mb-8 uppercase tracking-wider">
-                    <span class="w-1.5 h-1.5 rounded-full bg-accentCyan"></span>
-                    <span>Unity · C# · Santiago, Chile</span>
+                    <p class="hero-summary">
+                        Gameplay e interacción 3D con <strong>Unity y C#</strong>, con especial interés en realidad virtual y tecnologías XR.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#proyectos" class="btn btn-primary">
+                            <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-gamepad"/></svg>
+                            Ver proyectos
+                        </a>
+                        <a href="#contacto" class="btn btn-secondary">
+                            <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-envelope"/></svg>
+                            Contactar
+                        </a>
+                    </div>
+
+                    <div class="hero-secondary-actions" aria-label="Descargar currículum">
+                        <span class="hero-secondary-label">Currículum</span>
+                        <a id="cv-btn-es" href="assets/Matias_Villalobos_CV_Unity_XR_ES.pdf" download="CV-Matias-Villalobos-ES.pdf" class="btn btn-ghost btn-compact">
+                            <span class="font-mono">ES</span> Descargar
+                        </a>
+                        <a href="assets/Matias_Villalobos_CV_Unity_XR_EN.pdf" download="CV-Matias-Villalobos-EN.pdf" id="cv-btn-en" class="btn btn-ghost btn-compact">
+                            <span class="font-mono">EN</span> Download
+                        </a>
+                    </div>
+
+                    <p class="hero-education">
+                        <span>Formación</span>
+                        Ingeniería en Realidad Virtual y Diseño de Juegos Digitales — UBO
+                    </p>
                 </div>
 
-                <!-- Main Heading -->
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-primary mb-6 leading-tight">
-                    Unity Developer <span class="glow-gradient"> | XR / VR </span>Developer
-                </h1>
-
-                <!-- Subtitle Summary -->
-                <p class="max-w-2xl mx-auto text-base sm:text-lg text-secondary font-normal mb-10 leading-relaxed">
-                    Gameplay e interacción 3D con <strong class="text-primary font-semibold">Unity y C#</strong>, con especial interés en realidad virtual y tecnologías XR.
-                </p>
-
-                <!-- Hero Action Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#proyectos" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-accentCyan via-accentBlue to-accentViolet text-black font-bold text-sm hover:opacity-95 transition-all shadow-lg shadow-cyan-500/10 flex items-center justify-center gap-2">
-                        <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-gamepad"/></svg> Ver Proyectos
-                    </a>
-                    <a href="#contacto" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-cardBg border border-cardBorder text-strong font-semibold text-sm hover:border-accentCyan hover:text-primary transition-all flex items-center justify-center gap-2">
-                        <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-envelope"/></svg> Contactar
-                    </a>
-                    <!-- CV Bilingüe -->
-                    <div class="flex gap-2 w-full sm:w-auto max-w-xs">
-                        <a id="cv-btn-es" href="assets/Matias_Villalobos_CV_Unity_XR_ES.pdf" download="CV-Matias-Villalobos-ES.pdf" class="flex-1 px-6 py-3.5 rounded-xl bg-cardBg border border-cardBorder text-xs sm:text-sm font-medium text-secondary hover:border-accentCyan hover:text-accentInk transition-all flex items-center justify-center gap-2">
-                        <span class="text-[10px] uppercase tracking-wider text-accentInk">ES</span> CV
-                    </a>
-                    <a href="assets/Matias_Villalobos_CV_Unity_XR_EN.pdf" download="CV-Matias-Villalobos-EN.pdf" id="cv-btn-en" class="flex-1 px-6 py-3.5 rounded-xl bg-cardBg border border-cardBorder text-xs sm:text-sm font-medium text-secondary hover:border-accentCyan hover:text-accentInk transition-all flex items-center justify-center gap-2">
-                        <span class="text-[10px] uppercase tracking-wider text-accentInk">EN</span> CV
-                    </a>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="instrument-frame">
+                        <span class="instrument-corner instrument-corner-a"></span>
+                        <span class="instrument-corner instrument-corner-b"></span>
+                        <span class="instrument-orbit instrument-orbit-a"></span>
+                        <span class="instrument-orbit instrument-orbit-b"></span>
+                        <div class="instrument-core">
+                            <img class="instrument-brand-dark" src="assets/brand/mv-spatial-dark.svg" alt="" width="148" height="164">
+                            <img class="instrument-brand-light" src="assets/brand/mv-spatial-light.svg" alt="" width="148" height="164">
+                        </div>
+                        <p class="instrument-label font-mono">MV SPATIAL<br><span>INTERACTION SYSTEM</span></p>
+                        <p class="instrument-coordinates font-mono">33.4489° S<br>70.6693° W</p>
                     </div>
                 </div>
-
-                <!-- Información académica (sutil) -->
-                <dl class="mt-10 flex justify-center gap-4 text-[10px] uppercase tracking-wider text-subtle">
-                    <div class="px-4 py-2 rounded-lg bg-cardBg/50 border border-cardBorder/50">
-                        <dt>Formación</dt>
-                        <dd class="text-sm text-secondary mt-1">Ingeniería en Realidad Virtual y Diseño de Juegos Digitales — UBO</dd>
-                    </div>
-                </dl>
             </div>
         </div>
     </section>
@@ -805,36 +812,39 @@
         </div>
     </section>
 
-    <!-- Banda CTA final: la propuesta de valor, sin exigir scroll -->
-    <section class="py-16 border-t border-cardBorder bg-cardBg/40 relative">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold text-primary tracking-tight">
-                Conversemos sobre tu equipo y sus proyectos
-            </h2>
-            <p class="text-muted text-sm sm:text-base mt-3 leading-relaxed">
-                Puedes contactarme por correo y consultar mi código en GitHub.
-            </p>
-            <div class="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="#contacto" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-accentCyan to-accentBlue text-black font-bold text-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
-                    <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-paper-plane"/></svg> Enviar un mensaje
-                </a>
-            </div>
-        </div>
-    </section>
-
     </main>
 
-    <footer class="border-t border-cardBorder py-8 bg-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-xs text-subtle">
-                &copy; <span id="year">2026</span> Matías I. Villalobos Cautivo. Santiago, Chile.
-            </p>
-            <div class="flex gap-6 text-xs text-muted">
-                <a href="#inicio" class="hover:text-accentInk transition-colors">Inicio</a>
-                <a href="#sistemas" class="hover:text-accentInk transition-colors">Tecnologías</a>
-                <a href="#proyectos" class="hover:text-accentInk transition-colors">Proyectos</a>
-                <a href="#formacion" class="hover:text-accentInk transition-colors">Formación</a>
-                <a href="#contacto" class="hover:text-accentInk transition-colors">Contacto</a>
+    <footer class="site-footer border-t border-cardBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="footer-main">
+                <a href="#inicio" class="footer-identity" aria-label="MV Spatial — volver al inicio">
+                    <span class="footer-mark" aria-hidden="true">
+                        <img class="brand-dark" src="assets/brand/mv-spatial-dark.svg" alt="" width="54" height="62">
+                        <img class="brand-light" src="assets/brand/mv-spatial-light.svg" alt="" width="54" height="62">
+                    </span>
+                    <span class="footer-brand-copy">
+                        <strong>MV Spatial</strong>
+                        <span>Construyendo mundos. Explorando nuevas realidades.</span>
+                    </span>
+                </a>
+
+                <nav class="footer-navigation" aria-label="Navegación del pie de página">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#sistemas">Tecnologías</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#formacion">Formación</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+
+                <a href="#inicio" class="btn btn-ghost footer-top-link">
+                    Volver al inicio
+                    <svg aria-hidden="true" class="icon"><use href="assets/icons.svg#icon-arrow-up"/></svg>
+                </a>
+            </div>
+
+            <div class="footer-meta">
+                <p>Diseñado y desarrollado por Matías Villalobos.</p>
+                <p>&copy; <span id="year">2026</span> Matías Villalobos. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>

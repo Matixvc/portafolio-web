@@ -42,18 +42,23 @@ module.exports = {
                 lightText: '#0f172a',
                 lightTextSecondary: '#475569',
                 lightTextTertiary: '#64748b',
-                // Acentos (compartidos)
-                accentCyan: '#00f2fe',
-                accentViolet: '#7928ca',
-                accentBlue: '#0070f3',
+                // MV Spatial 2.0. Los nombres heredados se conservan como
+                // aliases para no romper utilidades existentes durante 9.3A.
+                accent: 'rgb(var(--accent-primary-rgb) / <alpha-value>)',
+                accentDeep: 'rgb(var(--accent-secondary-rgb) / <alpha-value>)',
+                accentSoft: 'rgb(var(--accent-blue-rgb) / <alpha-value>)',
+                accentCyan: 'rgb(var(--accent-primary-rgb) / <alpha-value>)',
+                accentViolet: 'rgb(var(--accent-secondary-rgb) / <alpha-value>)',
+                accentBlue: 'rgb(var(--accent-blue-rgb) / <alpha-value>)',
                 unityDark: '#222c37',
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
             },
             boxShadow: {
-                'neon-cyan': '0 0 25px rgba(0, 242, 254, 0.25)',
-                'neon-violet': '0 0 25px rgba(121, 40, 202, 0.25)',
+                'neon-cyan': '0 14px 34px -22px rgba(32, 213, 143, 0.75)',
+                'neon-violet': '0 14px 34px -22px rgba(7, 132, 79, 0.65)',
+                'instrument': '0 28px 70px -45px rgba(32, 213, 143, 0.75)',
             }
         }
     },
