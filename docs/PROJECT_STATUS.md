@@ -1,5 +1,66 @@
 # Estado del proyecto
 
+## Resumen ejecutivo (actualización 2026-11-17)
+
+**Rama estable:** `main` — publicada en GitHub Pages (https://matixvc.github.io/portafolio-web/)
+**Rama de desarrollo:** `feature/portfolio-consolidation` — contiene trabajo local no publicado
+**Último commit verdaderamente verificado:** `f8bf6adb94fc994cbc8669e7a4daf0ad1edde5cc` (main)
+
+**Arquitectura actual:**
+- HTML estático, JavaScript vanilla, Tailwind CSS 3
+- `dist/styles.css` generado desde `src/input.css`
+- `assets/icons.svg` generado desde `scripts/build-icons.mjs`
+- Temas: dark/light/system management via `js/theme.js`
+- 4 modales Project Viewer funcionales
+- Project Archive con 4 tarjetas reales y sistema de bordes finos
+
+**Secciones actualmente implementadas:**
+- `#inicio`, `#sobre-mi` (rediseño Fase 9.4A.2), `#sistemas`, `#proyectos`,
+- `#formación`, `#contacto`
+
+**Fases completadas y publicadas en main:**
+- Fases 0–9.2: base técnica, CSS, SEO, formulario, accesibilidad, sprite,
+  CV, formación, detalles de proyectos, Hero actualizado
+- Fase 9.3A: Spatial Instrument Panel y refinamiento visual implementados y
+  publicados previamente
+- Fase 9.3B: Project Archive compacto e interactivo, 4 proyectos, Project Viewer,
+  tarjeta final "Próximamente", modal con enlaces principales arriba, área
+  multimedia opcional — respaldado en commit f8bf6ad
+- Fase 9.4A: Acerca de mí rediseñado con composición editorial, fotografía real,
+  perfil profesional, formación académica en curso y colaboración XR Meta Quest 3
+  bajo NDA. Diseño final aprobado visualmente por el usuario, implementado localmente
+  en feature/portfolio-consolidation, **aún no publicado en main**.
+
+**Fases pendientes por publicar:**
+- 9.4B: Habilidades y tecnologías
+- 9.4C: Trayectoria y navegación
+- 9.4D: Validación y consolidación
+
+**Trabajo local sin publicar:**
+- Rediseño #sobre-mi (Fase 9.4A.2): composición editorial, fotografía h-48,
+  layout two-column desktop/one-column mobile, presentación única sin repeticiones
+- Mejoras de bordes y modales en Project Archive
+- No afirmar que estos cambios están en main ni en GitHub Pages
+
+**Validaciones reales:**
+- `npm run build` genera diststyles.css e iconos
+- `node --check js/main.js` — sintaxis correcta (4 modales funcionales)
+- `node --check js/theme.js` — sintaxis correcta
+- `git diff --check` — sin problemas de whitespace detectados en archivos de funcionalidad
+- 4 proyectos reales con estados verificados:
+  1. PhysicsVR Prototype — Unity/C# física, en desarrollo, **no funcional con visor VR**
+  2. Basura Fighters — Roguelike JS/Canvas 2D, **tiene demo jugable**, repositorio público
+  3. App Mobile — organizador personal Expo/React Native/TypeScript, **tiene repositorio público**
+  4. Jefferson Motel — Recreación 3D en desarrollo, Blender como trabajo actual,
+     Unity integración prevista, **no tiene repositorio ni demo públicos**
+
+**Problemas conocidos:**
+- CSS compilado pre-Fase 9.3 puede estar desactualizado respecto a tokens de temas
+- Fase 9.3C: refactorización defectuosa de datos abandonada, modales recuperados desde f8bf6ad
+- Cambios locales sin commit en #sobre-mi y Project Archive (Fase 9.4)
+
+---
+
 Fecha: 2026-11-13 (America/Santiago).
 Rama estable y de trabajo actual: `main`.
 Base histórica inicial: `30750f5` — Cambio de CVs. Los apartados de fases anteriores conservan su contexto histórico; el apartado final de publicación confirmada y README es el estado vigente. Los registros anteriores describen el estado histórico de cada fase.

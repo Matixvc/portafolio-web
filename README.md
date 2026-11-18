@@ -11,9 +11,17 @@
 
 ## About
 
+**Approved phases 1–9.2 are complete on `main`; phase 9.3 is complete locally; fase 9.4A está implementada localmente y aprobada visualmente, pero aún no publicada.**
+
+GitHub Pages serves the updated portfolio at [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Evidence and limitations: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+
 My personal portfolio presents personal and academic projects in game development, Unity, C#, interactive 3D and XR. It brings together project summaries, source repositories, bilingual CV downloads and professional contact details.
 
-`main` is the stable and published branch. GitHub Pages serves the updated portfolio at [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Approved phases 1–9.2 are complete; phase 9.3 remains pending.
+**Fases completadas y publicadas en main:** Fases 1–9.2.
+**Fases completadas localmente:** Fase 9.3 (Project Archive, modales, Project Viewer).
+**Fase 9.4A implementada localmente:** Acerca de mí rediseñado, composición editorial, formación académica, colaboración XR Meta Quest 3 under NDA.
+
+`main` is the stable and published branch. GitHub Pages serves the updated portfolio at [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Evidence and limitations: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 ## Features
 

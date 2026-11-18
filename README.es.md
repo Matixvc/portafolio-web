@@ -11,9 +11,15 @@
 
 ## Sobre el portafolio
 
+**Fases aprobadas 1–9.2 completadas en `main`; fase 9.3 completada localmente; fase 9.4A implementada localmente y aprobada visualmente, pero aún no publicada.**
+
+GitHub Pages sirve el portafolio actualizado en [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+
 Mi portafolio personal presenta proyectos personales y académicos de videojuegos, Unity, C#, interacción 3D y XR. Reúne resúmenes de proyectos, repositorios, descargas bilingües del CV y medios de contacto profesional.
 
-`main` es la rama estable y publicada. GitHub Pages sirve el portafolio actualizado en [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Las fases aprobadas 1–9.2 están completadas; la fase 9.3 sigue pendiente.
+**Fases completadas y publicadas en main:** Fases 1–9.2.
+**Fases completadas localmente:** Fase 9.3 (Project Archive, modales, Project Viewer).
+**Fase 9.4A implementada localmente:** Acerca de mí rediseñado, composición editorial, formación académica, colaboración XR Meta Quest 3 under NDA.
 
 ## Características
 
