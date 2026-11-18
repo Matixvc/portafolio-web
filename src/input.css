@@ -1297,6 +1297,44 @@ input::placeholder, textarea::placeholder {
     background-image: linear-gradient(to right, #20d58f, #72dfb3);
 }
 
+/* === Bordes finos y elegantes para tarjetas de project archive === */
+
+/* Tarjetas principales (las 4 proyectos reales) */
+#proyectos .project-card {
+    border: 1px solid var(--border-card, color-mix(in srgb, var(--bg-secondary) 80%, var(--text-muted)));
+    border-radius: var(--radius-card, 0.75rem);
+    transition: border-color var(--transition-fast, 0.2s ease);
+}
+
+/* Hover: borde esmeralda más intenso */
+#proyectos .project-card:hover {
+    border-color: var(--accent-esmeralda, #20D58F);
+}
+
+/* Focus-visible: anillo claramente perceptible para accesibilidad */
+#proyectos .project-card:focus-visible {
+    border-color: var(--accent-esmeralda, #20D58F);
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
+
+/* Tarjeta final "Próximamente, más proyectos..." - apariencia diferenciada */
+#proyectos .project-card:last-child {
+    border-style: dashed;
+    border-color: var(--divider-strong, #679887);
+}
+
+/* Reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+    #proyectos .project-card {
+        transition: border-color 0ms;
+    }
+    #proyectos .project-card:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 2px;
+    }
+}
+
 /* Header adjusts only where adding the theme control would crowd navigation. */
 @media (max-width: 639px) {
     .site-brand { gap: 0.5rem; }

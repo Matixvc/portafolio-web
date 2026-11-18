@@ -232,74 +232,95 @@
         </div>
     </section>
 
-    <section id="sobre-mi" class="py-24 bg-cardBg/40 border-y border-cardBorder relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Profile Identity Card -->
-                <div class="lg:col-span-5 relative">
-                    <div class="relative mx-auto max-w-md rounded-2xl bg-cardBg border border-cardBorder p-6 overflow-hidden">
-                        <div class="absolute -top-12 -right-12 w-40 h-40 bg-accentCyan/15 rounded-full blur-3xl"></div>
-                        
-                        <div class="profile-portrait aspect-square rounded-xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-dividerStrong/60 flex flex-col items-center justify-center p-8 text-center relative overflow-hidden group">
-                            
-                            <img src="assets/foto-perfil.jpg" alt="Foto de Matías I. Villalobos Cautivo" width="112" height="112" class="w-28 h-28 rounded-full object-cover border-2 border-accentCyan/50 shadow-neon-cyan mb-4 group-hover:scale-105 transition-transform duration-500">
+    <!-- ======== SOBRE MÍ SECTION (Fase 9.4A.1 redesign - editorial composition) ======== -->
 
-                            <h3 class="font-bold text-xl text-primary">Matías I. Villalobos Cautivo</h3>
-                            <p class="text-xs text-accentInk mt-1 font-mono font-medium">Unity Developer | XR / VR Developer</p>
-                            <p class="text-xs text-muted mt-2"><svg aria-hidden="true" class="text-accentViolet icon" ><use href="assets/icons.svg#icon-graduation-cap"/></svg> UBO - Ing. en Realidad Virtual y Diseño de Juegos Digitales</p>
-                        </div>
+    <section id="sobre-mi" class="py-12 lg:py-16 bg-cardBg/40 border-y border-cardBorder relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-                        <!-- Highlights list -->
-                        <div class="mt-6 space-y-2.5 text-xs text-secondary">
-                            <div class="flex items-center gap-3 p-3 rounded-lg bg-surfaceInset/80 border border-divider">
-                                <svg aria-hidden="true" class="text-roseInk text-sm icon" ><use href="assets/icons.svg#icon-location-dot"/></svg>
-                                <span>Santiago, Chile (Remoto / Híbrido / Presencial)</span>
-                            </div>
-                            <div class="flex items-center gap-3 p-3 rounded-lg bg-surfaceInset/80 border border-divider">
-                                <svg aria-hidden="true" class="text-accentInk text-sm icon" ><use href="assets/icons.svg#icon-briefcase"/></svg>
-                                <span>Gameplay · Interacción física · Experiencias 3D</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Fotografía -->
+        <figure class="lg:col-span-4 w-full max-w-sm mx-auto lg:mx-0">
+            <div class="rounded-2xl overflow-hidden border border-cardBorder bg-cardBg">
+            <img
+                src="assets/foto-perfil.jpg"
+                alt="Retrato profesional de Matías Villalobos"
+                width="480"
+                height="600"
+                class="block w-full h-72 sm:h-80 lg:h-[380px] object-cover object-center"
+                loading="lazy"
+                decoding="async"
+            >
+            </div>
+            <figcaption class="mt-3">
+            <p class="text-base font-semibold text-primary">
+                Matías I. Villalobos Cautivo
+            </p>
+            <p class="text-xs text-muted mt-1">
+                Santiago, Chile
+            </p>
+            </figcaption>
+        </figure>
 
-                <!-- Academic and Profile Narrative -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-block px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentInk text-xs font-semibold uppercase tracking-widest">
-                        Acerca de mí
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
-                        Gameplay e interacción 3D con <span class="profile-heading-accent text-transparent bg-clip-text bg-gradient-to-r from-accentCyan to-accentBlue">Unity y C#</span>.
-                    </h2>
-                    
-                    <p class="text-secondary text-base leading-relaxed">
-                        Desarrollo proyectos personales y académicos con <strong class="text-primary">Unity y C#</strong>, centrados en gameplay, interacción física y experiencias 3D, con especial interés en realidad virtual y tecnologías XR.
-                    </p>
-                    <p class="text-muted text-sm leading-relaxed">
-                        Mi trabajo reúne prototipos de interacción, videojuegos y aplicaciones web y móviles. En este portafolio comparto el alcance de cada proyecto, mi contribución y el código disponible.
-                    </p>
+        <!-- Presentación profesional -->
+        <div class="lg:col-span-8 min-w-0 space-y-5">
 
-                    <!-- Core Strengths -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                        <div class="p-4 rounded-xl bg-cardBg border border-cardBorder">
-                            <h4 class="font-semibold text-primary text-sm mb-1 flex items-center gap-2">
-                                <svg aria-hidden="true" class="text-accentInk icon" ><use href="assets/icons.svg#icon-layer-group"/></svg> Gameplay e interacción
-                            </h4>
-                            <p class="text-sm text-muted">Proyectos personales y académicos de programación y mecánicas interactivas con Unity y C#.</p>
-                        </div>
-                        <div class="p-4 rounded-xl bg-cardBg border border-cardBorder">
-                            <h4 class="font-semibold text-primary text-sm mb-1 flex items-center gap-2">
-                                <svg aria-hidden="true" class="text-accentViolet icon" ><use href="assets/icons.svg#icon-vr-cardboard"/></svg> Orientado a XR & Simulaciones
-                            </h4>
-                            <p class="text-sm text-muted">Interés en experiencias inmersivas y pruebas funcionales de realidad virtual.</p>
-                        </div>
-                    </div>
-                </div>
+            <div>
+            <span class="inline-block px-3 py-1 rounded-md bg-accentCyan/10 border border-accentCyan/20 text-accentInk text-xs font-semibold uppercase tracking-widest">
+                Acerca de mí
+            </span>
+
+            <h2 class="text-2xl sm:text-3xl font-bold text-primary tracking-tight mt-4">
+                Unity Developer | XR / VR Developer
+            </h2>
+            </div>
+
+            <p class="text-secondary text-sm sm:text-base leading-relaxed max-w-2xl">
+            Desarrollo videojuegos y experiencias 3D con Unity y C#,
+            enfocándome en gameplay e interacción física.
+            Me interesa crear sistemas interactivos y explorar
+            el potencial de la realidad virtual y las tecnologías XR.
+            </p>
+
+            <!-- Especialidades -->
+            <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg bg-surfaceInset border border-dividerStrong text-xs text-secondary">Unity</span>
+            <span class="px-3 py-1.5 rounded-lg bg-surfaceInset border border-dividerStrong text-xs text-secondary">C#</span>
+            <span class="px-3 py-1.5 rounded-lg bg-surfaceInset border border-dividerStrong text-xs text-secondary">Gameplay</span>
+            <span class="px-3 py-1.5 rounded-lg bg-surfaceInset border border-dividerStrong text-xs text-secondary">XR / VR</span>
+            </div>
+
+            <!-- Formación y experiencia práctica -->
+            <div class="border-t border-cardBorder pt-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+            <div class="space-y-2">
+                <h3 class="text-sm font-semibold text-primary">
+                Formación académica
+                </h3>
+                <p class="text-sm text-muted leading-relaxed">
+                Ingeniería en Realidad Virtual y Diseño de Juegos Digitales.
+                Universidad Bernardo O'Higgins.
+                Formación en curso.
+                </p>
+            </div>
+
+            <div class="space-y-2">
+                <h3 class="text-sm font-semibold text-primary">
+                Colaboración XR
+                </h3>
+                <p class="text-sm text-muted leading-relaxed">
+                Pruebas funcionales en Meta Quest 3 y reporte
+                de incidencias en una colaboración académica
+                bajo acuerdo de confidencialidad.
+                </p>
+            </div>
 
             </div>
         </div>
+
+        </div>
+    </div>
     </section>
+
 
     <section id="sistemas" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
