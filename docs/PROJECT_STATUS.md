@@ -539,3 +539,407 @@ de aprobación visual. No publicada.
 - Se mantienen como límites de QA los navegadores distintos de Edge, lector de
   pantalla y hardware móvil real. No hubo commit, push, merge, publicación ni
   modificación de `main` o GitHub Pages.
+
+## Fase 9.3B — MV Spatial Project Archive, Ajuste 4.2 — 2026-11-17
+
+Estado: implementada localmente en `feature/portfolio-consolidation` y pendiente
+de aprobación visual. No publicada.
+
+### Preparación y Git
+
+- Rama: `feature/portfolio-consolidation`. Sin commits, pushes, merges ni
+  publicaciones. `main` y GitHub Pages no se modificaron.
+- Estado Git previo verificado manualmente: HEAD `2722aa35c1f15fa3411be274d33fae8d0827ad74`,
+  rama `feature/portfolio-consolidation`.
+
+### Implementación
+
+- `js/main.js` — reordenamiento completo del template del modal (Project Viewer):
+  - **Identidad del proyecto** (visible inmediatamente al abrir): badge, título y
+    descripción. Sin desplazamiento previo necesario.
+  - **Acciones principales** (justo debajo de la descripción): `linksBlock` —
+    muestra "Probar demo" y "Ver repositorio" cuando existen. Para Jefferson Motel
+    no se muestran botones ficticios (repo y demo son strings vacíos).
+  - **Priorización:** cuando existe demo, se muestra primero; seguido de repositorio.
+    Enlaces principales reales arriba, recursos complementarios abajo.
+  - **Información del proyecto** (después de las acciones): `roleBlock` — mi rol.
+  - **Tecnologías / Herramientas** y **Aspectos Destacados** mantienen su posición
+    legible, con separación clara.
+  - **Área multimedia inferior** (al final del modal), condicional:
+    - Solo se muestra si `data.media` existe y tiene longitud > 0.
+    - El `project-viewer-header` genérico se oculta cuando no haya medios reales.
+    - Estructura preparada para imágenes, videos, GLB/glTF, documentos y 3D en futuras fases.
+    - No se renderizan placeholders vacíos ni se muestra el header si no hay recursos.
+  - `prefers-reduced-motion`: transiciones anuladas para el área multimedia.
+
+- `src/input.css` — estilos del Project Viewer 4.2:
+  - `.project-viewer-header`: `max-height: 128px` en móvil, `max-height: 160px`
+    en `@media (min-width: 768px)`. La clase ahora se muestra u oculta condicionalmente
+    desde `js/main.js` basándose en `data.media.length > 0`.
+  - `#modal-panel`: conserva `max-width: 1200px`, `width: 85vw`.
+
+- `index.html`: sin cambios en esta ajustada.
+- `dist/styles.css`: pendiente de regenerar con `npm run build`.
+
+### Estructura definitiva del modal (Ajuste 4.2)
+
+Al abrir cualquier ficha de proyecto, el visitante ve inmediatamente:
+
+1. **Identidad:** categoría, estado, título, descripción introductoria
+2. **Acciones principales:** "Probar demo" / "Ver repositorio" (si existen)
+   - Botones visualmente diferenciados, visibles sin desplazarse en desktop
+   - Prioridad a demo jugable cuando exista
+   - Jefferson Motel: sin botones ficticios (aún sin URLs públicas)
+3. **Información del proyecto:** mi rol, tecnologías, aspectos destacados
+4. **Área multimedia inferior:** reservada para recursos reales futuros
+   - Solo aparece si el proyecto tiene recursos reales registrados
+   - Estructura preparada para: imágenes, videos, GLB/glTF, documentos, 3D
+   - No placeholders vacíos, no header genérico si no hay medios
+
+### Datos de proyecto actualizados
+
+- **PhysicsVR:** repo y demo existentes, sin datos media (se muestran acciones)
+- **Basura Fighters:** repo y demo existentes, sin datos media (se muestran acciones)
+- **App Mobile:** repo existente, sin demo, sin datos media (se muestra acción repo)
+- **Jefferson Motel:** repo vacío, demo vacío, sin datos media (no se muestran botones)
+
+### Reglas respetadas
+
+- No se añadieron filtros (solo 4 proyectos).
+- No se añadió Three.js, WebGL ni dependencias nuevas.
+- No se presentaron mockups como capturas reales.
+- No se afirmó que PhysicsVR funcione con visor VR.
+- No se incluyeron materiales NDA.
+- No se creó commit, push, merge ni publicación.
+- No se modificó Hero, Sobre mí, Habilidades, Trayectoria, Contacto, Footer ni temas.
+
+### Validaciones locales (pendiente de ejecución por limitación de terminal)
+
+- `npm run build`: pendiente.
+- `node --check js/main.js`: pendiente.
+- `node --check js/theme.js`: pendiente (no se modificó theme.js).
+- `git diff --check`: pendiente.
+- Pruebas pendientes:
+  - Basura Fighters muestra primero "Probar demo" y después "Ver repositorio"
+  - PhysicsVR y App Mobile muestran sus repositorios
+  - Jefferson Motel no muestra botones ficticios
+  - No aparece placeholder multimedia vacío
+  - Aspectos técnicos y tecnologías presentes
+  - Las cuatro tarjetas siguen abriendo sus fichas
+  - Escape, X, teclado y retorno del foco
+  - Sin overflow en móvil
+  - Sin regresiones
+
+### Validación manual recomendada
+
+Ejecutar desde la terminal de VS Code:
+
+```powershell
+npm.cmd run build
+node --check js/main.js
+git diff --check
+```
+
+Estado: implementada localmente en `feature/portfolio-consolidation` y pendiente
+de aprobación visual. No publicada.
+
+### Preparación y Git
+
+- Rama: `feature/portfolio-consolidation`. Sin commits, pushes, merges ni
+  publicaciones. `main` y GitHub Pages no se modificaron.
+- Estado Git previo verificado manualmente: HEAD `2722aa35c1f15fa3411be274d33fae8d0827ad74`,
+  rama `feature/portfolio-consolidation`.
+
+### Implementación
+
+- `js/main.js` — reorden del template del modal (Project Viewer):
+  - Identidad del proyecto (badge, título, descripción) se muestra PRIMERO, visible inmediatamente al abrir el modal.
+  - Tecnologías / Herramidades y Aspectos Destacados siguen en orden jerárquico.
+  - Cabecera multimedia (`.project-viewer-header`) movida al final del contenido, reducida drásticamente:
+    - `max-h-32` en móvil (~128px), `md:max-h-40` en tablet+ (~160px).
+    - Sin `aspect-video` (16:9) que generaba un rectángulo vacío enorme.
+    - Icono reducido de `w-24 h-24` a `w-16 h-16`.
+    - Padding reducido de `p-8` a `p-4`.
+  - El header multimedia permanece como espacio reservado para captura real futura, sin ocupar la vista inicial.
+
+- `src/input.css` — estilos del Project Viewer ajustados:
+  - `.project-viewer-header`: `max-height: 128px` en móvil, `max-height: 160px` en tablet+ (media query 768px).
+  - `#modal-panel`: conserva `max-width: 1200px`, `width: 85vw`.
+
+- `index.html`: sin cambios en esta ajustada.
+- `dist/styles.css`: pendiente de regenerar con `npm run build`.
+
+### Reglas respetadas
+
+- No se añadieron filtros (solo 4 proyectos).
+- No se añadió Three.js, WebGL ni dependencias nuevas.
+- No se presentaron mockups como capturas reales.
+- No se afirmó que PhysicsVR funcione con visor VR.
+- No se incluyeron materiales NDA.
+- No se creó commit, push, merge ni publicación.
+- No se modificó Hero, Sobre mí, Habilidades, Trayectoria, Contacto, Footer ni temas.
+
+### Validaciones locales (pendiente de ejecución por limitación de terminal)
+
+- `npm run build`: pendiente.
+- `node --check js/main.js`: pendiente.
+- `node --check js/theme.js`: pendiente (no se modificó theme.js).
+- `git diff --check`: pendiente.
+- Pruebas pendientes: apertura del modal con título visible inmediatamente, header multimedia compacto, 4 tarjetas reales, Jefferson Motel sin enlaces ficticios, Escape y retorno del foco, navegación por teclado, responsive 320/390/768/1024/1440 px, temas dark/light/system, tarjeta final no interactiva, sin errores de consola ni overflow, sin regresiones.
+
+Estado: implementada localmente en `feature/portfolio-consolidation` y pendiente
+de aprobación visual. No publicada.
+
+### Preparación y Git
+
+- Rama: `feature/portfolio-consolidation`. Sin commits, pushes, merges ni
+  publicaciones. `main` y GitHub Pages no se modificaron.
+- Estado Git previo verificado manualmente: HEAD `2722aa35c1f15fa3411be274d33fae8d0827ad74`,
+  rama `feature/portfolio-consolidation`.
+
+### Implementación
+
+- `index.html` — sección `#proyectos`:
+  - Agregada cuarta tarjeta real: Jefferson Motel — Recreación 3D
+    (`data-project="proj4"`), con cubierta SVG conceptual, categoría
+    "Modelado 3D · Unity", badge "En desarrollo", tech tags Blender/Unity/Modelado 3D.
+  - Sin repositorio ni demo para Jefferson Motel (no se inventaron enlaces).
+  - Tarjeta final "Próximamente" actualizada: título "Próximamente, más proyectos…",
+    secundario "El archivo MV Spatial seguirá creciendo.", sin interacción.
+  - Modal panel ampliado: `max-w-[1200px]` + `width: 85vw` (era `max-w-2xl`).
+- `src/input.css` — estilos del Project Viewer:
+  - `.project-viewer-header`: cabecera visual con borde desdoblado, fondo sutil,
+    lista para imagen/galería real (pendiente).
+  - `#modal-panel`: ancho 85vw / max-width 1200px.
+- `js/main.js`:
+  - Agregada entrada `proj4` (Jefferson Motel) a `projectDetails`: badge,
+    descripción, role, features verificables (modelado Blender, organización,
+    optimización como objetivo, integración Unity prevista), tech tags,
+    sin repo ni demo.
+  - Template del modal rediseñado: cabecera visual (`project-viewer-header`),
+    identidad (badge, título, descripción), tecnologías, aspectos destacados,
+    métricas (vacío, no se muestra), recursos (repo/demo solo si existen).
+  - Sin cambios en lógica de acceso: focus trap, Escape, cierre con X,
+    restitución de foco, `prefers-reduced-motion` se conservan.
+- `dist/styles.css`: pendiente de regenerar con `npm run build`.
+
+### Información de Jefferson Motel
+
+- Nombre: Jefferson Motel — Recreación 3D
+- Descripción: Recreación de una habitación del Jefferson Motel de GTA San Andreas,
+  con trabajo de modelado, organización y optimización de un escenario 3D.
+- Estado: En desarrollo (no afirmarse como completado).
+- Tecnologías: Blender (modelado actual), Unity (integración prevista, no afirmada como hecha), Modelado 3D.
+- Sin repositorio público aún. No se agregaron botones GitHub ni Demo.
+- Cubierta SVG conceptual, diferenciada de captura real.
+
+### Reglas respetadas
+
+- No se añadieron filtros (solo 4 proyectos).
+- No se añadió Three.js, WebGL ni dependencias nuevas.
+- No se presentaron mockups como capturas reales.
+- No se afirmó que PhysicsVR funcione con visor VR.
+- No se incluyeron materiales NDA ni modelos extraídos del juego con licencia dudosa.
+- No se creó commit, push, merge ni publicación.
+- No se modificó Hero, Sobre mí, Habilidades, Trayectoria, Contacto, Footer ni temas.
+
+### Validaciones locales (pendiente de ejecución por limitación de terminal)
+
+- `npm run build`: pendiente.
+- `node --check js/main.js`: pendiente.
+- `node --check js/theme.js`: pendiente (no se modificó theme.js).
+- `git diff --check`: pendiente.
+- Pruebas pendientes: 4 tarjetas reales, 4 fichas correctas, Jefferson Motel sin
+  enlaces ficticios, PhysicsVR sin afirmaciones de VR funcional, demo y
+  repositorios conservados, Escape y retorno del foco, navegación por teclado,
+  responsive 320/390/768/1024/1440 px, temas dark/light/system, tarjeta final
+  no interactiva, sin errores de consola ni overflow, sin regresiones.
+
+Estado: implementada localmente en `feature/portfolio-consolidation` y pendiente
+de aprobación visual. No publicada.
+
+### Preparación y Git
+
+- Rama: `feature/portfolio-consolidation`. Sin commits, pushes, merges ni
+  publicaciones. `main` y GitHub Pages no se modificaron.
+- Estado Git previo verificado manualmente: HEAD `2722aa35c1f15fa3411be274d33fae8d0827ad74`,
+  rama `feature/portfolio-consolidation`.
+
+### Implementación
+
+- `index.html` — tarjetas del archivo convertidas en botones nativos envolventes:
+  - Las 3 tarjetas reales (PhysicsVR, Basura Fighters, App Mobile) usan
+    `<button type="button" class="project-card-link" data-project="projN">`
+    con `aria-label` identificando el proyecto.
+  - Eliminados los botones internos "Ver detalles", "Ver repositorio" y "Jugar demo".
+  - Las acciones (repo/demo) se conservan exclusivamente dentro del modal.
+  - Texto "Seleccionar para ver detalles" como pista visual en cada tarjeta.
+  - La tarjeta "Próximamente" permanece como `<article>` sin `data-project`,
+    sin botón envolvente, sin interacción.
+- `src/input.css` — estilos del botón envolvente:
+  - `.project-card-link`: apariencia de tarjeta (border none, background none,
+    padding 0, cursor pointer), focus-visible con anillo de 2 px.
+  - `.project-card-link:hover .project-cover`: scale(1.02) en cubierta.
+  - `.project-card-link:focus-visible .project-cover`: anillo de foco en cubierta.
+  - `.project-card`: estructura interna compartida con la tarjeta final.
+- `js/main.js`: sin cambios. El event listener existente para `[data-project]`
+  (línea ~278) ya abre el modal correctamente al hacer click en el botón
+  envolvente. Focus trap, Escape, cierre con X y restitución de foco se
+  conservan íntegros.
+- `dist/styles.css`: pendiente de regenerar con `npm run build`.
+
+### Patrón de interacción
+
+- Click, toque, Enter y Space en cualquier superficie de una tarjeta real
+  abren el modal del proyecto correspondiente.
+- Tab navega entre las tarjetas (botones nativos).
+- Focus visible con anillo de 2 px.
+- Escape cierra el modal y devuelve el foco a la tarjeta origen.
+
+### Arquitectura multimedia futura (documentada, no implementada)
+
+- Las cubiertas `.project-cover` usan `aspect-ratio: 16/9` y están listas para
+  sustituir SVG por `img` (WebP/AVIF) o `<video>` con `poster`.
+- Para galerías, videos y modelos GLB/glTF se propone cargar solo bajo demanda
+  (cuando el usuario abre el modal o interactúa con la cubierta), sin Three.js
+  en esta etapa.
+- No se crearon rutas ficticias ni recursos generados.
+
+### Reglas respetadas
+
+- No se añadieron filtros (solo 3 proyectos).
+- No se añadió Three.js, WebGL ni dependencias nuevas.
+- No se presentaron mockups como capturas reales.
+- No se afirmó que PhysicsVR funcione con visor VR.
+- No se incluyeron materiales NDA.
+- No se creó commit, push, merge ni publicación.
+- No se modificó Hero, Sobre mí, Habilidades, Trayectoria, Contacto, Footer ni temas.
+
+### Validaciones locales (pendiente de ejecución por limitación de terminal)
+
+- `npm run build`: pendiente.
+- `node --check js/main.js`: pendiente (no se modificó main.js).
+- `node --check js/theme.js`: pendiente (no se modificó theme.js).
+- `git diff --check`: pendiente.
+- Pruebas pendientes: responsive 320/390/768/1024/1440 px, temas
+  dark/light/system, teclado (Tab/Enter/Space/Escape), `prefers-reduced-motion`,
+  modales, enlaces GitHub y demo dentro del modal, tarjeta Próximamente no
+  interactiva, sin overflow horizontal.
+
+Estado: implementada localmente en `feature/portfolio-consolidation` y pendiente
+de aprobación visual. No publicada.
+
+### Preparación y Git
+
+- Rama: `feature/portfolio-consolidation`. Sin commits, pushes, merges ni
+  publicaciones. `main` y GitHub Pages no se modificaron.
+- Estado Git previo verificado manualmente: HEAD `2722aa35c1f15fa3411be274d33fae8d0827ad74`,
+  rama `feature/portfolio-consolidation`.
+
+### Implementación
+
+- `index.html` — sección `#proyectos` transformada en archivo compacto:
+  - Grid adaptable: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4`
+    (1 columna móvil, 2 tablet, 3 escritorio).
+  - Tres tarjetas compactas (PhysicsVR, Basura Fighters, App Mobile) con
+    cubierta h-36, contenido p-4, título text-base, descripción text-xs.
+  - PhysicsVR: distinción esmeralda sutil (`.project-featured`), sin ocupar
+    ancho completo. Badge «En desarrollo». Enlace a repositorio.
+  - Basura Fighters: badge «Jugable», enlace a demo (Netlify) y «Ver detalles».
+  - App Mobile: badge «Desarrollo», enlace a repositorio GitHub y «Ver detalles».
+  - Acciones siempre visibles (no ocultas tras hover), botones min-h-[40px].
+  - Semántica: `<article>` con `aria-label`, botones con `data-project` y
+    `aria-haspopup="dialog"`, enlaces con `target="_blank" rel="noopener noreferrer"`.
+  - Tarjeta final «Próximamente»: sin `data-project`, sin botón, sin enlace,
+    sin modal, borde desdoblado, diferenciada visualmente. No cuenta como proyecto.
+- `src/input.css` — estilos compactos:
+  - `.project-card`: columna, foco visible, min-height 0.
+  - `.project-cover`: altura fija 144px, aspect-ratio 16/9, hover scale(1.02).
+  - `.project-featured`: borde esmeralda sutil, hover sin sombra grande.
+  - `.project-final`: borde desdoblado, fondo sutil, sin hover lift, sin cursor
+    de interacción en cubierta.
+  - `.project-category`, `.tech-tag`: badges compactos con hover esmeralda.
+  - `@media (prefers-reduced-motion: reduce)`: transiciones anuladas.
+  - Grid template columns por breakpoint (768px / 1024px).
+- `js/main.js`: sin cambios (modal existente reutilizado con `projectDetails`).
+- `dist/styles.css`: pendiente de regenerar con `npm run build`.
+
+### Estrategia para proyectos futuros
+
+- Añadir un nuevo `<article>` dentro de `#projects-grid` con la misma estructura.
+- Asignar `data-project="projN"` y crear la entrada correspondiente en
+  `projectDetails` de `js/main.js` para el modal.
+- El grid se adapta automáticamente (1/2/3 columnas).
+- Cuando haya 4+ proyectos, se puede activar un botón «Ver más proyectos»
+  que controle la visibilidad de tarjetas adicionales mediante JS.
+- La tarjeta «Próximamente» se mueve al final siempre.
+
+### Reglas respetadas
+
+- No se añadieron filtros (solo 3 proyectos).
+- No se añadió Three.js, WebGL ni dependencias nuevas.
+- No se presentaron mockups como capturas reales.
+- No se afirmó que PhysicsVR funcione con visor VR.
+- No se incluyeron materiales NDA.
+- No se creó commit, push, merge ni publicación.
+- No se modificó Hero, Sobre mí, Habilidades, Trayectoria, Contacto, Footer ni temas.
+
+### Validaciones locales (pendiente de ejecución por limitación de terminal)
+
+- `npm run build`: pendiente.
+- `node --check js/main.js`: pendiente (no se modificó main.js).
+- `node --check js/theme.js`: pendiente (no se modificó theme.js).
+- `git diff --check`: pendiente.
+- Pruebas pendientes: responsive 320/390/768/1024/1440 px, temas
+  dark/light/system, teclado (Tab/Escape), `prefers-reduced-motion`,
+  modales, enlaces GitHub y demo, sin overflow horizontal.
+
+Estado: implementada localmente en `feature/portfolio-consolidation` y pendiente
+de aprobación visual. No publicada.
+
+### Preparación y Git
+
+- Rama: `feature/portfolio-consolidation`. Sin commits, pushes, merges ni
+  publicaciones. `main` y GitHub Pages no se modificaron.
+
+### Implementación
+
+- `index.html` — sección `#proyectos`:
+  - PhysicsVR como proyecto destacado (`project-featured`, `lg:col-span-2`),
+    cubierta `lg:h-72`, badge «Destacado · XR / VR», enlace directo a repositorio.
+  - Basura Fighters y App Mobile como tarjetas estándar (1 col móvil, 2 col desktop).
+  - Cubiertas con contenedor `.project-cover` (`aspect-ratio: 16/9`, listo para
+    sustituir SVG por `img`/`video` real; marcado con TODO pendiente de NDA).
+  - Badges de categoría técnica (`.tech-tag`) con stack: Unity 3D / C# /
+    Físicas 3D; JavaScript / Canvas 2D / HTML5; React Native / TypeScript /
+    Notificaciones.
+  - Meta de rol y tipo (desarrollo individual, prototipo personal, demo jugable,
+    app móvil).
+  - Enlaces directos a repo (PhysicsVR) y demo (Basura Fighters) dentro de la
+    tarjeta, además del botón «Ver Detalles» que abre el modal existente.
+  - Semántica: `<article>` con `aria-label`, botones con `data-project` y
+    `aria-haspopup="dialog"`.
+- `src/input.css` — nuevos estilos:
+  - `.project-card`: columna, foco visible con anillo de 2 px.
+  - `.project-cover`: contenedor de cubierta con hover `scale(1.02)`.
+  - `.project-featured`: borde esmeralda acentuado, sombra en hover.
+  - `.tech-tag`: píldora técnica con hover esmeralda.
+  - Focus-visible para enlaces y botones de proyecto.
+- `js/main.js`: sin cambios (modal existente reutilizado con los datos actuales).
+
+### Validaciones locales (pendiente de ejecución por limitación de entorno)
+
+- `npm run build`: pendiente (entorno no responde a comandos de terminal).
+- `node --check js/main.js`: pendiente; no se modificó main.js.
+- `git diff --check`: pendiente.
+- Pruebas pendientes: responsive 390/768/1440 px, temas dark/light/system,
+  teclado (Tab/Escape), `prefers-reduced-motion`, sin regresiones en menú,
+  scroll-spy, modal, formulario y enlaces de CV.
+
+### Reglas respetadas
+
+- No se añadieron filtros (solo 3 proyectos).
+- No se añadió Three.js ni dependencias nuevas.
+- No se presentaron mockups como capturas reales.
+- No se afirmó que PhysicsVR funcione con visor VR.
+- No se incluyeron materiales NDA.

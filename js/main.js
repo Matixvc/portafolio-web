@@ -85,6 +85,7 @@
                 metrics: [],
                 repo: "https://github.com/Matixvc/PhysicsVR_Prototype",
                 demo: "",
+                media: [],
                 features: [
                     "Exploración de interacción física y manipulación de objetos en Unity",
                     "Integración con realidad virtual prevista para una etapa futura",
@@ -101,6 +102,7 @@
                 metrics: [],
                 repo: "https://github.com/Matixvc/Trash-Roguelike",
                 demo: "https://trash-rogelike.netlify.app",
+                media: [],
                 features: [
                     "Loop roguelike: matar enemigos, ganar experiencia y subir habilidades o armas",
                     "Oleadas de enemigos con dificultad progresiva",
@@ -117,6 +119,7 @@
                 metrics: [],
                 repo: "https://github.com/Matixvc/App-Mobile",
                 demo: "",
+                media: [],
                 features: [
                     "Horario universitario personalizable",
                     "Fechas importantes con notificación vía calendario",
@@ -124,6 +127,23 @@
                     "Seguimiento de evaluaciones de asignaturas"
                 ],
                 tech: ["React Native", "TypeScript", "Notificaciones"]
+            },
+            proj4: {
+                title: "Jefferson Motel — Recreación 3D",
+                badge: "Modelado 3D · En desarrollo",
+                description: "Recreación de una habitación del Jefferson Motel de GTA San Andreas, con trabajo de modelado, organización y optimización de un escenario 3D.",
+                role: "Modelado de escenarios, organización de activos y optimización como objetivo de desarrollo",
+                metrics: [],
+                repo: "",
+                demo: "",
+                media: [],
+                features: [
+                    "Modelado 3D de escenario interior en Blender",
+                    "Organización de activos y jerarquía de escena",
+                    "Optimización de geometría como objetivo de desarrollo",
+                    "Integración prevista en Unity (pendiente de completar)"
+                ],
+                tech: ["Blender", "Unity (prevista)", "Modelado 3D"]
             }
         };
 
@@ -198,24 +218,43 @@
                 : '';
 
             modalContent.innerHTML = `
-                <span class="inline-block px-2.5 py-1 rounded bg-accentCyan/10 border border-accentCyan/30 text-accentInk text-xs font-semibold mb-3">
-                    ${data.badge}
-                </span>
-                <h3 class="text-2xl font-bold text-primary mb-3">${data.title}</h3>
-                <p class="text-secondary text-sm leading-relaxed mb-6">${data.description}</p>
+                <!-- Identidad del proyecto -->
+                <div class="flex flex-col gap-2 mb-6">
+                    <span class="inline-block px-2.5 py-1 rounded bg-accentCyan/10 border border-accentCyan/30 text-accentInk text-xs font-semibold">
+                        ${data.badge}
+                    </span>
+                    <h3 class="text-2xl font-bold text-primary mb-1">${data.title}</h3>
+                    <p class="text-secondary text-sm leading-relaxed">${data.description}</p>
+                </div>
+
+                <!-- Acciones principales -->
+                ${linksBlock}
+
+                <!-- Información del proyecto -->
                 ${roleBlock}
 
+                <!-- Tecnologías / Herramientas -->
+                <h4 class="text-xs font-bold text-strong uppercase tracking-wider mb-2">Tecnologías / Herramientas:</h4>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    ${data.tech.map(t => `<span class="px-2.5 py-1 rounded-md bg-surfaceInset border border-dividerStrong text-xs text-secondary">${t}</span>`).join('')}
+                </div>
+
+                <!-- Aspectos Destacados -->
                 <h4 class="text-xs font-bold text-strong uppercase tracking-wider mb-2">Aspectos Destacados:</h4>
                 <ul class="space-y-2 mb-6">
                     ${data.features.map(f => `<li class="flex items-start gap-2 text-sm text-muted"><svg class="text-accentInk mt-0.5 icon" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg> <span>${f}</span></li>`).join('')}
                 </ul>
                 ${metricsBlock}
 
-                <h4 class="text-xs font-bold text-strong uppercase tracking-wider mb-2">Tecnologías / Herramientas:</h4>
-                <div class="flex flex-wrap gap-2">
-                    ${data.tech.map(t => `<span class="px-2.5 py-1 rounded-md bg-surfaceInset border border-dividerStrong text-xs text-secondary">${t}</span>`).join('')}
+                <!-- Área multimedia inferior: reservada para recursos reales futuros -->
+                ${data.media && data.media.length > 0 ? `
+                <div class="project-viewer-header relative overflow-hidden bg-cardBorder rounded-xl mb-6 max-h-32 md:max-h-40">
+                    <!-- TODO: sustituir por captura real del proyecto -->
+                    <div class="absolute inset-0 flex items-center justify-center p-4">
+                        <svg class="w-16 h-16 text-muted" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 2.828L11.828 15H17a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2.586l1.293-1.293a2 2 0 012.828-2.828L19.586 8a2 2 0 01-2.828 2.828L13.172 15H7.414z"/></svg>
+                    </div>
                 </div>
-                ${linksBlock}
+                ` : ''}
             `;
 
             modal.setAttribute('aria-label', 'Detalles del proyecto: ' + data.title);

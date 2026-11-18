@@ -452,12 +452,12 @@
             </div>
 
             <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="projects-grid">
                 
-                <!-- Project 1 -->
-                <div class="card-hover bg-cardBg border border-cardBorder rounded-2xl overflow-hidden flex flex-col">
-                    <div class="h-48 bg-gradient-to-tr from-neutral-900 to-indigo-950 relative overflow-hidden border-b border-cardBorder group">
-                        <!-- Mockup SVG: viewport 3D con grid en perspectiva, objeto y tooltip -->
+                <!-- Project 1: PhysicsVR -->
+                <button type="button" class="project-card project-featured project-card-link bg-cardBg border border-cardBorder rounded-xl overflow-hidden flex flex-col group" data-project="proj1" aria-label="Abrir detalles de PhysicsVR Prototype">
+                    <div class="project-cover relative overflow-hidden border-b border-cardBorder h-36">
+                        <!-- TODO: sustituir por captura real del proyecto (pendiente de autorización/NDA) -->
                         <svg viewBox="0 0 400 192" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-[1.03]" aria-hidden="true">
                             <defs>
                                 <linearGradient id="m1sky" x1="0" y1="0" x2="0" y2="1">
@@ -482,30 +482,30 @@
                             <line x1="86" y1="30" x2="86" y2="74" stroke="#00f2fe" stroke-opacity="0.5"/>
                             <line x1="64" y1="52" x2="108" y2="52" stroke="#00f2fe" stroke-opacity="0.5"/>
                         </svg>
-                        <span class="absolute top-3 right-3 bg-black/70 text-accentCyan text-xs font-mono font-bold px-2.5 py-1 rounded-full border border-accentCyan/30">Físicas 3D · En desarrollo</span>
+                        <span class="absolute top-2 right-2 bg-black/70 text-emerald-400 text-xs font-mono font-bold px-2 py-0.5 rounded-full border border-emerald-400/30">En desarrollo</span>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div class="p-4 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-primary mb-2">Physics VR Prototype — Agarre y Lanzamiento</h3>
-                            <p class="text-muted text-sm line-clamp-3 mb-4 leading-relaxed">
-                                Prototipo de interacción física en Unity, actualmente en desarrollo, orientado a una futura integración con realidad virtual. Todavía no es funcional con visor.
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="project-category">Unity · Físicas 3D</span>
+                            </div>
+                            <h3 class="text-base font-bold text-primary mb-1">PhysicsVR Prototype</h3>
+                            <p class="text-muted text-xs line-clamp-2 mb-3 leading-relaxed">
+                                Prototipo de interacción física en Unity, en desarrollo, orientado a una futura integración con realidad virtual. Todavía no es funcional con visor.
                             </p>
-                            <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Unity 3D</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">C#</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Físicas 3D</span>
-
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="tech-tag">Unity 3D</span>
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">Físicas 3D</span>
                             </div>
                         </div>
-                        <button type="button" data-project="proj1" aria-haspopup="dialog" class="w-full min-h-[44px] py-3 rounded-lg bg-surfaceTint/5 hover:bg-accentCyan hover:text-black border border-surfaceTint/10 text-primary font-medium text-sm transition-all flex items-center justify-center gap-2">
-                            Ver Detalles del Prototipo <svg aria-hidden="true" class="text-xs icon" ><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg>
-                        </button>
+                        <p class="text-xs text-muted mt-auto">Seleccionar para ver detalles</p>
                     </div>
-                </div>
+                </button>
 
-                <!-- Project 2 -->
-                <div class="card-hover bg-cardBg border border-cardBorder rounded-2xl overflow-hidden flex flex-col">
-                    <div class="h-48 bg-gradient-to-tr from-neutral-900 to-cyan-950 relative overflow-hidden border-b border-cardBorder group">
+                <!-- Project 2: Basura Fighters -->
+                <button type="button" class="project-card bg-cardBg border border-cardBorder rounded-xl overflow-hidden flex flex-col group project-card-link" data-project="proj2" aria-label="Abrir detalles de Basura Fighters">
+                    <div class="project-cover relative overflow-hidden border-b border-cardBorder h-36">
                         <!-- Mockup SVG: HUD de combate con vida, barra de EXP, slots de armas y daño -->
                         <svg viewBox="0 0 400 192" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-[1.03]" aria-hidden="true">
                             <rect width="400" height="192" fill="#0a1216"/>
@@ -542,34 +542,30 @@
                                 <path d="M17 6 L28 17 L17 28 L6 17 Z" fill="#7928ca" fill-opacity="0.9"/>
                             </g>
                         </svg>
-                        <span class="project-demo-badge absolute top-3 right-3 bg-black/70 text-accentBlue text-xs font-mono font-bold px-2.5 py-1 rounded-full border border-accentBlue/30">Roguelike Web · Jugable</span>
+                        <span class="absolute top-2 right-2 bg-black/70 text-emerald-400 text-xs font-mono font-bold px-2 py-0.5 rounded-full border border-emerald-400/30">Jugable</span>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div class="p-4 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-primary mb-2">Basura Fighters — Roguelike de Reciclaje</h3>
-                            <p class="text-muted text-sm line-clamp-3 mb-4 leading-relaxed">
-                                Roguelike jugable en el navegador: loop de combate contra oleadas de enemigos, experiencia y progresión de habilidades y armas entre partidas. Todo en un único documento HTML con Canvas 2D.
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="project-category">Roguelike Web · Jugable</span>
+                            </div>
+                            <h3 class="text-base font-bold text-primary mb-1">Basura Fighters</h3>
+                            <p class="text-muted text-xs line-clamp-2 mb-3 leading-relaxed">
+                                Roguelike jugable en el navegador: loop de combate contra oleadas, experiencia y progresión de habilidades y armas entre partidas. Todo en un único documento HTML con Canvas 2D.
                             </p>
-                            <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">JavaScript</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Canvas 2D</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Sistemas de juego</span>
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Canvas 2D</span>
+                                <span class="tech-tag">HTML5</span>
                             </div>
                         </div>
-                        <div class="space-y-2">
-                            <a href="https://trash-rogelike.netlify.app" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] py-3 rounded-lg bg-accentCyan/10 hover:bg-accentCyan hover:text-black border border-accentCyan/40 text-accentInk font-semibold text-sm transition-all flex items-center justify-center gap-2">
-                                Jugar demo <svg aria-hidden="true" class="text-xs icon"><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg>
-                            </a>
-                            <button type="button" data-project="proj2" aria-haspopup="dialog" class="w-full min-h-[44px] py-3 rounded-lg bg-surfaceTint/5 hover:bg-accentCyan hover:text-black border border-surfaceTint/10 text-primary font-medium text-sm transition-all flex items-center justify-center gap-2">
-                                Ver Detalles del Proyecto <svg aria-hidden="true" class="text-xs icon" ><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg>
-                            </button>
-                        </div>
+                        <p class="text-xs text-muted mt-auto">Seleccionar para ver detalles</p>
                     </div>
-                </div>
+                </button>
 
-                <!-- Project 3 -->
-                <div class="card-hover bg-cardBg border border-cardBorder rounded-2xl overflow-hidden flex flex-col">
-                    <div class="h-48 bg-gradient-to-tr from-neutral-900 to-emerald-950 relative overflow-hidden border-b border-cardBorder group">
+                <!-- Project 3: App Mobile -->
+                <button type="button" class="project-card bg-cardBg border border-cardBorder rounded-xl overflow-hidden flex flex-col group project-card-link" data-project="proj3" aria-label="Abrir detalles de App Mobile">
+                    <div class="project-cover relative overflow-hidden border-b border-cardBorder h-36">
                         <!-- Mockup SVG: app móvil con agenda, recordatorio push y calendario -->
                         <svg viewBox="0 0 400 192" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-[1.03]" aria-hidden="true">
                             <defs>
@@ -623,26 +619,82 @@
                             </g>
                             <rect x="295" y="106" width="14" height="12" rx="3" fill="#00f2fe"/>
                         </svg>
-                        <span class="absolute top-3 right-3 bg-black/70 text-emerald-400 text-xs font-mono font-bold px-2.5 py-1 rounded-full border border-emerald-400/30">App Móvil · TypeScript</span>
+                        <span class="absolute top-2 right-2 bg-black/70 text-emerald-400 text-xs font-mono font-bold px-2 py-0.5 rounded-full border border-emerald-400/30">Desarrollo</span>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div class="p-4 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-primary mb-2">App Mobile — Organizador Personal</h3>
-                            <p class="text-muted text-sm line-clamp-3 mb-4 leading-relaxed">
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="project-category">App Móvil · TypeScript</span>
+                            </div>
+                            <h3 class="text-base font-bold text-primary mb-1">App Mobile</h3>
+                            <p class="text-muted text-xs line-clamp-2 mb-3 leading-relaxed">
                                 Aplicación móvil para organizar el día a día: horario universitario, fechas importantes con notificación de calendario, cumpleaños y evaluaciones de asignaturas.
                             </p>
-                            <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">React Native</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">TypeScript</span>
-                                <span class="px-2 py-0.5 rounded text-xs bg-surfaceRaised text-secondary border border-dividerStrong">Notificaciones</span>
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Notificaciones</span>
                             </div>
                         </div>
-                        <button type="button" data-project="proj3" aria-haspopup="dialog" class="w-full min-h-[44px] py-3 rounded-lg bg-surfaceTint/5 hover:bg-accentCyan hover:text-black border border-surfaceTint/10 text-primary font-medium text-sm transition-all flex items-center justify-center gap-2">
-                            Ver Detalles del Proyecto <svg aria-hidden="true" class="text-xs icon"><use href="assets/icons.svg#icon-arrow-up-right-from-square"/></svg>
-                        </button>
+                        <p class="text-xs text-muted mt-auto">Seleccionar para ver detalles</p>
                     </div>
-                </div>
+                </button>
 
+                <!-- Project 4: Jefferson Motel -->
+                <button type="button" class="project-card bg-cardBg border border-cardBorder rounded-xl overflow-hidden flex flex-col group project-card-link" data-project="proj4" aria-label="Abrir detalles de Jefferson Motel — Recreación 3D">
+                    <div class="project-cover relative overflow-hidden border-b border-cardBorder h-36">
+                        <!-- Cubierta conceptual: recreación de escena 3D (pendiente de captura real) -->
+                        <svg viewBox="0 0 400 192" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-[1.03]" aria-hidden="true">
+                            <rect width="400" height="192" fill="#0b1015"/>
+                            <path d="M0 120 L400 120 L400 192 L0 192 Z" fill="#15231f"/>
+                            <g stroke="#20d58f" stroke-opacity="0.25" stroke-width="1">
+                                <path d="M200 40 L60 120 M200 40 L130 120 M200 40 L200 120 M200 40 L270 120 M200 40 L340 120"/>
+                                <path d="M60 120 L130 150 L200 120 L270 150 L340 120"/>
+                            </g>
+                            <polygon points="200,70 220,85 200,100 180,85" fill="#20d58f" fill-opacity="0.9"/>
+                            <rect x="160" y="90" width="80" height="22" rx="4" fill="#0b1015" fill-opacity="0.95" stroke="#20d58f" stroke-opacity="0.4"/>
+                            <text x="172" y="106" fill="#e5e7eb" font-family="monospace" font-size="9">Escenario 3D</text>
+                            <circle cx="200" cy="60" r="18" fill="none" stroke="#20d58f" stroke-opacity="0.5" stroke-width="1.5"/>
+                            <line x1="200" y1="42" x2="200" y2="78" stroke="#20d58f" stroke-opacity="0.4"/>
+                            <line x1="182" y1="60" x2="218" y2="60" stroke="#20d58f" stroke-opacity="0.4"/>
+                        </svg>
+                        <span class="absolute top-2 right-2 bg-black/70 text-emerald-400 text-xs font-mono font-bold px-2 py-0.5 rounded-full border border-emerald-400/30">En desarrollo</span>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="project-category">Modelado 3D · Unity</span>
+                            </div>
+                            <h3 class="text-base font-bold text-primary mb-1">Jefferson Motel</h3>
+                            <p class="text-muted text-xs line-clamp-2 mb-3 leading-relaxed">
+                                Recreación de una habitación del Jefferson Motel de GTA San Andreas, con trabajo de modelado, organización y optimización de un escenario 3D.
+                            </p>
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="tech-tag">Blender</span>
+                                <span class="tech-tag">Unity</span>
+                                <span class="tech-tag">Modelado 3D</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-muted mt-auto">Seleccionar para ver detalles</p>
+                    </div>
+                </button>
+
+                <!-- Tarjeta final: Próximamente (no es un proyecto real) -->
+                <article class="project-card project-final bg-cardBg border border-cardBorder rounded-xl overflow-hidden flex flex-col group" aria-label="Próximamente, más proyectos — cierre del archivo">
+                    <div class="project-cover relative overflow-hidden border-b border-cardBorder h-36">
+                        <div class="absolute inset-0 flex items-center justify-center p-4">
+                            <svg class="w-10 h-10 text-muted" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between text-center">
+                        <div>
+                            <h3 class="text-base font-bold text-primary mb-1">Próximamente, más proyectos…</h3>
+                            <p class="text-muted text-xs line-clamp-2 mb-3 leading-relaxed">
+                                El archivo MV Spatial seguirá creciendo.
+                            </p>
+                        </div>
+                    </div>
+                </article>
 
             </div>
         </div>
@@ -854,7 +906,7 @@
     </button>
 
     <div id="project-modal" class="fixed inset-0 z-50 hidden anim-modal-overlay flex items-center justify-center p-4 bg-black/80 md:backdrop-blur-md" role="dialog" aria-modal="true" aria-label="Detalles del proyecto" aria-hidden="true">
-        <div id="modal-panel" tabindex="-1" class="bg-cardBg border border-cardBorder w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl relative anim-modal-panel">
+        <div id="modal-panel" tabindex="-1" class="bg-cardBg border border-cardBorder w-full max-w-[1200px] max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl relative anim-modal-panel">
             <button type="button" id="modal-close-btn" aria-label="Cerrar detalles del proyecto" class="absolute top-4 right-4 z-10 min-h-[44px] min-w-[44px] rounded-full bg-surfaceInset border border-dividerStrong text-muted hover:text-primary flex items-center justify-center transition-colors">
                 <svg aria-hidden="true" class="text-sm icon"><use href="assets/icons.svg#icon-xmark"/></svg>
             </button>

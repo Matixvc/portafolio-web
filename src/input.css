@@ -599,6 +599,181 @@ h1, h2, h3, .font-heading {
     border-radius: 0.6rem;
 }
 
+/* ==========================================================================
+   Proyecto cards: archivo compacto MV Spatial
+   ========================================================================== */
+
+/* Botón envolvente de tarjeta: se ve como tarjeta, actúa como botón nativo */
+.project-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.project-card-link:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-color: var(--focus);
+}
+
+/* Estructura de tarjeta (compartida con la tarjeta final no interactiva) */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+}
+
+/* Cubierta: contenedor compacto listo para sustituir SVG por img/video real */
+.project-cover {
+    aspect-ratio: 16 / 9;
+    height: 144px;
+    min-height: 144px;
+    max-height: 144px;
+}
+
+.project-card-link:hover .project-cover {
+    transform: scale(1.02);
+}
+
+.project-card-link:focus-visible .project-cover {
+    outline: 2px solid var(--focus);
+    outline-offset: -2px;
+}
+
+/* Tarjeta destacada: distinción esmeralda sutil (sin ocupar ancho completo) */
+.project-featured {
+    border-color: color-mix(in srgb, var(--accent-primary) 50%, var(--border));
+}
+
+.project-featured:hover {
+    border-color: var(--accent-primary);
+}
+
+/* Tarjeta final: Próximamente (no es un proyecto real) */
+.project-final {
+    border-style: dashed;
+    border-color: color-mix(in srgb, var(--border) 60%, transparent);
+    background: color-mix(in srgb, var(--bg-secondary) 70%, transparent);
+}
+
+.project-final:hover {
+    transform: none;
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--bg-secondary) 50%, transparent);
+}
+
+.project-final .project-cover {
+    background: color-mix(in srgb, var(--surface-raised-rgb) 25%, transparent);
+    display: grid;
+    place-items: center;
+}
+
+.project-final:hover .project-cover {
+    transform: none;
+}
+
+/* Badge de categoría de proyecto */
+.project-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid var(--border);
+    background: rgba(var(--surface-raised-rgb), 1);
+    color: var(--accent-primary);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-card:hover .project-category {
+    background: color-mix(in srgb, var(--accent-primary) 15%, rgba(var(--surface-raised-rgb), 1));
+    border-color: color-mix(in srgb, var(--accent-primary) 45%, var(--border));
+    color: var(--accent-primary);
+}
+
+/* Badge de categoría técnica */
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid var(--border);
+    background: rgba(var(--surface-raised-rgb), 1);
+    color: var(--text-secondary);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-card:hover .tech-tag {
+    background: color-mix(in srgb, var(--accent-primary) 12%, rgba(var(--surface-raised-rgb), 1));
+    border-color: color-mix(in srgb, var(--accent-primary) 40%, var(--border));
+    color: var(--text-primary);
+}
+
+/* Estados de foco para enlaces y botones de proyecto */
+.project-card a:focus-visible,
+.project-card button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 0.3rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-card:focus-within,
+    .project-cover,
+    .project-card:hover .project-cover,
+    .tech-tag,
+    .project-category,
+    .project-card a,
+    .project-card button {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .project-card:hover .project-cover {
+        transform: none !important;
+    }
+
+    .project-card:focus-within {
+        outline-offset: 2px;
+    }
+}
+
+/* Grid adaptable: 1 col móvil, 2 tablet, 3 escritorio */
+#proyectos #projects-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+    #proyectos #projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    #proyectos #projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 .site-footer {
     padding: 3rem 0 1.5rem;
     background:
@@ -987,6 +1162,25 @@ select:focus-visible,
 [tabindex]:focus-visible {
     outline: 2px solid var(--focus);
     outline-offset: 2px;
+}
+
+/* Cabecera visual del Project Viewer: espacio para imagen/galería real (compacto) */
+.project-viewer-header {
+    background: color-mix(in srgb, var(--surface-raised-rgb) 20%, transparent);
+    border: 1px dashed var(--border);
+    max-height: 128px;           /* ~128px en móvil */
+}
+
+@media (min-width: 768px) {
+    .project-viewer-header {
+        max-height: 160px;       /* ~160px en tablet+ */
+    }
+}
+
+/* Modal más amplio para el visor de proyectos */
+#modal-panel {
+    max-width: 1200px;
+    width: 85vw;
 }
 
 /* El panel del modal no necesita anillo: el foco entra al abrirlo */
