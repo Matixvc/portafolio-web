@@ -562,16 +562,86 @@ h1, h2, h3, .font-heading {
     text-align: right;
 }
 
-#sistemas .grid > div,
 #proyectos #projects-grid > div,
 #contacto form,
 #contacto .bg-cardBg {
     box-shadow: 0 22px 50px -42px rgba(32, 213, 143, 0.55);
 }
 
-#sistemas .grid > div {
+.technology-panel {
+    min-width: 0;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
     border-radius: 0.85rem;
-    border-top-color: color-mix(in srgb, var(--accent-primary) 28%, var(--border));
+    background: var(--bg-secondary);
+    box-shadow: 0 22px 50px -42px rgba(32, 213, 143, 0.45);
+}
+
+.technology-panel-primary {
+    border-top: 2px solid var(--accent-primary);
+}
+
+.technology-panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.technology-panel-heading .icon {
+    flex: none;
+    color: var(--accent-ink);
+    font-size: 1.1rem;
+}
+
+.technology-core > div,
+.technology-list > div {
+    min-width: 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+}
+
+.technology-core strong,
+.technology-list dt {
+    display: block;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.technology-core span,
+.technology-list dd {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--text-muted);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+
+.technology-list > div + div {
+    margin-top: 0.85rem;
+}
+
+.technology-focus {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    padding: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+
+.technology-focus .icon { flex: none; color: var(--accent-ink); }
+.technology-focus strong { color: var(--text-primary); }
+
+@media (min-width: 640px) {
+    .technology-list-grid > div + div { margin-top: 0; }
 }
 
 #proyectos #projects-grid > div {
@@ -1071,6 +1141,17 @@ h1, h2, h3, .font-heading {
 }
 
 /* Estados del formulario de contacto */
+#back-to-top {
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 639px) {
+    #back-to-top {
+        left: auto;
+        right: max(0.75rem, env(safe-area-inset-right, 0px));
+    }
+}
+
 .field-error {
     border-color: var(--error-ink) !important;
 }

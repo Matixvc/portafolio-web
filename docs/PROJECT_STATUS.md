@@ -1,5 +1,133 @@
 # Estado del proyecto
 
+## Resumen vigente — cierre local de Fase 9.4 (2026-11-20)
+
+- Rama activa `feature/portfolio-consolidation`, `HEAD` en `4f9e9fa`. `main`
+  local también apunta a ese commit documental y contiene la implementación
+  aprobada hasta 9.4A. Las fases 9.4B, 9.4C y 9.4D.1 están implementadas y
+  verificadas localmente como cambios sin commit en la rama feature; no están
+  en `main` ni se han publicado.
+- 9.4B: cuatro paneles agrupados en Tecnologías. 9.4C: orden Inicio → Proyectos
+  → Acerca de mí → Tecnologías → Contacto, con cronología académica integrada y
+  ancla `#formacion` compatible. 9.4D.1: tarjeta Jefferson Motel corregida a
+  Blender, posición móvil de «Volver arriba» y correo/copia legibles en móvil.
+- README.md y README.es.md describen el mismo alcance y distinguen la rama
+  local del sitio publicado. docs/DESIGN_SYSTEM.md refleja los paneles, la
+  navegación y los ajustes responsive. Los registros anteriores se conservan
+  debajo como historial de cada fase.
+
+**Verificación ejecutada en este cierre:**
+- `npm.cmd run build`: salida 0; 33 símbolos en el sprite y CSS minificado.
+  `caniuse-lite` informó que su base está desactualizada; no se actualizaron
+  dependencias.
+- `node --check js/main.js`, `node --check js/theme.js` y `git diff --check`:
+  salida 0. `git status --short --branch` y `git diff --stat` revisados.
+- Comprobación estructural local: cinco secciones y tres navegaciones en el
+  orden vigente; cuatro tarjetas y cuatro datos de modal; cuatro paneles de
+  tecnologías; un ancla `#formacion`; Jefferson Motel identificado como Blender
+  en la tarjeta y Unity prevista en el modal. Ambos README contienen los cuatro
+  proyectos y el estado/roadmap de fases equivalente.
+- Siete archivos modificados y ningún archivo sin seguimiento. `package.json`
+  y `package-lock.json` no aparecen en el diff. No se modificó código JavaScript.
+
+**Evidencia de QA anterior, no repetida en este cierre:** Edge headless revisó
+320, 390, 768, 1024 y 1440 px en dark/light sin desbordamiento horizontal; los
+cuatro modales abrieron y «Volver arriba» funcionó con mouse, Enter y toque
+emulado. «Copiar» devolvió la dirección completa en el portapapeles. Capturas
+temporales disponibles: 35 PNG de la QA 9.4B/9.4C en
+`%TEMP%/mv-spatial-94bc-final-qa` y 11 PNG de la QA 9.4D.1 en
+`%TEMP%/mv-spatial-94d1-qa`.
+
+**Pendiente antes de publicar:** commit, integración autorizada en `main`, push
+y comprobación del sitio remoto. La safe area requiere prueba en un dispositivo
+físico con recorte. No se envió el formulario ni se inició la Fase 9.5.
+
+---
+
+## Registro anterior — Fase 9.4D.1 (2026-11-20)
+
+- Rama local `feature/portfolio-consolidation`; `HEAD` permanece en `4f9e9fa`.
+  Se conservaron los cambios locales de 9.4B y 9.4C. Sin commit, push, merge ni
+  publicación.
+- Tarjeta Jefferson Motel: categoría «Modelado 3D · Blender» y etiquetas
+  «Blender»/«Modelado 3D». El modal ya identificaba la integración con Unity
+  como futura y pendiente; `js/main.js` no se modificó.
+- «Volver arriba»: en móvil (menos de 640 px) se ubica al borde derecho;
+  el desplazamiento inferior contempla `safe-area-inset-bottom`. La lógica del
+  botón permanece intacta.
+- Contacto: en móvil el enlace de correo ocupa una fila y «Copiar» pasa debajo.
+  La dirección puede partir después de `@`; se eliminó `break-all`.
+
+**Verificación de 9.4D.1:**
+- `npm.cmd run build`: salida 0; sprite de 33 símbolos y CSS generado. Apareció
+  un aviso de `caniuse-lite` desactualizado; no se cambiaron dependencias.
+- Edge headless con emulación a 320, 390, 768, 1024 y 1440 px, en dark y light:
+  tema efectivo correcto y `scrollWidth` no superior al ancho de la ventana.
+  El correo ocupa dos líneas a 320 px y una a 390 px; «Copiar» queda debajo del
+  enlace en ambos anchos. Capturas temporales en `%TEMP%/mv-spatial-94d1-qa`.
+- «Volver arriba» llevó el scroll a 0 mediante mouse, Enter y toque emulado.
+  Los cuatro modales abrieron; «Copiar» mostró «✓ Copiado» y la lectura del
+  portapapeles devolvió la dirección completa. El enlace `mailto:` la conserva.
+  La consola no registró excepciones ni errores;
+  solo un mensaje informativo de Edge sobre imágenes con carga diferida.
+- `node --check js/main.js`, `node --check js/theme.js` y `git diff --check`:
+  salida 0. No se envió el formulario.
+
+**Pendiente:** probar el área segura en un dispositivo físico con recorte. Esta fase no verificó el
+tema system ni GitHub Pages y no implica publicación.
+
+---
+
+## Registro anterior — Fases 9.4B y 9.4C (2026-11-20)
+
+- Rama activa: `feature/portfolio-consolidation`. HEAD inicial y actual:
+  `4f9e9fa` (`docs(portfolio): consolidate phase 9.4.0 documentation`). El árbol
+  estaba limpio antes de esta implementación.
+- 9.4B implementada localmente: las ocho tarjetas de `#sistemas` se sustituyeron
+  por cuatro paneles agrupados. Unity, C# y gameplay/interacción 3D tienen la
+  jerarquía principal; Unreal Engine/Blender, Python/Git/GitHub/Photoshop y
+  Expo/React Native quedan en grupos complementarios. XR/VR se presenta como
+  enfoque y colaboración académica de pruebas en Meta Quest 3 bajo NDA.
+- 9.4C implementada localmente: orden Inicio → Proyectos → Acerca de mí →
+  Tecnologías → Contacto en el documento y navegaciones. La cronología separada
+  de Formación se integró en Acerca de mí; sus fechas de inicio, retomada y egreso
+  estimado se conservan. El ancla antigua `#formacion` apunta al bloque académico.
+- `js/main.js`, `js/theme.js`, datos de proyectos, formulario, CV, dependencias y
+  configuración no se modificaron. El bloque HTML completo de proyectos coincide
+  con `HEAD`; únicamente cambió su posición. El scroll-spy existente observa
+  `main section[id]` y sigue usando las cinco secciones actuales.
+- Archivos locales modificados: `index.html`, `src/input.css`, `dist/styles.css`
+  generado por build y este documento. Sin commit, push, merge ni publicación.
+
+**Verificaciones de esta fase:**
+- Pruebas estructurales antes/después: el orden y los grupos nuevos fallaron
+  inicialmente y pasaron tras implementar; cinco secciones en el orden previsto,
+  cuatro tarjetas reales únicas, navegación principal/móvil ordenada, ancla
+  `#formacion` única y enlaces internos con destino existente.
+- `npm.cmd run build`: salida 0, 33 símbolos y CSS minificado; aviso de
+  `caniuse-lite` desactualizado, sin actualizar dependencias.
+- `node --check js/main.js`, `node --check js/theme.js` y
+  `node --check tailwind.config.js`: salida 0.
+- `git diff --check`: sin errores.
+- Edge headless generó capturas locales. La de escritorio permite comprobar la
+  navegación en su nuevo orden; las capturas por ancla se tomaron durante el
+  desplazamiento suave y no demuestran la composición final de esas secciones.
+  La captura solicitada a 390 px no usó emulación móvil real y muestra recorte;
+  por ello no se considera validación responsive. Evidencia temporal:
+  `%TEMP%/mv-spatial-94bc-qa`.
+
+**QA pendiente:** revisión real a 320/390/768/1024/1440 px en Dark/Light/System,
+menú móvil, teclado, scroll-spy, cuatro modales, ausencia de overflow, enlaces/CV
+y consola. No se envió el formulario. La validación visual de estas dos fases
+requiere un navegador interactivo o emulación móvil fiable antes de aprobar el
+resultado visual final.
+Los README bilingües todavía presentan 9.4B/9.4C como roadmap; conviene ajustar
+ese texto después de la revisión visual, antes de una futura publicación.
+
+---
+
+## Registro anterior — Fase 9.4.0
+
 ## Resumen ejecutivo (actualización 2026-11-20 — Fase 9.4.0)
 
 **Estado Git comprobado localmente antes de editar:**

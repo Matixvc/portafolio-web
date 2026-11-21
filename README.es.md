@@ -13,7 +13,7 @@
 
 Mi portafolio personal presenta proyectos personales y académicos de videojuegos, Unity, C#, interacción 3D y XR. Reúne resúmenes de proyectos, repositorios, descargas bilingües del CV y medios de contacto profesional.
 
-El estado del repositorio verificado localmente incluye en `main` el trabajo aprobado hasta la fase 9.4A: el sistema visual MV Spatial, el Project Archive interactivo con cuatro proyectos y la sección Acerca de mí rediseñada. La fase 9.4.0 consolida la documentación antes de continuar el desarrollo.
+La rama local `main` apunta al commit documental `4f9e9fa` e incluye la implementación aprobada del portafolio hasta la fase 9.4A: el sistema visual MV Spatial, el Project Archive interactivo con cuatro proyectos y la sección Acerca de mí rediseñada. Las fases 9.4B, 9.4C y 9.4D.1 están implementadas y verificadas localmente en `feature/portfolio-consolidation`; siguen pendientes de publicación y no están en `main`.
 
 `main` es la rama estable y la fuente configurada de GitHub Pages es `main` → `/ (root)`. La URL del portafolio es [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Durante la fase 9.4.0 se verificó localmente el commit `dd271b3` en `main`, `feature/portfolio-consolidation` y sus referencias remotas locales; no fue posible revalidar de forma independiente el commit remoto en vivo ni la página desplegada porque el acceso de red no estaba disponible. Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
@@ -22,10 +22,11 @@ El estado del repositorio verificado localmente incluye en `main` el trabajo apr
 - Diseño responsive para móvil, tablet y escritorio.
 - Temas Claro, Oscuro y Sistema; Sistema es la preferencia predeterminada. Las elecciones explícitas persisten cuando el almacenamiento del navegador está disponible.
 - Identidad SVG MV Spatial y favicon que sigue el esquema de color del sistema.
-- Secciones semánticas, navegación por teclado, foco visible, menú móvil, diálogos de proyectos y soporte de movimiento reducido.
+- Cinco secciones semánticas en este orden: Inicio → Proyectos → Acerca de mí → Tecnologías → Contacto. La cronología académica forma parte de Acerca de mí y `#formacion` se conserva como ancla compatible.
+- Navegación por teclado, foco visible, menú móvil, cuatro diálogos de proyectos y soporte de movimiento reducido.
 - Tarjetas de proyectos con detalles y enlaces a repositorios.
 - Descargas independientes del CV en español e inglés.
-- Integración Web3Forms, validación de campos, prevención de doble envío, copia de correo y alternativa por email.
+- Integración Web3Forms, validación de campos, prevención de doble envío, copia de correo y alternativa por email. En pantallas pequeñas el correo y el botón de copia ocupan filas separadas; «Volver arriba» pasa a la derecha y contempla el área segura inferior.
 - Sitio estático preparado para GitHub Pages, con CSS compilado y sprite de iconos versionados.
 
 La entrega real de mensajes no se prueba durante la consolidación; no se autorizan envíos del formulario durante QA.
@@ -46,6 +47,8 @@ La colaboración académica XR bajo NDA es independiente de PhysicsVR. Su descri
 **Sitio web:** HTML estático, JavaScript vanilla y Tailwind CSS 3. Font Awesome proporciona los SVG fuente del sprite local. Las dependencias npm son herramientas de desarrollo; el sitio no requiere framework frontend ni bundle npm en ejecución. El contacto utiliza Web3Forms.
 
 **Perfil profesional:** Unity y C# son el foco principal, junto con gameplay, interacción física, 3D y exploración XR. Unreal Engine, Python, Git/GitHub, Blender y Photoshop aparecen como herramientas complementarias. No son dependencias del sitio. Expo, React Native y TypeScript corresponden a App Mobile.
+
+La sección Tecnologías agrupa este alcance en cuatro paneles: tecnologías principales; motores y herramientas 3D; desarrollo y herramientas; y desarrollo complementario. XR/VR se presenta como enfoque, incluida la colaboración académica de pruebas en Meta Quest 3 bajo NDA, no como una función de PhysicsVR completada con visor.
 
 ## Estructura del proyecto
 
@@ -81,7 +84,7 @@ npm run build
 npm run serve
 ```
 
-La versión estable está en `main`; `feature/portfolio-consolidation` se conserva como rama de consolidación. Consulta las evidencias de integración en [PROJECT_STATUS.md](docs/PROJECT_STATUS.md). `npm ci` instala las versiones bloqueadas. `npm run serve` utiliza `npx --yes serve .` y puede descargar el servidor; usa la URL indicada en la terminal, normalmente `http://localhost:3000`. Detén el servidor con Ctrl+C. Si PowerShell bloquea `npm.ps1`, utiliza `npm.cmd`.
+La versión estable está en `main`; las fases locales 9.4B–9.4D.1 están en `feature/portfolio-consolidation` pendientes de publicación. Consulta las evidencias de integración en [PROJECT_STATUS.md](docs/PROJECT_STATUS.md). `npm ci` instala las versiones bloqueadas. `npm run serve` utiliza `npx --yes serve .` y puede descargar el servidor; usa la URL indicada en la terminal, normalmente `http://localhost:3000`. Detén el servidor con Ctrl+C. Si PowerShell bloquea `npm.ps1`, utiliza `npm.cmd`.
 
 | Comando | Función |
 | --- | --- |
@@ -100,7 +103,7 @@ Comprobaciones básicas: `node --check js/main.js`, `node --check js/theme.js`, 
 ## Git y publicación
 
 - **Rama configurada en Pages:** `main`, con `/ (root)` y HTTPS registrados desde el despliegue verificado anteriormente. Mantener la configuración de Pages.
-- **Rama estable:** `main`, verificada localmente con el portafolio aprobado hasta la fase 9.4A en `dd271b3`.
+- **Rama estable:** `main` local en `4f9e9fa`, con la implementación aprobada del portafolio hasta la fase 9.4A. El commit anterior `dd271b3` es la base histórica comprobada durante la fase 9.4.0.
 - **Flujo de desarrollo:** ramas temporales `feature/*` desde `main`; sin `develop` permanente. Conservar `feature/portfolio-consolidation` y las ramas e historial existentes.
 - Revisar diff y staging, crear commits acotados y versionar CSS/iconos generados junto con sus fuentes.
 - Los pushes a `main` activan la compilación y publicación de Pages. Requieren autorización explícita; verificar los triggers de Pages/Actions antes de subir una rama feature.
@@ -116,18 +119,15 @@ Verde esmeralda principal/oscuro: `#20D58F`; variante clara: `#07844F`; monocrom
 
 ## Estado y roadmap
 
-El estado de `main` verificado localmente en `dd271b3` contiene el trabajo aprobado hasta la fase 9.4A. La fase 9.4.0 alinea la documentación del proyecto con ese estado. Esta es una afirmación sobre el repositorio, no una nueva comprobación del despliegue público. Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+Las fases 9.4B (cuatro paneles de tecnologías agrupadas), 9.4C (orden de secciones y cronología académica en Acerca de mí) y 9.4D.1 (correcciones de Jefferson Motel, Volver arriba y Contacto) están implementadas y verificadas localmente en `feature/portfolio-consolidation`. Su publicación en `main` está pendiente. Esta es una afirmación sobre el repositorio, no una nueva comprobación del despliegue público. Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
-Previsto:
+Previsto después de preparar la publicación:
 
-- Fase 9.4B: rediseño de Habilidades y Tecnologías.
-- Fase 9.4C: integración de Trayectoria en Acerca de mí.
-- Fase 9.4D: reorganización visual, navegación y validación.
 - Fase 9.5: multimedia real de proyectos.
 - Fase 9.6: calidad, accesibilidad y rendimiento.
 - Fase 9.7: experiencias interactivas.
 
-Este roadmap describe trabajo planificado, no funcionalidades terminadas.
+Estas fases restantes describen trabajo planificado, no funcionalidades terminadas.
 
 Los PDF ES/EN existentes se conservan. Su descripción de PhysicsVR requiere una corrección aprobada por separado. También mencionan 40 Days of Light, cuya evidencia y alcance deben prepararse antes de añadirlo al sitio. Siguen pendientes protecciones adicionales de contacto, pruebas ampliadas de navegadores/accesibilidad, sitio en inglés y casos de estudio. No se incluyen nuevos banners de IA.
 

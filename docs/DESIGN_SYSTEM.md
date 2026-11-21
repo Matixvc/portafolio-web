@@ -1,8 +1,10 @@
 # MV Spatial Design System
 
 Estado: Fase 9.3A y su refinamiento final implementados y aprobados visualmente.
-El estado local de `main` en `dd271b3` contiene este sistema; la Fase 9.4.0 no
-revalidó de forma independiente el despliegue público.
+El estado local de `main` en `4f9e9fa` contiene esa base. Las fases 9.4B, 9.4C y
+9.4D.1 están implementadas y verificadas localmente en
+`feature/portfolio-consolidation`, pendientes de publicación; no se revalidó
+el despliegue público.
 
 ## Dirección
 
@@ -103,6 +105,23 @@ header donde el espacio está controlado.
 - Errores y estados mantienen los tokens semánticos existentes.
 - La integración y el comportamiento de envío no cambian en esta fase.
 
+### Tecnologías
+
+- Cuatro paneles agrupados: tecnologías principales; motores y herramientas 3D;
+  desarrollo y herramientas; y desarrollo complementario.
+- Unity, C# y gameplay/interacción 3D tienen la jerarquía principal. XR/VR se
+  presenta como enfoque y la colaboración académica bajo NDA se distingue de
+  PhysicsVR.
+- Blender describe el modelado actual de Jefferson Motel; Unity queda como
+  posible integración futura, no como tecnología ya utilizada en ese proyecto.
+
+### Contacto y «Volver arriba»
+
+- Bajo 640 px, el correo ocupa una fila completa y «Copiar» pasa debajo. La
+  dirección puede partir después de `@`, sin `break-all`.
+- El botón flotante conserva una zona táctil de 44 px. En móvil se ubica a la
+  derecha y su posición inferior contempla `safe-area-inset-bottom`.
+
 ## Hero
 
 El Hero de escritorio usa una composición editorial de dos columnas:
@@ -121,14 +140,21 @@ cada una cuando el ancho lo permite, sin aplicar `nowrap` ni impedir el wrapping
 natural. La etiqueta decorativa «MV / 001 — SPATIAL DEVELOPER» se retiró para
 evitar redundancia y el espaciado superior se equilibra desde la composición.
 
+## Secciones y navegación
+
+El orden del documento y de las navegaciones principal, móvil y del footer es
+Inicio → Proyectos → Acerca de mí → Tecnologías → Contacto. La cronología
+académica está integrada en Acerca de mí; `#formacion` permanece como ancla
+compatible para enlaces anteriores.
+
 ## Footer
 
 - El cierre reutiliza el footer existente y no duplica el formulario ni una
   llamada extensa a contacto.
 - La identidad usa la variante MV Spatial correspondiente al tema, el nombre de
   marca y la frase «Construyendo mundos. Explorando nuevas realidades.».
-- Conserva cinco accesos internos: Inicio, Tecnologías, Proyectos, Formación y
-  Contacto; sus filas permiten wrapping en anchos reducidos.
+- Conserva los cinco accesos internos en el orden vigente; sus filas permiten
+  wrapping en anchos reducidos.
 - «Volver al inicio» es una acción explícita y accesible hacia `#inicio`.
 - Los metadatos incluyen el crédito de diseño y desarrollo y el copyright del
   año vigente.
