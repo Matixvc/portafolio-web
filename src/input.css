@@ -642,54 +642,60 @@ h1, h2, h3, .font-heading {
 
 .ai-workflow {
     display: grid;
-    gap: 1.5rem;
+    gap: 1.25rem;
     margin-top: 1.5rem;
-    padding: clamp(1.25rem, 3vw, 2rem);
-    border: 1px solid var(--border);
-    border-left: 2px solid var(--accent-primary);
-    border-radius: 0.9rem;
-    background: var(--bg-secondary);
 }
-.ai-workflow-eyebrow {
+.ai-workflow-heading {
+    align-items: flex-start;
+    margin-bottom: 0.65rem;
+}
+.ai-workflow-heading > div { min-width: 0; }
+.ai-workflow-subtitle {
+    margin-top: 0.2rem;
     color: var(--accent-ink);
     font-size: 0.6875rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
-.ai-workflow h3 {
-    margin-top: 0.35rem;
-    color: var(--text-primary);
-    font-size: clamp(1.125rem, 2.5vw, 1.4rem);
-    font-weight: 700;
-}
-.ai-workflow-intro p {
-    max-width: 65ch;
-    margin-top: 0.6rem;
+.ai-workflow-intro > p {
+    max-width: 58ch;
     color: var(--text-secondary);
-    font-size: 0.875rem;
-    line-height: 1.65;
+    font-size: 0.8125rem;
+    line-height: 1.55;
 }
 .ai-workflow-tools {
     display: grid;
-    gap: 0.65rem;
+    gap: 0.5rem;
 }
 .ai-workflow-tools li {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 0.75rem;
-    padding-top: 0.65rem;
-    border-top: 1px solid var(--border);
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    min-width: 0;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 0.55rem;
+    background: var(--bg-tertiary);
     color: var(--text-muted);
     font-size: 0.8125rem;
-    line-height: 1.5;
+    line-height: 1.35;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 .ai-workflow-tools strong {
-    min-width: 5rem;
     color: var(--text-primary);
 }
+.ai-workflow-tools span { text-align: right; }
+.ai-workflow-tools li:is(:hover, :focus-visible) {
+    border-color: color-mix(in srgb, var(--accent-primary) 58%, var(--border));
+    background: color-mix(in srgb, var(--accent-primary) 6%, var(--bg-tertiary));
+}
 @media (min-width: 1024px) {
-    .ai-workflow { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+    .ai-workflow { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); align-items: center; }
+    .ai-workflow-tools { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .ai-workflow-tools li { display: block; }
+    .ai-workflow-tools span { display: block; margin-top: 0.2rem; text-align: left; }
 }
 
 @media (min-width: 640px) {
