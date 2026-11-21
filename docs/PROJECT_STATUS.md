@@ -1,6 +1,84 @@
 # Estado del proyecto
 
-## Resumen vigente — cierre local de Fase 9.4 (2026-11-20)
+## Resumen vigente — Cierre local de Fase 9.5 (2026-11-21)
+
+- Rama activa `feature/portfolio-consolidation`, `HEAD` en `6694014`.
+  `main` local y las referencias remotas guardadas también apuntan a ese
+  commit de cierre de 9.4. La fase 9.5 sigue como cambios locales sin commit;
+  no se verificó el remoto en vivo ni el despliegue público en esta revisión.
+- Se revisó el diff de los cinco archivos de implementación: `index.html`,
+  `src/input.css`, `dist/styles.css`, `js/main.js` y este documento. En
+  `js/main.js` solo cambia `proj3.title` a «NexusDay — Organizador Personal»;
+  la lógica de los modales permanece intacta.
+- Se actualizaron `README.md`, `README.es.md` y `docs/DESIGN_SYSTEM.md` para
+  describir el Project Showcase, el bloque AI-Assisted Development y el estado
+  real de las ramas. El texto presenta ChatGPT, Gemini y Claude como apoyo
+  diferenciado, con evaluación y verificación humana de los resultados.
+- Se conservaron cuatro tarjetas y cuatro entradas de datos de modal, además
+  de las cinco secciones Inicio, Proyectos, Acerca de mí, Tecnologías y
+  Contacto. La comprobación funcional de los cuatro modales procede del QA
+  de navegador de la fase, registrado abajo; esta revisión de cierre no
+  repitió esa prueba interactiva.
+- Ni `api.webtest.net` ni APIs de extensiones aparecen en los archivos fuente
+  revisados. El error CORS y el aviso de canal de mensajes son compatibles
+  con el entorno del navegador de pruebas, pero su origen exacto no está
+  demostrado. No se cambió código por ese motivo.
+- Comprobaciones de este cierre: `npm.cmd run build`, `node --check js/main.js`,
+  `node --check js/theme.js`, `node --check tailwind.config.js` y
+  `git diff --check`, todas con salida 0. `package.json` y
+  `package-lock.json` sin cambios; sin archivos no seguidos. No se instalaron
+  dependencias ni se hizo commit, push o publicación.
+
+---
+
+## Registro anterior — Implementación de Fase 9.5 Project Showcase Premium (2026-11-20)
+
+- Rama `feature/portfolio-consolidation`, `HEAD` inicial `6694014`; el árbol
+  estaba limpio antes de esta fase. Sin commit, push, merge ni publicación.
+- No hay capturas ni videos reales de los cuatro proyectos en el repositorio.
+  Los archivos raster disponibles son foto de perfil, arte OG e icono Apple.
+  Las cuatro entradas `projectDetails.media` siguen vacías; no se creó galería
+  ni se presentó una ilustración conceptual como captura real.
+- Las cuatro tarjetas conservan sus SVG conceptuales y su contenido. Las
+  cubiertas aumentan de 144 px a 168–208 px según el ancho; los estados se
+  muestran junto a la categoría para no tapar el arte. Se ajustaron fondo,
+  jerarquía de texto, llamada a detalles, hover y foco visible. El proyecto
+  móvil usa el nombre NexusDay indicado por el autor en tarjeta y modal.
+- El Project Viewer existente conserva su lógica y accesibilidad. Su panel se
+  limita a 52 rem y el encabezado textual gana jerarquía y espacio respecto
+  del botón de cierre. En `js/main.js` solo cambió el dato `proj3.title`;
+  la lógica del visor y `js/theme.js` no se modificaron.
+- Tecnologías incorpora un bloque compacto «AI-Assisted Development» con
+  ChatGPT, Gemini y Claude y sus usos diferenciados. El texto declara la
+  evaluación y verificación de resultados antes de integrarlos a proyectos.
+
+**Verificaciones de esta fase:**
+- `npm.cmd run build`: salida 0, sprite de 33 símbolos y CSS minificado. Aviso
+  de `caniuse-lite` desactualizado; no se cambiaron dependencias.
+- Edge headless: 320, 390, 768, 1024 y 1440 px en dark/light, con cuatro
+  tarjetas, cuatro paneles de tecnologías y el bloque IA presentes; sin scroll
+  horizontal. Capturas temporales en `%TEMP%/mv-spatial-95-qa`.
+- Los cuatro modales abrieron, cerraron con Escape, mantuvieron el foco dentro
+  y lo devolvieron a la tarjeta al cerrar. Enter abrió un modal, un toque
+  emulado abrió otro, y el menú móvil navegó a `#sistemas`. La preferencia
+  system respondió a cambios emulados entre light y dark.
+- Foco visible de 2 px en tarjeta. Con movimiento normal, hover eleva la
+  tarjeta 3 px y escala el SVG; con `prefers-reduced-motion: reduce`, tarjeta,
+  SVG y elementos animados quedan sin transformación y transición.
+- En una pasada inicial apareció un error CORS intermitente hacia
+  `https://api.webtest.net/webspeeds`. Otras pasadas registraron «A listener
+  indicated an asynchronous response… message channel closed», compatible
+  con mensajería de una extensión del navegador. Ni esa URL ni APIs de
+  extensiones figuran en el código del sitio; las pruebas de interacción
+  posteriores no reprodujeron el error. Su origen exacto queda pendiente.
+
+**Pendiente:** imágenes o videos reales, sujetos a disponibilidad y NDA, para
+habilitar una galería accesible; comprobación en dispositivo físico y
+seguimiento del error externo intermitente. No se envió el formulario.
+
+---
+
+## Registro anterior — cierre local de Fase 9.4 (2026-11-20)
 
 - Rama activa `feature/portfolio-consolidation`, `HEAD` en `4f9e9fa`. `main`
   local también apunta a ese commit documental y contiene la implementación

@@ -112,7 +112,7 @@
                 tech: ["JavaScript", "Canvas 2D", "HTML5", "Netlify"]
             },
             proj3: {
-                title: "App Mobile — Organizador Personal",
+                title: "NexusDay — Organizador Personal",
                 badge: "App Móvil · TypeScript",
                 description: "Aplicación móvil para organizar el día a día: horario universitario, fechas importantes con notificación de calendario, cumpleaños y evaluaciones de asignaturas.",
                 role: "Desarrollo individual — app móvil personal",

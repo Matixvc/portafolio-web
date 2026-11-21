@@ -13,7 +13,7 @@
 
 My personal portfolio presents personal and academic projects in game development, Unity, C#, interactive 3D and XR. It brings together project summaries, source repositories, bilingual CV downloads and professional contact details.
 
-The local `main` branch points to documentation commit `4f9e9fa` and includes the approved portfolio implementation through phase 9.4A: the MV Spatial visual system, the interactive Project Archive with four projects, and the redesigned About section. Phases 9.4B, 9.4C and 9.4D.1 are implemented and verified locally on `feature/portfolio-consolidation`; they are pending publication and are not on `main`.
+The local `main` branch points to `6694014` and includes the portfolio through phase 9.4, including phases 9.4B, 9.4C and 9.4D.1. Phase 9.5 is implemented and verified locally as uncommitted changes on `feature/portfolio-consolidation`; it is not on `main`.
 
 `main` is the stable branch and the configured GitHub Pages source is `main` → `/ (root)`. The portfolio URL is [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). During phase 9.4.0, commit `dd271b3` was verified locally across `main`, `feature/portfolio-consolidation` and their local remote-tracking references; the live remote commit and deployed page were not independently revalidated because network access was unavailable. Evidence and limitations: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
@@ -24,7 +24,7 @@ The local `main` branch points to documentation commit `4f9e9fa` and includes th
 - MV Spatial SVG identity and a favicon that follows the system color scheme.
 - Five semantic sections in this order: Home → Projects → About → Technologies → Contact. The academic timeline is part of About, with `#formacion` retained as a compatible anchor.
 - Keyboard navigation, visible focus, a mobile menu, four project dialogs and reduced-motion support.
-- Project cards with details and repository links.
+- Project Showcase cards with larger conceptual SVG covers, clearer status labels, subtle hover/focus feedback and repository links where available. The existing four project dialogs remain accessible.
 - Separate Spanish and English CV downloads.
 - Web3Forms contact integration, field validation, duplicate submission prevention, email copying and email fallback. On small screens the email and copy button use separate rows, while the back-to-top control moves to the right and accounts for the bottom safe area.
 - Static site prepared for GitHub Pages, with compiled CSS and the icon sprite committed to Git.
@@ -37,7 +37,7 @@ Real contact delivery is not tested during consolidation; no form submissions ar
 | --- | --- | --- |
 | PhysicsVR Prototype | Unity/C# physical interaction prototype in development, intended for future VR integration. **Not yet functional with a VR headset.** | [Repository](https://github.com/Matixvc/PhysicsVR_Prototype) |
 | Basura Fighters | Browser recycling roguelike with JavaScript and Canvas 2D. | [Repository](https://github.com/Matixvc/Trash-Roguelike) · [Demo](https://trash-rogelike.netlify.app) |
-| App Mobile / NexusDay | Mobile project built with React Native and Expo. | [Repository](https://github.com/Matixvc/App-Mobile) |
+| NexusDay (App Mobile) | Mobile project built with React Native and Expo. | [Repository](https://github.com/Matixvc/App-Mobile) |
 | Jefferson Motel | 3D recreation in progress with Blender. It has no public repository or demo; possible future Unity integration is not a completed feature. | Not public |
 
 The academic XR collaboration under NDA is separate from PhysicsVR. Its public description is limited to functional testing on Meta Quest 3 and issue reporting. Project illustrations currently use SVG mockups; real screenshots and media remain planned.
@@ -46,9 +46,11 @@ The academic XR collaboration under NDA is separate from PhysicsVR. Its public d
 
 **Website:** static HTML, vanilla JavaScript and Tailwind CSS 3. Font Awesome supplies SVG sources for a local icon sprite. npm dependencies are development tools; the site requires no frontend framework or runtime npm bundle. Contact submission uses Web3Forms.
 
-**Professional profile:** Unity and C# are the main focus, alongside gameplay, physical interaction, 3D and XR exploration. Unreal Engine, Python, Git/GitHub, Blender and Photoshop appear as complementary tools. They are not website dependencies. Expo, React Native and TypeScript belong to App Mobile.
+**Professional profile:** Unity and C# are the main focus, alongside gameplay, physical interaction, 3D and XR exploration. Unreal Engine, Python, Git/GitHub, Blender and Photoshop appear as complementary tools. They are not website dependencies. Expo, React Native and TypeScript belong to NexusDay.
 
 The Technologies section groups this scope into four panels: core technologies; 3D engines and tools; development tools; and complementary development. XR/VR is described as a focus, including the academic Meta Quest 3 testing collaboration under NDA, not as a completed PhysicsVR headset feature.
+
+A compact **AI-Assisted Development** block describes ChatGPT for development, programming, analysis and planning; Gemini for everyday productivity, research and creative support; and Claude for complementary technical and creative tasks. The author evaluates and verifies results before using them in projects.
 
 ## Project structure
 
@@ -84,7 +86,7 @@ npm run build
 npm run serve
 ```
 
-The stable version lives on `main`; the local phases 9.4B–9.4D.1 are on `feature/portfolio-consolidation` pending publication. See [PROJECT_STATUS.md](docs/PROJECT_STATUS.md) for integration evidence. `npm ci` installs locked versions. `npm run serve` uses `npx --yes serve .` and may download the server; use the URL printed in the terminal, normally `http://localhost:3000`. Stop with Ctrl+C. Use `npm.cmd` if PowerShell blocks `npm.ps1`.
+The stable version lives on `main`; the local phase 9.5 changes are on `feature/portfolio-consolidation` pending commit and publication. See [PROJECT_STATUS.md](docs/PROJECT_STATUS.md) for integration evidence. `npm ci` installs locked versions. `npm run serve` uses `npx --yes serve .` and may download the server; use the URL printed in the terminal, normally `http://localhost:3000`. Stop with Ctrl+C. Use `npm.cmd` if PowerShell blocks `npm.ps1`.
 
 | Command | Purpose |
 | --- | --- |
@@ -103,7 +105,7 @@ Basic checks: `node --check js/main.js`, `node --check js/theme.js`, `node --che
 ## Git and publication
 
 - **Configured Pages branch:** `main`, with `/ (root)` and HTTPS recorded from the previously verified deployment. Keep Pages settings intact.
-- **Stable branch:** local `main` at `4f9e9fa`, with the approved portfolio implementation through phase 9.4A. The preceding `dd271b3` is the historical baseline checked during phase 9.4.0.
+- **Stable branch:** local `main` at `6694014`, with the portfolio implementation through phase 9.4. The preceding `dd271b3` is the historical baseline checked during phase 9.4.0. The live remote and deployed page were not revalidated for this review.
 - **Development workflow:** temporary `feature/*` branches from `main`; no permanent `develop`. Preserve `feature/portfolio-consolidation` and existing branches/history.
 - Review diffs and staging, create focused commits, and version generated CSS/icons with their sources.
 - Pushes to `main` trigger the Pages build and publication. Require explicit authorization before pushing; verify Pages/Actions triggers before pushing a feature branch.
@@ -119,17 +121,16 @@ Principal/dark emerald: `#20D58F`; light variant: `#07844F`; monochrome: `curren
 
 ## Status and roadmap
 
-Phases 9.4B (four grouped technology panels), 9.4C (section order and academic timeline in About) and 9.4D.1 (Jefferson Motel, back-to-top and contact corrections) are implemented and verified locally on `feature/portfolio-consolidation`. Publication on `main` is pending. This is a repository statement, not a fresh verification of the live deployment. Evidence and limitations: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+Phases 9.4B (four grouped technology panels), 9.4C (section order and academic timeline in About) and 9.4D.1 (Jefferson Motel, back-to-top and contact corrections) are in local `main` at `6694014`. Phase 9.5 (Project Showcase and the AI workflow block) is implemented and verified locally on `feature/portfolio-consolidation`, but has not been committed or published. The live deployment was not revalidated for this review. Evidence and limitations: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 Planned after publication preparation:
 
-- Phase 9.5: add real project media.
 - Phase 9.6: quality, accessibility and performance.
 - Phase 9.7: interactive experiences.
 
 These remaining phases describe planned work, not completed functionality.
 
-Existing ES/EN PDFs are preserved. Their PhysicsVR description needs a separately approved correction. They also mention 40 Days of Light, whose scope and evidence must be prepared before adding it to the website. Additional contact protection, broader browser/accessibility testing, an English website and case studies remain pending. No new AI banners are included.
+Real project screenshots and videos remain pending until available and cleared for publication; no gallery was added in phase 9.5. Existing ES/EN PDFs are preserved. Their PhysicsVR description needs a separately approved correction. They also mention 40 Days of Light, whose scope and evidence must be prepared before adding it to the website. Additional contact protection, broader browser/accessibility testing, an English website and case studies remain pending.
 
 ## Contact
 

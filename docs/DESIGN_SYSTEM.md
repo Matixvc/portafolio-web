@@ -1,10 +1,9 @@
 # MV Spatial Design System
 
 Estado: Fase 9.3A y su refinamiento final implementados y aprobados visualmente.
-El estado local de `main` en `4f9e9fa` contiene esa base. Las fases 9.4B, 9.4C y
-9.4D.1 están implementadas y verificadas localmente en
-`feature/portfolio-consolidation`, pendientes de publicación; no se revalidó
-el despliegue público.
+El estado local de `main` en `6694014` incluye las fases 9.4B, 9.4C y 9.4D.1.
+La fase 9.5 está implementada y verificada localmente como cambios sin commit
+en `feature/portfolio-consolidation`; no se revalidó el despliegue público.
 
 ## Dirección
 
@@ -90,6 +89,11 @@ header donde el espacio está controlado.
   prioridad sin afirmar un estado nuevo del proyecto.
 - Las portadas SVG mantienen sus colores originales y siguen siendo mockups,
   no capturas reales.
+- En 9.5 las cubiertas de los cuatro proyectos miden 168–208 px según el
+  viewport. El estado aparece junto a la categoría, fuera de la ilustración.
+- Las tarjetas responden a hover con elevación máxima de 3 px y conservan un
+  anillo de foco visible. El Project Viewer existente limita el panel a 52 rem
+  y mantiene el cierre con Escape y el retorno del foco.
 
 ### Badges y metadatos
 
@@ -114,6 +118,9 @@ header donde el espacio está controlado.
   PhysicsVR.
 - Blender describe el modelado actual de Jefferson Motel; Unity queda como
   posible integración futura, no como tecnología ya utilizada en ese proyecto.
+- El bloque compacto «AI-Assisted Development» permanece dentro de Tecnologías.
+  Describe usos distintos de ChatGPT, Gemini y Claude y exige evaluar y
+  verificar sus resultados antes de incorporarlos a proyectos.
 
 ### Contacto y «Volver arriba»
 
@@ -178,7 +185,8 @@ no debe superar el ancho de su viewport.
 - Targets principales de al menos 44 px.
 - Navegación, menú y modal conservan teclado y Escape.
 - `prefers-reduced-motion: reduce` reduce animaciones y transiciones a 0.001 ms
-  y desactiva desplazamiento suave.
+  y desactiva desplazamiento suave. En las tarjetas de proyectos también anula
+  la elevación y las transformaciones de las ilustraciones.
 - El Hero mantiene el contenido completo cuando su pieza visual decorativa no
   se muestra.
 

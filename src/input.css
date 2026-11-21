@@ -640,6 +640,58 @@ h1, h2, h3, .font-heading {
 .technology-focus .icon { flex: none; color: var(--accent-ink); }
 .technology-focus strong { color: var(--text-primary); }
 
+.ai-workflow {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent-primary);
+    border-radius: 0.9rem;
+    background: var(--bg-secondary);
+}
+.ai-workflow-eyebrow {
+    color: var(--accent-ink);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.ai-workflow h3 {
+    margin-top: 0.35rem;
+    color: var(--text-primary);
+    font-size: clamp(1.125rem, 2.5vw, 1.4rem);
+    font-weight: 700;
+}
+.ai-workflow-intro p {
+    max-width: 65ch;
+    margin-top: 0.6rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.65;
+}
+.ai-workflow-tools {
+    display: grid;
+    gap: 0.65rem;
+}
+.ai-workflow-tools li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+.ai-workflow-tools strong {
+    min-width: 5rem;
+    color: var(--text-primary);
+}
+@media (min-width: 1024px) {
+    .ai-workflow { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+}
+
 @media (min-width: 640px) {
     .technology-list-grid > div + div { margin-top: 0; }
 }
@@ -701,16 +753,15 @@ h1, h2, h3, .font-heading {
     min-height: 0;
 }
 
-/* Cubierta: contenedor compacto listo para sustituir SVG por img/video real */
+/* Cubierta conceptual; conserva los colores propios de cada ilustración SVG. */
 .project-cover {
-    aspect-ratio: 16 / 9;
-    height: 144px;
-    min-height: 144px;
-    max-height: 144px;
+    height: clamp(10.5rem, 16vw, 13rem);
+    min-height: 0;
+    max-height: none;
 }
 
-.project-card-link:hover .project-cover {
-    transform: scale(1.02);
+.project-card-link:focus-visible .project-cover > svg {
+    transform: scale(1.03);
 }
 
 .project-card-link:focus-visible .project-cover {
@@ -772,6 +823,20 @@ h1, h2, h3, .font-heading {
     background: color-mix(in srgb, var(--accent-primary) 15%, rgba(var(--surface-raised-rgb), 1));
     border-color: color-mix(in srgb, var(--accent-primary) 45%, var(--border));
     color: var(--accent-primary);
+}
+
+.project-state {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.4rem;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 /* Badge de categoría técnica */
@@ -1260,9 +1325,17 @@ select:focus-visible,
 
 /* Modal más amplio para el visor de proyectos */
 #modal-panel {
-    max-width: 1200px;
-    width: 85vw;
+    max-width: 52rem;
+    width: calc(100vw - 2rem);
 }
+
+#modal-content > div:first-child {
+    padding-right: 2.5rem;
+}
+#modal-content > div:first-child > span { align-self: flex-start; }
+#modal-content h3 { font-size: clamp(1.4rem, 4vw, 1.9rem); line-height: 1.25; }
+#modal-content > div:first-child p { max-width: 66ch; line-height: 1.6; }
+#modal-content h4 { color: var(--accent-ink); }
 
 /* El panel del modal no necesita anillo: el foco entra al abrirlo */
 #modal-panel:focus-visible {
@@ -1405,10 +1478,53 @@ input::placeholder, textarea::placeholder {
     border-color: var(--divider-strong, #679887);
 }
 
+#proyectos .project-card[data-project] {
+    background: var(--bg-secondary);
+    box-shadow: 0 18px 40px -36px rgba(0, 0, 0, 0.65);
+    transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+}
+#proyectos .project-card[data-project]:is(:hover, :focus-visible) {
+    transform: translateY(-3px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 24px 48px -34px rgba(0, 0, 0, 0.7);
+}
+#proyectos .project-featured { border-top: 2px solid var(--accent-primary); }
+#proyectos .project-card[data-project] > div:last-child { padding: 1.2rem; }
+#proyectos .project-card[data-project] h3 { font-size: 1.125rem; line-height: 1.3; }
+#proyectos .project-card[data-project] p.line-clamp-2 {
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+}
+#proyectos .project-card[data-project] > div:last-child > p:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+    color: var(--accent-ink);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+#proyectos .project-card[data-project] > div:last-child > p:last-child::after {
+    content: '↗';
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.24s ease;
+}
+#proyectos .project-card[data-project]:is(:hover, :focus-visible) > div:last-child > p:last-child::after {
+    transform: translate(2px, -2px);
+}
+
 /* Reducir movimiento */
 @media (prefers-reduced-motion: reduce) {
-    #proyectos .project-card {
-        transition: border-color 0ms;
+    #proyectos .project-card,
+    #proyectos .project-card[data-project] > div:last-child > p:last-child::after { transition: none; }
+    #proyectos .project-card[data-project]:is(:hover, :focus-visible) { transform: none; }
+    #proyectos .project-card .project-cover .transition-transform {
+        transform: none !important;
+        transition: none !important;
     }
     #proyectos .project-card:focus-visible {
         outline: 2px solid var(--focus);
