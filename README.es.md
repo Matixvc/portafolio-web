@@ -6,20 +6,16 @@
 <h1 align="center">MV Spatial · Matías Villalobos</h1>
 <p align="center"><strong>Unity Developer | XR / VR Developer</strong></p>
 <p align="center">Proyectos personales y académicos en Unity, gameplay e interacción 3D, con enfoque en exploración XR.</p>
-<p align="center"><a href="README.md" lang="en">English</a> · <a href="README.es.md" lang="es">Español</a></p>
+<p align="center"><a href="README.md" lang="en">Inglés</a> · <a href="README.es.md" lang="es">Español</a></p>
 <p align="center"><img alt="HTML5" src="https://img.shields.io/badge/HTML5-static-E34F26"> <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-vanilla-F7DF1E"> <img alt="Tailwind CSS 3" src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4"></p>
 
 ## Sobre el portafolio
 
-**Fases aprobadas 1–9.2 completadas en `main`; fase 9.3 completada localmente; fase 9.4A implementada localmente y aprobada visualmente, pero aún no publicada.**
-
-GitHub Pages sirve el portafolio actualizado en [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
-
 Mi portafolio personal presenta proyectos personales y académicos de videojuegos, Unity, C#, interacción 3D y XR. Reúne resúmenes de proyectos, repositorios, descargas bilingües del CV y medios de contacto profesional.
 
-**Fases completadas y publicadas en main:** Fases 1–9.2.
-**Fases completadas localmente:** Fase 9.3 (Project Archive, modales, Project Viewer).
-**Fase 9.4A implementada localmente:** Acerca de mí rediseñado, composición editorial, formación académica, colaboración XR Meta Quest 3 under NDA.
+El estado del repositorio verificado localmente incluye en `main` el trabajo aprobado hasta la fase 9.4A: el sistema visual MV Spatial, el Project Archive interactivo con cuatro proyectos y la sección Acerca de mí rediseñada. La fase 9.4.0 consolida la documentación antes de continuar el desarrollo.
+
+`main` es la rama estable y la fuente configurada de GitHub Pages es `main` → `/ (root)`. La URL del portafolio es [matixvc.github.io/portafolio-web](https://matixvc.github.io/portafolio-web/). Durante la fase 9.4.0 se verificó localmente el commit `dd271b3` en `main`, `feature/portfolio-consolidation` y sus referencias remotas locales; no fue posible revalidar de forma independiente el commit remoto en vivo ni la página desplegada porque el acceso de red no estaba disponible. Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 ## Características
 
@@ -30,7 +26,7 @@ Mi portafolio personal presenta proyectos personales y académicos de videojuego
 - Tarjetas de proyectos con detalles y enlaces a repositorios.
 - Descargas independientes del CV en español e inglés.
 - Integración Web3Forms, validación de campos, prevención de doble envío, copia de correo y alternativa por email.
-- Alojamiento estático en GitHub Pages, con CSS compilado y sprite de iconos versionados.
+- Sitio estático preparado para GitHub Pages, con CSS compilado y sprite de iconos versionados.
 
 La entrega real de mensajes no se prueba durante la consolidación; no se autorizan envíos del formulario durante QA.
 
@@ -40,7 +36,8 @@ La entrega real de mensajes no se prueba durante la consolidación; no se autori
 | --- | --- | --- |
 | PhysicsVR Prototype | Prototipo de interacción física en Unity/C#, en desarrollo y orientado a una futura integración VR. **Todavía no es funcional con visor VR.** | [Repositorio](https://github.com/Matixvc/PhysicsVR_Prototype) |
 | Basura Fighters | Roguelike de reciclaje para navegador con JavaScript y Canvas 2D. | [Repositorio](https://github.com/Matixvc/Trash-Roguelike) · [Demo](https://trash-rogelike.netlify.app) |
-| App Mobile | Organizador personal con Expo, React Native y TypeScript. | [Repositorio](https://github.com/Matixvc/App-Mobile) |
+| App Mobile / NexusDay | Proyecto móvil desarrollado con React Native y Expo. | [Repositorio](https://github.com/Matixvc/App-Mobile) |
+| Jefferson Motel | Recreación 3D en desarrollo con Blender. No tiene repositorio ni demo públicos; una posible integración futura con Unity no es una funcionalidad completada. | No público |
 
 La colaboración académica XR bajo NDA es independiente de PhysicsVR. Su descripción pública se limita a pruebas funcionales en Meta Quest 3 y reporte de incidencias. Las ilustraciones de proyectos son actualmente mockups SVG; las capturas y recursos multimedia reales siguen pendientes.
 
@@ -102,12 +99,12 @@ Comprobaciones básicas: `node --check js/main.js`, `node --check js/theme.js`, 
 
 ## Git y publicación
 
-- **Rama publicada:** `main`, servida por GitHub Pages desde `/ (root)` mediante HTTPS. Mantener la configuración de Pages.
-- **Rama estable:** `main`, con el portafolio aprobado hasta la fase 9.2.
+- **Rama configurada en Pages:** `main`, con `/ (root)` y HTTPS registrados desde el despliegue verificado anteriormente. Mantener la configuración de Pages.
+- **Rama estable:** `main`, verificada localmente con el portafolio aprobado hasta la fase 9.4A en `dd271b3`.
 - **Flujo de desarrollo:** ramas temporales `feature/*` desde `main`; sin `develop` permanente. Conservar `feature/portfolio-consolidation` y las ramas e historial existentes.
 - Revisar diff y staging, crear commits acotados y versionar CSS/iconos generados junto con sus fuentes.
 - Los pushes a `main` activan la compilación y publicación de Pages. Requieren autorización explícita; verificar los triggers de Pages/Actions antes de subir una rama feature.
-- **Alojamiento actual:** Deploy from a branch → `main` → `/ (root)`. El despliegue público está confirmado; no se necesita cambiar la configuración.
+- **Alojamiento registrado:** Deploy from a branch → `main` → `/ (root)`. Esta configuración se confirmó en una fase anterior, pero no se revalidó durante la fase 9.4.0; esta fase no contempla cambiarla.
 
 GitHub es el respaldo principal tras verificar el commit remoto. Utilizar recursos temporales de recuperación solo cuando sean necesarios. Eliminar respaldos permanentes existentes, referencias de recuperación o stash requiere autorización explícita.
 
@@ -115,19 +112,22 @@ GitHub es el respaldo principal tras verificar el commit remoto. Utilizar recurs
 
 El símbolo aprobado combina una M superior, una V inferior y geometría hexagonal abierta. Recursos reutilizables en [`assets/brand/`](assets/brand/): `mv-spatial.svg`, `mv-spatial-dark.svg`, `mv-spatial-light.svg`, `mv-spatial-monochrome.svg`, `favicon.svg`; las imágenes originales están en `references/`.
 
-Verde esmeralda principal/oscuro: `#20D58F`; variante clara: `#07844F`; monocromática: `currentColor`. El encabezado selecciona su variante según el tema efectivo. La interfaz conserva acentos cian `#00F2FE`, violeta `#7928CA` y azul `#0070F3`, con tokens semánticos claro/oscuro en `src/input.css`. El sistema de diseño completo MV Spatial sigue pendiente.
+Verde esmeralda principal/oscuro: `#20D58F`; variante clara: `#07844F`; monocromática: `currentColor`. El encabezado selecciona su variante según el tema efectivo. El sistema de diseño Spatial Instrument Panel utiliza tokens semánticos claro/oscuro en `src/input.css`; las ilustraciones de proyectos conservan sus colores propios.
 
 ## Estado y roadmap
 
-Las fases aprobadas 1–9.2 están completadas: integridad y mejoras funcionales, posicionamiento profesional, preferencias de temas y símbolo/favicon MV Spatial aprobado. El portafolio está publicado desde `main`. Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+El estado de `main` verificado localmente en `dd271b3` contiene el trabajo aprobado hasta la fase 9.4A. La fase 9.4.0 alinea la documentación del proyecto con ese estado. Esta es una afirmación sobre el repositorio, no una nueva comprobación del despliegue público. Evidencias y limitaciones: [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 Previsto:
 
-- Fase 9.3: sistema de diseño visual MV Spatial.
-- Arte original del Hero y Projects Showcase.
-- Portadas, capturas y videos de proyectos.
-- Modelos y experiencias 3D, animaciones e interacciones.
-- Banners profesionales y actualización de Open Graph.
+- Fase 9.4B: rediseño de Habilidades y Tecnologías.
+- Fase 9.4C: integración de Trayectoria en Acerca de mí.
+- Fase 9.4D: reorganización visual, navegación y validación.
+- Fase 9.5: multimedia real de proyectos.
+- Fase 9.6: calidad, accesibilidad y rendimiento.
+- Fase 9.7: experiencias interactivas.
+
+Este roadmap describe trabajo planificado, no funcionalidades terminadas.
 
 Los PDF ES/EN existentes se conservan. Su descripción de PhysicsVR requiere una corrección aprobada por separado. También mencionan 40 Days of Light, cuya evidencia y alcance deben prepararse antes de añadirlo al sitio. Siguen pendientes protecciones adicionales de contacto, pruebas ampliadas de navegadores/accesibilidad, sitio en inglés y casos de estudio. No se incluyen nuevos banners de IA.
 
@@ -135,4 +135,4 @@ Los PDF ES/EN existentes se conservan. Su descripción de PhysicsVR requiere una
 
 [Portafolio](https://matixvc.github.io/portafolio-web/) · [GitHub](https://github.com/Matixvc) · [LinkedIn](https://www.linkedin.com/in/matias-vc-dev) · [Correo](mailto:Matias.villalobos.dev@gmail.com)
 
-[CV · Español](assets/Matias_Villalobos_CV_Unity_XR_ES.pdf) · [CV · English](assets/Matias_Villalobos_CV_Unity_XR_EN.pdf)
+[CV · Español](assets/Matias_Villalobos_CV_Unity_XR_ES.pdf) · [CV · Inglés](assets/Matias_Villalobos_CV_Unity_XR_EN.pdf)

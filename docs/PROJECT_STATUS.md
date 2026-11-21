@@ -1,69 +1,120 @@
 # Estado del proyecto
 
-## Resumen ejecutivo (actualización 2026-11-17)
+## Resumen ejecutivo (actualización 2026-11-20 — Fase 9.4.0)
 
-**Rama estable:** `main` — publicada en GitHub Pages (https://matixvc.github.io/portafolio-web/)
-**Rama de desarrollo:** `feature/portfolio-consolidation` — contiene trabajo local no publicado
-**Último commit verdaderamente verificado:** `f8bf6adb94fc994cbc8669e7a4daf0ad1edde5cc` (main)
+**Estado Git comprobado localmente antes de editar:**
+- Rama activa: `feature/portfolio-consolidation`.
+- Rama estable: `main`.
+- Último commit comprobado localmente: `dd271b3a48ac2eaee6718e7b43cc0b32e676d9c5`.
+- `HEAD`, `main`, `origin/main`, `origin/feature/portfolio-consolidation` y
+  `feature/portfolio-consolidation` apuntaban localmente a `dd271b3`.
+- El árbol de trabajo estaba limpio, sin cambios staged ni archivos pendientes.
+
+Las referencias `origin/*` anteriores son referencias remotas locales. La consulta
+en vivo con `git ls-remote` falló por `SEC_E_NO_CREDENTIALS`; el navegador nativo
+tampoco estuvo disponible y el lector web solo devolvió contenido cacheado anterior.
+Por ello, esta fase no certifica la coincidencia actual con GitHub ni volvió a probar
+el contenido desplegado en GitHub Pages.
+
+**Configuración de publicación registrada:**
+- Rama y carpeta: `main` → `/ (root)` mediante Deploy from a branch, con HTTPS.
+- URL: https://matixvc.github.io/portafolio-web/
+- Esta configuración cuenta con comprobaciones históricas en las entradas previas,
+  pero no fue revalidada de forma independiente durante la Fase 9.4.0.
 
 **Arquitectura actual:**
-- HTML estático, JavaScript vanilla, Tailwind CSS 3
-- `dist/styles.css` generado desde `src/input.css`
-- `assets/icons.svg` generado desde `scripts/build-icons.mjs`
-- Temas: dark/light/system management via `js/theme.js`
-- 4 modales Project Viewer funcionales
-- Project Archive con 4 tarjetas reales y sistema de bordes finos
+- HTML estático, JavaScript vanilla y Tailwind CSS 3.
+- `dist/styles.css` generado desde `src/input.css`.
+- `assets/icons.svg` generado desde `scripts/build-icons.mjs`.
+- `js/theme.js` es la única fuente de gestión de preferencias dark/light/system.
+- Spatial Instrument Panel, Project Archive y cuatro modales Project Viewer.
 
-**Secciones actualmente implementadas:**
-- `#inicio`, `#sobre-mi` (rediseño Fase 9.4A.2), `#sistemas`, `#proyectos`,
-- `#formación`, `#contacto`
+**Estado implementado en el commit local `dd271b3`:**
+- Fases 0–9.2: base técnica, contenido profesional, temas, accesibilidad, CV,
+  formación y marca MV Spatial.
+- Fase 9.3: sistema visual Spatial Instrument Panel, Project Archive interactivo,
+  cuatro proyectos y Project Viewer.
+- Fase 9.4A: sección Acerca de mí con composición editorial, fotografía real,
+  formación académica en curso y colaboración XR Meta Quest 3 bajo NDA. El diseño
+  fue aprobado visualmente por el usuario.
+- Fase 9.4.0: consolidación documental previa al desarrollo. Solo autoriza cambios
+  en README.md, README.es.md, AGENTS.md, docs/PROJECT_STATUS.md y
+  docs/DESIGN_SYSTEM.md; no inicia la Fase 9.4B.
 
-**Fases completadas y publicadas en main:**
-- Fases 0–9.2: base técnica, CSS, SEO, formulario, accesibilidad, sprite,
-  CV, formación, detalles de proyectos, Hero actualizado
-- Fase 9.3A: Spatial Instrument Panel y refinamiento visual implementados y
-  publicados previamente
-- Fase 9.3B: Project Archive compacto e interactivo, 4 proyectos, Project Viewer,
-  tarjeta final "Próximamente", modal con enlaces principales arriba, área
-  multimedia opcional — respaldado en commit f8bf6ad
-- Fase 9.4A: Acerca de mí rediseñado con composición editorial, fotografía real,
-  perfil profesional, formación académica en curso y colaboración XR Meta Quest 3
-  bajo NDA. Diseño final aprobado visualmente por el usuario, implementado localmente
-  en feature/portfolio-consolidation, **aún no publicado en main**.
+**Proyectos documentados:**
+1. PhysicsVR Prototype — prototipo Unity/C# en desarrollo; todavía no es funcional
+   con visor VR.
+2. Basura Fighters — roguelike de navegador con JavaScript y Canvas 2D; repositorio
+   y demo públicos.
+3. App Mobile / NexusDay — proyecto móvil con React Native y Expo; repositorio público.
+4. Jefferson Motel — recreación 3D en desarrollo con Blender; sin demo ni repositorio
+   públicos. La integración con Unity es una posibilidad futura, no un logro completado.
 
-**Fases pendientes por publicar:**
-- 9.4B: Habilidades y tecnologías
-- 9.4C: Trayectoria y navegación
-- 9.4D: Validación y consolidación
+**Roadmap aprobado, todavía no implementado:**
+- 9.4B — Rediseño de Habilidades y Tecnologías.
+- 9.4C — Integración de Trayectoria en Acerca de mí.
+- 9.4D — Reorganización visual, navegación y validación.
+- 9.5 — Multimedia real de proyectos.
+- 9.6 — Calidad, accesibilidad y rendimiento.
+- 9.7 — Experiencias interactivas.
 
-**Trabajo local sin publicar:**
-- Rediseño #sobre-mi (Fase 9.4A.2): composición editorial, fotografía h-48,
-  layout two-column desktop/one-column mobile, presentación única sin repeticiones
-- Mejoras de bordes y modales en Project Archive
-- No afirmar que estos cambios están en main ni en GitHub Pages
+**Límites vigentes:**
+- No existe una suite `npm test` ni un lint configurado.
+- Lectores de pantalla, navegadores distintos de Edge, hardware móvil real y entrega
+  efectiva del formulario permanecen fuera de las comprobaciones realizadas.
+- Los PDF ES/EN se conservan; cualquier corrección de su contenido requiere un alcance
+  aprobado por separado.
 
-**Validaciones reales:**
-- `npm run build` genera diststyles.css e iconos
-- `node --check js/main.js` — sintaxis correcta (4 modales funcionales)
-- `node --check js/theme.js` — sintaxis correcta
-- `git diff --check` — sin problemas de whitespace detectados en archivos de funcionalidad
-- 4 proyectos reales con estados verificados:
-  1. PhysicsVR Prototype — Unity/C# física, en desarrollo, **no funcional con visor VR**
-  2. Basura Fighters — Roguelike JS/Canvas 2D, **tiene demo jugable**, repositorio público
-  3. App Mobile — organizador personal Expo/React Native/TypeScript, **tiene repositorio público**
-  4. Jefferson Motel — Recreación 3D en desarrollo, Blender como trabajo actual,
-     Unity integración prevista, **no tiene repositorio ni demo públicos**
+### Ejecución de la Fase 9.4.0 — 2026-11-20
 
-**Problemas conocidos:**
-- CSS compilado pre-Fase 9.3 puede estar desactualizado respecto a tokens de temas
-- Fase 9.3C: refactorización defectuosa de datos abandonada, modales recuperados desde f8bf6ad
-- Cambios locales sin commit en #sobre-mi y Project Archive (Fase 9.4)
+**Inconsistencias corregidas:**
+- README.md mezclaba idiomas, duplicaba el estado de Pages, documentaba tres proyectos
+  y mantenía la Fase 9.3 como futura.
+- README.es.md repetía el estado anterior, omitía Jefferson Motel y no contenía el
+  roadmap vigente.
+- AGENTS.md situaba las fases 9.3 y 9.4A fuera de `main`.
+- El resumen ejecutivo de este documento usaba `f8bf6ad`, describía trabajo ya
+  comprometido como local y conservaba una referencia obsoleta al tamaño de la foto.
+- docs/DESIGN_SYSTEM.md mantenía la aprobación visual como pendiente.
+
+**Correcciones por archivo:**
+- README.md y README.es.md: estado equivalente, cuatro proyectos reales, limitación
+  de verificación remota, sistema visual implementado y roadmap 9.4B–9.7.
+- AGENTS.md: estado local vigente de `main` y cautela explícita sobre Pages/remoto.
+- docs/PROJECT_STATUS.md: resumen ejecutivo actual, historial delimitado y registro
+  de esta fase sin alterar los hechos cronológicos anteriores.
+- docs/DESIGN_SYSTEM.md: aprobación visual y alcance de verificación actualizados.
+
+**Validaciones ejecutadas:**
+- Diff completo de los cinco documentos revisado.
+- Alcance Git: exactamente los cinco archivos autorizados; cero cambios staged y
+  ningún archivo funcional modificado.
+- `git diff --check`: correcto.
+- Tablas de proyectos: 4/4 entradas en README.md y README.es.md.
+- Roadmap: 6/6 fases planificadas en cada README y presencia comprobada en el resumen.
+- README.md: cero marcadores de prosa española comprobados; los nombres propios y
+  términos técnicos se preservan.
+- Los cinco documentos se leyeron como UTF-8 sin caracteres de sustitución.
+
+**Pruebas no ejecutadas y motivo:**
+- No se ejecutaron build, sintaxis JavaScript ni QA visual: esta fase no modifica
+  código, estilos, recursos generados ni contenido funcional.
+- No se verificaron remoto o GitHub Pages en vivo por la limitación de acceso ya
+  registrada; no se infiere su estado desde las referencias remotas locales.
+
+No se instalaron dependencias ni se hicieron commit, push, merge, cambio de rama,
+despliegue o inicio de la Fase 9.4B.
 
 ---
 
-Fecha: 2026-11-13 (America/Santiago).
-Rama estable y de trabajo actual: `main`.
-Base histórica inicial: `30750f5` — Cambio de CVs. Los apartados de fases anteriores conservan su contexto histórico; el apartado final de publicación confirmada y README es el estado vigente. Los registros anteriores describen el estado histórico de cada fase.
+## Historial de fases previas
+
+Las entradas siguientes se conservan como registro cronológico. Sus ramas, commits,
+pendientes y estados describen el momento en que fueron escritos; no sustituyen el
+resumen ejecutivo vigente de la Fase 9.4.0.
+
+Fecha de inicio del registro histórico: 2026-11-13 (America/Santiago).
+Base histórica inicial: `30750f5` — Cambio de CVs.
 
 ## Base confirmada
 - Sitio estático con HTML, JavaScript vanilla y Tailwind CSS.

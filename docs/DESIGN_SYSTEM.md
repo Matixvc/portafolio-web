@@ -1,7 +1,8 @@
 # MV Spatial Design System
 
-Estado: Fase 9.3A y su refinamiento final implementados localmente, pendientes
-de aprobación visual.
+Estado: Fase 9.3A y su refinamiento final implementados y aprobados visualmente.
+El estado local de `main` en `dd271b3` contiene este sistema; la Fase 9.4.0 no
+revalidó de forma independiente el despliegue público.
 
 ## Dirección
 

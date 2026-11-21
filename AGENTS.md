@@ -42,7 +42,7 @@
 - No modificar el framework ni instalar dependencias globales sin aprobación.
 - Carpeta definitiva: D:/Proyectos/portafolio-web; rama estable y actual: main.
 - Flujo vigente: main estable y ramas temporales feature/* desde main; sin develop permanente. Conservar feature/portfolio-consolidation y las demás ramas.
-- Publicación actual confirmada: main / raíz, Source: Deploy from a branch, HTTPS activado. GitHub Pages sirve el portafolio aprobado hasta Fase 9.2. Las fases 9.3 (local) y 9.4A (local, aprobada visualmente) no están publicadas en main.
+- Configuración de publicación registrada: main / raíz, Source: Deploy from a branch, HTTPS activado. El estado local de `main` en `dd271b3` incluye las fases aprobadas hasta 9.4A. En la Fase 9.4.0 no fue posible revalidar el commit remoto en vivo ni el contenido desplegado; no presentar esa coincidencia como comprobada sin nueva evidencia.
 - Antes de push a feature/*, verificar los triggers remotos de Pages/Actions. Si no es posible garantizar que no publique, completar commits locales y detenerse antes del push.
 - El CSS compilado y el sprite se versionan; no editarlos a mano.
 - No publicar automáticamente al terminar una fase.
@@ -59,7 +59,7 @@
 - Cargar theme.js antes del CSS; no duplicar la lógica en main.js.
 - data-theme contiene dark o light; system es una preferencia, no un tema efectivo.
 - Usar system si falta una preferencia válida o falla localStorage; resolver dark/light según prefers-color-scheme. El CSS sin JavaScript conserva fallback oscuro.
-- Marca aprobada: assets/brand/ (variantes SVG, favicon y references/). La Fase 9.3 (Project Archive y modales) está completa y recuperada desde f8bf6ad; no requiere nueva autorización para su estado local.
+- Marca aprobada: assets/brand/ (variantes SVG, favicon y references/). La Fase 9.3 (Spatial Instrument Panel, Project Archive y modales) y la Fase 9.4A (Acerca de mí) están completas, aprobadas e incluidas en el estado local de `main` en `dd271b3`; no requieren nueva autorización para conservar su estado.
 - Preferir variables semánticas; preservar colores propios de ilustraciones.
 - No cambiar dependencias ni lockfile sin autorización.
 
